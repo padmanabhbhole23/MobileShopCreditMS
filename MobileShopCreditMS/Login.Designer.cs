@@ -28,44 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             panel1 = new Panel();
-            label2 = new Label();
+            button3 = new Button();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            button2 = new Button();
             button1 = new Button();
             textPass = new TextBox();
             textBox1 = new TextBox();
-            button2 = new Button();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Bisque;
+            panel1.Controls.Add(button3);
+            panel1.Controls.Add(pictureBox2);
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(button2);
-            panel1.Controls.Add(label2);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(textPass);
             panel1.Controls.Add(textBox1);
             panel1.Location = new Point(1, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(378, 381);
+            panel1.Size = new Size(418, 377);
             panel1.TabIndex = 0;
             // 
-            // label2
+            // button3
             // 
-            label2.AutoSize = true;
-            label2.ImageKey = "(none)";
-            label2.Location = new Point(58, 182);
-            label2.Name = "label2";
-            label2.Size = new Size(38, 15);
-            label2.TabIndex = 5;
-            label2.Text = "label2";
+            button3.BackgroundImage = (Image)resources.GetObject("button3.BackgroundImage");
+            button3.BackgroundImageLayout = ImageLayout.Zoom;
+            button3.Location = new Point(310, 116);
+            button3.Name = "button3";
+            button3.Size = new Size(31, 28);
+            button3.TabIndex = 9;
+            button3.TextImageRelation = TextImageRelation.ImageAboveText;
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(48, 162);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(50, 50);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 8;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.user_Icon1;
+            pictureBox1.Location = new Point(48, 94);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(50, 50);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 7;
+            pictureBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.Location = new Point(310, 175);
+            button2.Name = "button2";
+            button2.Size = new Size(31, 23);
+            button2.TabIndex = 6;
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
             button1.AccessibleRole = AccessibleRole.PushButton;
-            button1.Location = new Point(107, 234);
+            button1.Location = new Point(151, 243);
             button1.Name = "button1";
-            button1.Size = new Size(92, 25);
+            button1.Size = new Size(117, 43);
             button1.TabIndex = 3;
             button1.Text = "LOGIN";
             button1.UseVisualStyleBackColor = true;
@@ -75,8 +115,9 @@
             // 
             textPass.BackColor = SystemColors.ControlLightLight;
             textPass.Cursor = Cursors.IBeam;
-            textPass.Location = new Point(107, 179);
+            textPass.Location = new Point(107, 175);
             textPass.Name = "textPass";
+            textPass.PasswordChar = '*';
             textPass.PlaceholderText = "ENTER PASSWORD";
             textPass.Size = new Size(197, 23);
             textPass.TabIndex = 2;
@@ -87,28 +128,18 @@
             // 
             textBox1.BackColor = SystemColors.ControlLightLight;
             textBox1.Cursor = Cursors.IBeam;
-            textBox1.Location = new Point(107, 121);
+            textBox1.Location = new Point(107, 116);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "ENTER USERNAME";
             textBox1.Size = new Size(197, 23);
             textBox1.TabIndex = 1;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(212, 234);
-            button2.Name = "button2";
-            button2.Size = new Size(92, 25);
-            button2.TabIndex = 6;
-            button2.Text = "CLEAR";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(381, 381);
+            ClientSize = new Size(418, 377);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Login";
@@ -116,6 +147,8 @@
             Text = "Form1";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -125,7 +158,9 @@
         private Button button1;
         private TextBox textPass;
         private TextBox textBox1;
-        private Label label2;
         private Button button2;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private Button button3;
     }
 }

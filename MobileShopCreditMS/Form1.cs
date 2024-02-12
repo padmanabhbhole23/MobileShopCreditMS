@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace MobileShopCreditMS
 {
-    public partial class ADash : Form
+    public partial class Form1 : Form
     {
-        public ADash()
+        public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {  
-            var vc = new  ViewCustomer();
-            vc.Show();
-            this.Close();
         }
     }
 }

@@ -29,8 +29,10 @@ namespace MobileShopCreditMS
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             panel1 = new Panel();
+            button6 = new Button();
+            btnAdd = new Button();
+            label3 = new Label();
             txtCAdd = new TextBox();
             txtNomA = new TextBox();
             txtNomC = new TextBox();
@@ -49,24 +51,26 @@ namespace MobileShopCreditMS
             lblCon = new Label();
             lblEmail = new Label();
             lblName = new Label();
-            button2 = new Button();
             button1 = new Button();
+            button2 = new Button();
             label2 = new Label();
             panel2 = new Panel();
-            toolTip1 = new ToolTip(components);
-            btnView = new Button();
-            button3 = new Button();
-            button4 = new Button();
             button5 = new Button();
-            label3 = new Label();
+            button4 = new Button();
+            button3 = new Button();
+            btnView = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.AllowDrop = true;
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Bisque;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(button6);
+            panel1.Controls.Add(btnAdd);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(txtCAdd);
             panel1.Controls.Add(txtNomA);
@@ -88,11 +92,45 @@ namespace MobileShopCreditMS
             panel1.Controls.Add(lblName);
             panel1.Controls.Add(button1);
             panel1.ForeColor = Color.Maroon;
-            panel1.Location = new Point(261, 12);
+            panel1.Location = new Point(242, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1097, 737);
+            panel1.Size = new Size(1122, 737);
             panel1.TabIndex = 0;
             panel1.DoubleClick += button1_Click1;
+            // 
+            // button6
+            // 
+            button6.ForeColor = Color.Black;
+            button6.Location = new Point(339, 660);
+            button6.Name = "button6";
+            button6.Size = new Size(209, 43);
+            button6.TabIndex = 25;
+            button6.Text = "CLEAR DATA";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click_1;
+            // 
+            // btnAdd
+            // 
+            btnAdd.ForeColor = Color.Black;
+            btnAdd.Location = new Point(44, 660);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(209, 43);
+            btnAdd.TabIndex = 24;
+            btnAdd.Text = "ADD CUSTOMER";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += button6_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BorderStyle = BorderStyle.Fixed3D;
+            label3.Font = new Font("Arial Rounded MT Bold", 20F, FontStyle.Bold);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(26, 23);
+            label3.Name = "label3";
+            label3.Size = new Size(269, 34);
+            label3.TabIndex = 23;
+            label3.Text = "ADD CUSTOMERS";
             // 
             // txtCAdd
             // 
@@ -105,7 +143,7 @@ namespace MobileShopCreditMS
             // 
             // txtNomA
             // 
-            txtNomA.Location = new Point(223, 488);
+            txtNomA.Location = new Point(281, 561);
             txtNomA.Multiline = true;
             txtNomA.Name = "txtNomA";
             txtNomA.ScrollBars = ScrollBars.Vertical;
@@ -114,21 +152,21 @@ namespace MobileShopCreditMS
             // 
             // txtNomC
             // 
-            txtNomC.Location = new Point(223, 455);
+            txtNomC.Location = new Point(281, 506);
             txtNomC.Name = "txtNomC";
             txtNomC.Size = new Size(180, 27);
             txtNomC.TabIndex = 20;
             // 
             // txtNomR
             // 
-            txtNomR.Location = new Point(223, 418);
+            txtNomR.Location = new Point(281, 455);
             txtNomR.Name = "txtNomR";
             txtNomR.Size = new Size(166, 27);
             txtNomR.TabIndex = 19;
             // 
             // txtNomN
             // 
-            txtNomN.Location = new Point(223, 382);
+            txtNomN.Location = new Point(281, 404);
             txtNomN.Name = "txtNomN";
             txtNomN.Size = new Size(226, 27);
             txtNomN.TabIndex = 18;
@@ -171,7 +209,7 @@ namespace MobileShopCreditMS
             // lblNomA
             // 
             lblNomA.AutoSize = true;
-            lblNomA.Location = new Point(44, 516);
+            lblNomA.Location = new Point(44, 582);
             lblNomA.Name = "lblNomA";
             lblNomA.Size = new Size(143, 19);
             lblNomA.TabIndex = 12;
@@ -180,7 +218,7 @@ namespace MobileShopCreditMS
             // lblNomR
             // 
             lblNomR.AutoSize = true;
-            lblNomR.Location = new Point(46, 418);
+            lblNomR.Location = new Point(44, 458);
             lblNomR.Name = "lblNomR";
             lblNomR.Size = new Size(147, 19);
             lblNomR.TabIndex = 11;
@@ -189,7 +227,7 @@ namespace MobileShopCreditMS
             // lblNomC
             // 
             lblNomC.AutoSize = true;
-            lblNomC.Location = new Point(44, 455);
+            lblNomC.Location = new Point(44, 509);
             lblNomC.Name = "lblNomC";
             lblNomC.Size = new Size(173, 19);
             lblNomC.TabIndex = 10;
@@ -198,7 +236,7 @@ namespace MobileShopCreditMS
             // lblNomN
             // 
             lblNomN.AutoSize = true;
-            lblNomN.Location = new Point(44, 385);
+            lblNomN.Location = new Point(44, 404);
             lblNomN.Name = "lblNomN";
             lblNomN.Size = new Size(123, 19);
             lblNomN.TabIndex = 9;
@@ -240,6 +278,20 @@ namespace MobileShopCreditMS
             lblName.TabIndex = 2;
             lblName.Text = "NAME";
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Red;
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderColor = Color.White;
+            button1.ForeColor = SystemColors.ActiveCaptionText;
+            button1.Location = new Point(990, 20);
+            button1.Name = "button1";
+            button1.Size = new Size(114, 37);
+            button1.TabIndex = 0;
+            button1.Text = "EXIT";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // button2
             // 
             button2.BackColor = Color.LimeGreen;
@@ -256,20 +308,6 @@ namespace MobileShopCreditMS
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // button1
-            // 
-            button1.BackColor = Color.Red;
-            button1.Cursor = Cursors.Hand;
-            button1.FlatAppearance.BorderColor = Color.White;
-            button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(994, 13);
-            button1.Name = "button1";
-            button1.Size = new Size(114, 37);
-            button1.TabIndex = 0;
-            button1.Text = "EXIT";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -284,6 +322,7 @@ namespace MobileShopCreditMS
             // 
             // panel2
             // 
+            panel2.AutoScroll = true;
             panel2.AutoSize = true;
             panel2.BackColor = Color.Bisque;
             panel2.Controls.Add(button5);
@@ -292,28 +331,18 @@ namespace MobileShopCreditMS
             panel2.Controls.Add(btnView);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(button2);
-            panel2.Location = new Point(12, 12);
+            panel2.Location = new Point(5, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(243, 737);
+            panel2.Size = new Size(234, 737);
             panel2.TabIndex = 1;
             // 
-            // btnView
+            // button5
             // 
-            btnView.Location = new Point(5, 126);
-            btnView.Name = "btnView";
-            btnView.Size = new Size(209, 43);
-            btnView.TabIndex = 3;
-            btnView.Text = "VIEW CUSTOMERS";
-            btnView.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(5, 185);
-            button3.Name = "button3";
-            button3.Size = new Size(209, 43);
-            button3.TabIndex = 4;
-            button3.Text = "VIEW CATALOGUE";
-            button3.UseVisualStyleBackColor = true;
+            button5.Location = new Point(5, 309);
+            button5.Name = "button5";
+            button5.Size = new Size(209, 43);
+            button5.TabIndex = 6;
+            button5.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -324,33 +353,31 @@ namespace MobileShopCreditMS
             button4.Text = "MANAGE INVENTORY";
             button4.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // button3
             // 
-            button5.Location = new Point(5, 309);
-            button5.Name = "button5";
-            button5.Size = new Size(209, 43);
-            button5.TabIndex = 6;
-            button5.UseVisualStyleBackColor = true;
+            button3.Location = new Point(5, 185);
+            button3.Name = "button3";
+            button3.Size = new Size(209, 43);
+            button3.TabIndex = 4;
+            button3.Text = "VIEW CATALOGUE";
+            button3.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // btnView
             // 
-            label3.AutoSize = true;
-            label3.BorderStyle = BorderStyle.Fixed3D;
-            label3.Font = new Font("Arial Rounded MT Bold", 20F, FontStyle.Bold);
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(26, 23);
-            label3.Name = "label3";
-            label3.Size = new Size(269, 34);
-            label3.TabIndex = 23;
-            label3.Text = "ADD CUSTOMERS";
+            btnView.Location = new Point(5, 126);
+            btnView.Name = "btnView";
+            btnView.Size = new Size(209, 43);
+            btnView.TabIndex = 3;
+            btnView.Text = "VIEW CUSTOMERS";
+            btnView.UseVisualStyleBackColor = true;
             // 
             // ViewCustomer
             // 
-            AutoScaleDimensions = new SizeF(8F, 19F);
-            AutoScaleMode = AutoScaleMode.Font;
-            AutoSize = true;
+            AutoScaleMode = AutoScaleMode.Inherit;
+            AutoScroll = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1370, 570);
+            ClientSize = new Size(1366, 749);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -359,7 +386,6 @@ namespace MobileShopCreditMS
             Name = "ViewCustomer";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Customer Information";
-            WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -398,11 +424,12 @@ namespace MobileShopCreditMS
         private TextBox txtNomR;
         private TextBox txtNomN;
         private TextBox txtCont;
-        private ToolTip toolTip1;
         private Button button5;
         private Button button4;
         private Button button3;
         private Button btnView;
         private Label label3;
+        private Button btnAdd;
+        private Button button6;
     }
 }

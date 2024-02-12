@@ -57,35 +57,11 @@ namespace MobileShopCreditMS
                             var ADash = new ADash();
                             ADash.Show();
                         }
-                        else
-                        {
-
-                        }
-                        //var vc = new ViewCustomer();//called constructor
-                        //vc.Show();
-
-
                     }
                     else
                     {
                         MessageBox.Show("Login Id or Password Incorrect!");
                     }
-                    //SqlDataReader rdr = cmd.ExecuteReader();
-                    //MessageBox.Show("OK");
-                    /*if (rdr.Read())
-                    {
-                        MessageBox.Show("Welcome");
-                        //Form ViewCustomer = new Form();
-                        //ViewCustomer.Show();
-
-                    }
-                    else
-                    {
-
-                        MessageBox.Show("Login Id or Password Incorrect!");
-
-                    }*/
-
                 }
                 catch (Exception ex)
                 {
@@ -106,8 +82,13 @@ namespace MobileShopCreditMS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
+            
             textPass.Clear();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
         }
     }
 }
