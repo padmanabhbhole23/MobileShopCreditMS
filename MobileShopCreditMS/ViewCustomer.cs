@@ -1,3 +1,5 @@
+using System.Data.SqlClient;
+using System.Data;
 namespace MobileShopCreditMS
 {
     public partial class ViewCustomer : Form
@@ -32,14 +34,16 @@ namespace MobileShopCreditMS
 
         private void button6_Click(object sender, EventArgs e)
         {
-            /*if()
+            try
             {
-
+                SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+                SqlCommand cmd = new SqlCommand("insert into Customer values('"+txt);
             }
-            else
+            catch(Exception ex)
             {
+                MessageBox.Show("" + ex);
+            }
 
-            }*/
         }
 
         private void button6_Click_1(object sender, EventArgs e)
@@ -48,9 +52,12 @@ namespace MobileShopCreditMS
             txtMName.Text = "";
             txtLName.Text = "";
             txtCAdd.Text = "";
-            txtCont..Text = "";
+            txtCont.Text = "";
             txtEmail.Text = "";
-            txt
+            txtNomA.Text = "";
+            txtNomN.Text = "";
+            txtNomC.Text = "";
+            txtNomR.Text = "";
 
         }
     }

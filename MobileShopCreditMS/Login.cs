@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Diagnostics.Metrics;
-using System.Data;
 using System.Diagnostics.Eventing.Reader;
 
 namespace MobileShopCreditMS
