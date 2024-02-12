@@ -45,7 +45,12 @@ namespace MobileShopCreditMS
         private void button6_Click_1(object sender, EventArgs e)
         {
             txtFName.Text = "";
+            txtMName.Text = "";
+            txtLName.Text = "";
             txtCAdd.Text = "";
+            txtCont..Text = "";
+            txtEmail.Text = "";
+            txt
 
         }
     }
