@@ -37,6 +37,8 @@
             button1 = new Button();
             textPass = new TextBox();
             textBox1 = new TextBox();
+            lblUsr = new Label();
+            lblPass = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -45,6 +47,8 @@
             // panel1
             // 
             panel1.BackColor = Color.Bisque;
+            panel1.Controls.Add(lblPass);
+            panel1.Controls.Add(lblUsr);
             panel1.Controls.Add(button3);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(pictureBox1);
@@ -118,7 +122,6 @@
             textPass.Location = new Point(107, 175);
             textPass.Name = "textPass";
             textPass.PasswordChar = '*';
-            textPass.PlaceholderText = "ENTER PASSWORD";
             textPass.Size = new Size(197, 23);
             textPass.TabIndex = 2;
             textPass.UseSystemPasswordChar = true;
@@ -130,9 +133,26 @@
             textBox1.Cursor = Cursors.IBeam;
             textBox1.Location = new Point(107, 116);
             textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "ENTER USERNAME";
             textBox1.Size = new Size(197, 23);
             textBox1.TabIndex = 1;
+            // 
+            // lblUsr
+            // 
+            lblUsr.AutoSize = true;
+            lblUsr.Location = new Point(107, 97);
+            lblUsr.Name = "lblUsr";
+            lblUsr.Size = new Size(105, 15);
+            lblUsr.TabIndex = 10;
+            lblUsr.Text = "ENTER USERNAME";
+            // 
+            // lblPass
+            // 
+            lblPass.AutoSize = true;
+            lblPass.Location = new Point(107, 156);
+            lblPass.Name = "lblPass";
+            lblPass.Size = new Size(105, 15);
+            lblPass.TabIndex = 11;
+            lblPass.Text = "ENTER PASSWORD";
             // 
             // Login
             // 
@@ -144,7 +164,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Login";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -162,5 +182,7 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Button button3;
+        private Label lblPass;
+        private Label lblUsr;
     }
 }

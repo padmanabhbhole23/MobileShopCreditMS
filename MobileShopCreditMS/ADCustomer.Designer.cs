@@ -92,7 +92,7 @@ namespace MobileShopCreditMS
             panel1.Controls.Add(lblName);
             panel1.Controls.Add(button1);
             panel1.ForeColor = Color.Maroon;
-            panel1.Location = new Point(242, 0);
+            panel1.Location = new Point(242, 4);
             panel1.Name = "panel1";
             panel1.Size = new Size(1122, 737);
             panel1.TabIndex = 0;
@@ -331,7 +331,7 @@ namespace MobileShopCreditMS
             panel2.Controls.Add(btnView);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(button2);
-            panel2.Location = new Point(5, 0);
+            panel2.Location = new Point(5, 4);
             panel2.Name = "panel2";
             panel2.Size = new Size(234, 737);
             panel2.TabIndex = 1;
@@ -370,6 +370,7 @@ namespace MobileShopCreditMS
             btnView.TabIndex = 3;
             btnView.Text = "VIEW CUSTOMERS";
             btnView.UseVisualStyleBackColor = true;
+            btnView.Click += btnView_Click;
             // 
             // ViewCustomer
             // 
