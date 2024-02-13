@@ -1,15 +1,14 @@
-﻿
-namespace MobileShopCreditMS
+﻿namespace MobileShopCreditMS
 {
-    partial class ViewCustomer
+    partial class ADDCus
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -24,13 +23,20 @@ namespace MobileShopCreditMS
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
+            panel2 = new Panel();
+            button5 = new Button();
+            button4 = new Button();
+            button3 = new Button();
+            btnView = new Button();
+            label2 = new Label();
+            button2 = new Button();
             panel1 = new Panel();
-            button6 = new Button();
+            btnClr = new Button();
             btnAdd = new Button();
             label3 = new Label();
             txtCAdd = new TextBox();
@@ -52,16 +58,93 @@ namespace MobileShopCreditMS
             lblEmail = new Label();
             lblName = new Label();
             button1 = new Button();
-            button2 = new Button();
-            label2 = new Label();
-            panel2 = new Panel();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            btnView = new Button();
-            panel1.SuspendLayout();
             panel2.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // panel2
+            // 
+            panel2.AutoScroll = true;
+            panel2.AutoSize = true;
+            panel2.BackColor = Color.Bisque;
+            panel2.Controls.Add(button5);
+            panel2.Controls.Add(button4);
+            panel2.Controls.Add(button3);
+            panel2.Controls.Add(btnView);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(button2);
+            panel2.Location = new Point(4, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(234, 737);
+            panel2.TabIndex = 3;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(5, 309);
+            button5.Name = "button5";
+            button5.Size = new Size(209, 43);
+            button5.TabIndex = 6;
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button4.Location = new Point(5, 247);
+            button4.Name = "button4";
+            button4.Size = new Size(209, 43);
+            button4.TabIndex = 5;
+            button4.Text = "MANAGE INVENTORY";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button3.Location = new Point(5, 185);
+            button3.Name = "button3";
+            button3.Size = new Size(209, 43);
+            button3.TabIndex = 4;
+            button3.Text = "VIEW CATALOGUE";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // btnView
+            // 
+            btnView.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btnView.Location = new Point(5, 126);
+            btnView.Name = "btnView";
+            btnView.Size = new Size(209, 43);
+            btnView.TabIndex = 3;
+            btnView.Text = "VIEW CUSTOMERS";
+            btnView.UseVisualStyleBackColor = true;
+            btnView.Click += btnView_Click_1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BorderStyle = BorderStyle.FixedSingle;
+            label2.Font = new Font("Arial Rounded MT Bold", 23F, FontStyle.Bold);
+            label2.ForeColor = Color.Maroon;
+            label2.Location = new Point(5, 23);
+            label2.Name = "label2";
+            label2.Size = new Size(226, 38);
+            label2.TabIndex = 2;
+            label2.Text = "PHONE LINK";
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.LimeGreen;
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.Cursor = Cursors.AppStarting;
+            button2.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button2.ForeColor = Color.White;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(5, 93);
+            button2.Name = "button2";
+            button2.RightToLeft = RightToLeft.No;
+            button2.Size = new Size(116, 27);
+            button2.TabIndex = 0;
+            button2.Text = "BACK";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_2;
             // 
             // panel1
             // 
@@ -69,7 +152,7 @@ namespace MobileShopCreditMS
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Bisque;
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(button6);
+            panel1.Controls.Add(btnClr);
             panel1.Controls.Add(btnAdd);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(txtCAdd);
@@ -92,23 +175,27 @@ namespace MobileShopCreditMS
             panel1.Controls.Add(lblName);
             panel1.Controls.Add(button1);
             panel1.ForeColor = Color.Maroon;
-            panel1.Location = new Point(242, 4);
+            panel1.Location = new Point(241, 4);
             panel1.Name = "panel1";
             panel1.Size = new Size(1122, 737);
-            panel1.TabIndex = 0;
+            panel1.TabIndex = 4;
+            panel1.Paint += panel1_Paint;
             // 
-            // button6
+            // btnClr
             // 
-            button6.ForeColor = Color.Black;
-            button6.Location = new Point(339, 660);
-            button6.Name = "button6";
-            button6.Size = new Size(209, 43);
-            button6.TabIndex = 25;
-            button6.Text = "CLEAR DATA";
-            button6.UseVisualStyleBackColor = true;
+            btnClr.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btnClr.ForeColor = Color.Black;
+            btnClr.Location = new Point(339, 660);
+            btnClr.Name = "btnClr";
+            btnClr.Size = new Size(209, 43);
+            btnClr.TabIndex = 25;
+            btnClr.Text = "CLEAR DATA";
+            btnClr.UseVisualStyleBackColor = true;
+            btnClr.Click += button6_Click_2;
             // 
             // btnAdd
             // 
+            btnAdd.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btnAdd.ForeColor = Color.Black;
             btnAdd.Location = new Point(44, 660);
             btnAdd.Name = "btnAdd";
@@ -116,6 +203,7 @@ namespace MobileShopCreditMS
             btnAdd.TabIndex = 24;
             btnAdd.Text = "ADD CUSTOMER";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // label3
             // 
@@ -149,6 +237,7 @@ namespace MobileShopCreditMS
             // 
             // txtNomC
             // 
+            txtNomC.Font = new Font("Calibri", 12F, FontStyle.Bold);
             txtNomC.Location = new Point(281, 506);
             txtNomC.Name = "txtNomC";
             txtNomC.Size = new Size(180, 27);
@@ -158,54 +247,55 @@ namespace MobileShopCreditMS
             // 
             txtNomR.Location = new Point(281, 455);
             txtNomR.Name = "txtNomR";
-            txtNomR.Size = new Size(166, 27);
+            txtNomR.Size = new Size(166, 23);
             txtNomR.TabIndex = 19;
             // 
             // txtNomN
             // 
             txtNomN.Location = new Point(281, 404);
             txtNomN.Name = "txtNomN";
-            txtNomN.Size = new Size(226, 27);
+            txtNomN.Size = new Size(226, 23);
             txtNomN.TabIndex = 18;
             // 
             // txtCont
             // 
             txtCont.Location = new Point(152, 234);
             txtCont.Name = "txtCont";
-            txtCont.Size = new Size(166, 27);
+            txtCont.Size = new Size(166, 23);
             txtCont.TabIndex = 17;
             // 
             // txtEmail
             // 
             txtEmail.Location = new Point(152, 185);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(282, 27);
+            txtEmail.Size = new Size(282, 23);
             txtEmail.TabIndex = 16;
             // 
             // txtLName
             // 
             txtLName.Location = new Point(496, 132);
             txtLName.Name = "txtLName";
-            txtLName.Size = new Size(166, 27);
+            txtLName.Size = new Size(166, 23);
             txtLName.TabIndex = 15;
             // 
             // txtMName
             // 
             txtMName.Location = new Point(324, 132);
             txtMName.Name = "txtMName";
-            txtMName.Size = new Size(166, 27);
+            txtMName.Size = new Size(166, 23);
             txtMName.TabIndex = 14;
             // 
             // txtFName
             // 
             txtFName.Location = new Point(152, 132);
             txtFName.Name = "txtFName";
-            txtFName.Size = new Size(166, 27);
+            txtFName.Size = new Size(166, 23);
             txtFName.TabIndex = 13;
             // 
             // lblNomA
             // 
             lblNomA.AutoSize = true;
+            lblNomA.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblNomA.Location = new Point(44, 582);
             lblNomA.Name = "lblNomA";
             lblNomA.Size = new Size(143, 19);
@@ -215,6 +305,7 @@ namespace MobileShopCreditMS
             // lblNomR
             // 
             lblNomR.AutoSize = true;
+            lblNomR.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblNomR.Location = new Point(44, 458);
             lblNomR.Name = "lblNomR";
             lblNomR.Size = new Size(147, 19);
@@ -224,6 +315,7 @@ namespace MobileShopCreditMS
             // lblNomC
             // 
             lblNomC.AutoSize = true;
+            lblNomC.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblNomC.Location = new Point(44, 509);
             lblNomC.Name = "lblNomC";
             lblNomC.Size = new Size(173, 19);
@@ -233,6 +325,7 @@ namespace MobileShopCreditMS
             // lblNomN
             // 
             lblNomN.AutoSize = true;
+            lblNomN.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblNomN.Location = new Point(44, 404);
             lblNomN.Name = "lblNomN";
             lblNomN.Size = new Size(123, 19);
@@ -242,6 +335,7 @@ namespace MobileShopCreditMS
             // lblAdd
             // 
             lblAdd.AutoSize = true;
+            lblAdd.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblAdd.Location = new Point(44, 291);
             lblAdd.Name = "lblAdd";
             lblAdd.Size = new Size(72, 19);
@@ -251,6 +345,7 @@ namespace MobileShopCreditMS
             // lblCon
             // 
             lblCon.AutoSize = true;
+            lblCon.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblCon.Location = new Point(44, 237);
             lblCon.Name = "lblCon";
             lblCon.Size = new Size(102, 19);
@@ -260,6 +355,7 @@ namespace MobileShopCreditMS
             // lblEmail
             // 
             lblEmail.AutoSize = true;
+            lblEmail.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblEmail.Location = new Point(44, 188);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(52, 19);
@@ -269,6 +365,7 @@ namespace MobileShopCreditMS
             // lblName
             // 
             lblName.AutoSize = true;
+            lblName.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblName.Location = new Point(44, 135);
             lblName.Name = "lblName";
             lblName.Size = new Size(52, 19);
@@ -280,6 +377,7 @@ namespace MobileShopCreditMS
             button1.BackColor = Color.Red;
             button1.Cursor = Cursors.Hand;
             button1.FlatAppearance.BorderColor = Color.White;
+            button1.Font = new Font("Calibri", 12F, FontStyle.Bold);
             button1.ForeColor = SystemColors.ActiveCaptionText;
             button1.Location = new Point(990, 20);
             button1.Name = "button1";
@@ -289,145 +387,57 @@ namespace MobileShopCreditMS
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // button2
+            // ADDCus
             // 
-            button2.BackColor = Color.LimeGreen;
-            button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.Cursor = Cursors.AppStarting;
-            button2.ForeColor = Color.White;
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(5, 93);
-            button2.Name = "button2";
-            button2.RightToLeft = RightToLeft.No;
-            button2.Size = new Size(116, 27);
-            button2.TabIndex = 0;
-            button2.Text = "BACK";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click_1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BorderStyle = BorderStyle.FixedSingle;
-            label2.Font = new Font("Arial Rounded MT Bold", 23F, FontStyle.Bold);
-            label2.ForeColor = Color.Maroon;
-            label2.Location = new Point(5, 23);
-            label2.Name = "label2";
-            label2.Size = new Size(226, 38);
-            label2.TabIndex = 2;
-            label2.Text = "PHONE LINK";
-            // 
-            // panel2
-            // 
-            panel2.AutoScroll = true;
-            panel2.AutoSize = true;
-            panel2.BackColor = Color.Bisque;
-            panel2.Controls.Add(button5);
-            panel2.Controls.Add(button4);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(btnView);
-            panel2.Controls.Add(label2);
-            panel2.Controls.Add(button2);
-            panel2.Location = new Point(5, 4);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(234, 737);
-            panel2.TabIndex = 1;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(5, 309);
-            button5.Name = "button5";
-            button5.Size = new Size(209, 43);
-            button5.TabIndex = 6;
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(5, 247);
-            button4.Name = "button4";
-            button4.Size = new Size(209, 43);
-            button4.TabIndex = 5;
-            button4.Text = "MANAGE INVENTORY";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(5, 185);
-            button3.Name = "button3";
-            button3.Size = new Size(209, 43);
-            button3.TabIndex = 4;
-            button3.Text = "VIEW CATALOGUE";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // btnView
-            // 
-            btnView.Location = new Point(5, 126);
-            btnView.Name = "btnView";
-            btnView.Size = new Size(209, 43);
-            btnView.TabIndex = 3;
-            btnView.Text = "VIEW CUSTOMERS";
-            btnView.UseVisualStyleBackColor = true;
-            btnView.Click += btnView_Click;
-            // 
-            // ViewCustomer
-            // 
-            AutoScaleMode = AutoScaleMode.Inherit;
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1366, 749);
-            Controls.Add(panel2);
             Controls.Add(panel1);
-            Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "ViewCustomer";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Customer Information";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            Name = "ADDCus";
+            Text = "ADDCus";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         #endregion
 
-        private Panel panel1;
-        private Button button1;
         private Panel panel2;
-        private Button button2;
+        private Button button5;
+        private Button button4;
+        private Button button3;
+        private Button btnView;
         private Label label2;
-        private Label lblAdd;
-        private Label lblCon;
-        private Label lblEmail;
-        private Label lblName;
-        private Label lblNomA;
-        private Label lblNomR;
-        private Label lblNomC;
-        private Label lblNomN;
-        private TextBox txtFName;
-        private TextBox txtMName;
-        private TextBox txtLName;
-        private TextBox txtEmail;
+        private Button button2;
+        private Panel panel1;
+        private Button btnClr;
+        private Button btnAdd;
+        private Label label3;
         private TextBox txtCAdd;
         private TextBox txtNomA;
         private TextBox txtNomC;
         private TextBox txtNomR;
         private TextBox txtNomN;
         private TextBox txtCont;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button btnView;
-        private Label label3;
-        private Button btnAdd;
-        private Button button6;
+        private TextBox txtEmail;
+        private TextBox txtLName;
+        private TextBox txtMName;
+        private TextBox txtFName;
+        private Label lblNomA;
+        private Label lblNomR;
+        private Label lblNomC;
+        private Label lblNomN;
+        private Label lblAdd;
+        private Label lblCon;
+        private Label lblEmail;
+        private Label lblName;
+        private Button button1;
     }
 }

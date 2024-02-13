@@ -190,7 +190,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "VCustomers";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "View Cusomers";
+            Text = "View Customers";
             TopMost = true;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

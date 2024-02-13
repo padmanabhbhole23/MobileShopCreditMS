@@ -32,7 +32,7 @@ namespace MobileShopCreditMS
         private void btnView_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var dash = new ViewCustomer();
+            var dash = new ADDCus();
             dash.Show();
         }
     }
