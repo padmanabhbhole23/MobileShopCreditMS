@@ -26,10 +26,38 @@ namespace MobileShopCreditMS
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            var vc = new Inventory();
+            vc.Show();
+            this.Close();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var vc = new VCatalogue();
+            vc.Show();
+            this.Close();
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var vc = new VReport();
+            vc.Show();
+            this.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var vc = new Total();
+            vc.Show();
+            this.Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var vc = new CPassword();
+            vc.Show();
+            this.Close();
+        }
     }
-    }
+}
 

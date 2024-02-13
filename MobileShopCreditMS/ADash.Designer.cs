@@ -70,6 +70,7 @@
             button2.TabIndex = 1;
             button2.Text = "VIEW CATALOGUE";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -90,6 +91,7 @@
             button4.TabIndex = 3;
             button4.Text = "MANAGE REPORT";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -100,6 +102,7 @@
             button5.TabIndex = 4;
             button5.Text = "TOTAL CREDIT";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button6
             // 
@@ -110,6 +113,7 @@
             button6.TabIndex = 5;
             button6.Text = "CHANGE PASSWORD";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // label2
             // 

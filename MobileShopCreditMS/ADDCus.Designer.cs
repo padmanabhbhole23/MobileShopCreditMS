@@ -237,10 +237,10 @@
             // 
             // txtNomC
             // 
-            txtNomC.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            txtNomC.Font = new Font("Segoe UI", 9F);
             txtNomC.Location = new Point(281, 506);
             txtNomC.Name = "txtNomC";
-            txtNomC.Size = new Size(180, 27);
+            txtNomC.Size = new Size(180, 23);
             txtNomC.TabIndex = 20;
             // 
             // txtNomR
