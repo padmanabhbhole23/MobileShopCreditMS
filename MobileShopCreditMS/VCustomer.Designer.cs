@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel2 = new Panel();
+           panel2 = new Panel();
             button5 = new Button();
             button4 = new Button();
             button3 = new Button();
@@ -36,11 +36,12 @@
             label2 = new Label();
             button2 = new Button();
             panel1 = new Panel();
-            ptable = new Panel();
+            customer = new DataGridView();
             label3 = new Label();
             button1 = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)customer).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -58,14 +59,18 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(234, 737);
             panel2.TabIndex = 3;
+           // panel2.Paint += panel2_Paint;
             // 
             // button5
             // 
+            button5.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button5.Location = new Point(5, 309);
             button5.Name = "button5";
             button5.Size = new Size(209, 43);
             button5.TabIndex = 6;
+            button5.Text = "SHOW CUSTOMERS";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -133,7 +138,7 @@
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Bisque;
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(ptable);
+            panel1.Controls.Add(customer);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(button1);
             panel1.ForeColor = Color.Maroon;
@@ -141,15 +146,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1122, 737);
             panel1.TabIndex = 4;
+            //panel1.Paint += panel1_Paint;
             // 
-            // ptable
+            // customer
             // 
-            ptable.AutoScroll = true;
-            ptable.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ptable.Location = new Point(33, 105);
-            ptable.Name = "ptable";
-            ptable.Size = new Size(1046, 612);
-            ptable.TabIndex = 24;
+            customer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            customer.Location = new Point(26, 92);
+            customer.Name = "customer";
+            customer.Size = new Size(1065, 616);
+            customer.TabIndex = 7;
+            customer.CellContentClick += customer_CellContentClick;
             // 
             // label3
             // 
@@ -196,13 +202,14 @@
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)customer).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Panel panel2;
+       private Panel panel2;
         private Button button5;
         private Button button4;
         private Button button3;
@@ -212,6 +219,6 @@
         private Panel panel1;
         private Label label3;
         private Button button1;
-        private Panel ptable;
+        private DataGridView customer;
     }
 }

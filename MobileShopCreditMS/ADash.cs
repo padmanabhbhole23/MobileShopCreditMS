@@ -26,10 +26,10 @@ namespace MobileShopCreditMS
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var vc = new ADDCus(); 
-            vc.Show();
-            this.Close();
+            
         }
+
+
     }
     }
 
