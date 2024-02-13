@@ -96,7 +96,6 @@ namespace MobileShopCreditMS
             panel1.Name = "panel1";
             panel1.Size = new Size(1122, 737);
             panel1.TabIndex = 0;
-            panel1.DoubleClick += button1_Click1;
             // 
             // button6
             // 
@@ -107,7 +106,6 @@ namespace MobileShopCreditMS
             button6.TabIndex = 25;
             button6.Text = "CLEAR DATA";
             button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click_1;
             // 
             // btnAdd
             // 
@@ -118,7 +116,6 @@ namespace MobileShopCreditMS
             btnAdd.TabIndex = 24;
             btnAdd.Text = "ADD CUSTOMER";
             btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += button6_Click;
             // 
             // label3
             // 
@@ -306,7 +303,7 @@ namespace MobileShopCreditMS
             button2.TabIndex = 0;
             button2.Text = "BACK";
             button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            button2.Click += button2_Click_1;
             // 
             // label2
             // 

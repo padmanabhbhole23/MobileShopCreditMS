@@ -66,7 +66,12 @@ namespace MobileShopCreditMS
             var v = new VCustomers();
             this.Close();
             v.Show();
-            
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
