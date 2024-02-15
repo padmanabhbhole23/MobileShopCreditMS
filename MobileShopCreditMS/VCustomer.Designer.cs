@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-           panel2 = new Panel();
+            panel2 = new Panel();
             button5 = new Button();
             button4 = new Button();
             button3 = new Button();
@@ -59,7 +59,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(234, 737);
             panel2.TabIndex = 3;
-           // panel2.Paint += panel2_Paint;
             // 
             // button5
             // 
@@ -146,7 +145,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1122, 737);
             panel1.TabIndex = 4;
-            //panel1.Paint += panel1_Paint;
             // 
             // customer
             // 
@@ -209,7 +207,7 @@
 
         #endregion
 
-       private Panel panel2;
+        private Panel panel2;
         private Button button5;
         private Button button4;
         private Button button3;
