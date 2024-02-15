@@ -65,6 +65,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "CPassword";
             Text = "CPassword";
+            Load += CPassword_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

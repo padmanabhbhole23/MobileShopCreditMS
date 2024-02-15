@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace MobileShopCreditMS
 {
-    public partial class CPassword : Form
+    public partial class SNotification : Form
     {
-        public CPassword()
+        public SNotification()
         {
             InitializeComponent();
-        }
-
-        private void CPassword_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

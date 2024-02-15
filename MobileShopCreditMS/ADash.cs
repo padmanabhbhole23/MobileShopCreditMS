@@ -58,6 +58,20 @@ namespace MobileShopCreditMS
             vc.Show();
             this.Close();
         }
+
+        private void btnnotify_Click(object sender, EventArgs e)
+        {
+            var vc = new SNotification();
+            vc.Show();
+            this.Close();
+        }
+
+        private void btnExpense_Click(object sender, EventArgs e)
+        {
+            var vc = new TExpense();
+            vc.Show();
+            this.Close();
+        }
     }
 }
 
