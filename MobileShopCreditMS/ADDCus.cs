@@ -64,7 +64,8 @@ namespace MobileShopCreditMS
         {
             try
             {
-                /*Padma*/SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+                /*Padma*/
+                SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
                 con.Open();
                 String sql = "insert into Customer values('" + txtFName.Text + "','" + txtMName.Text + "','" + txtLName.Text + "','" + txtEmail.Text + "','" + txtCont.Text + "','" + txtCAdd.Text + "','" + txtNomN.Text + "','" + txtNomR.Text + "','" + txtNomC.Text + "','" + txtNomA.Text + "') ";
                 SqlCommand cmd = new SqlCommand(sql, con);
@@ -119,6 +120,20 @@ namespace MobileShopCreditMS
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var v = new VCatalogue();
+            this.Close();
+            v.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var v = new Inventory();
+            this.Close();
+            v.Show();
         }
     }
 }

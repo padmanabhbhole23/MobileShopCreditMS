@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TExpense));
             panel1 = new Panel();
             button3 = new Button();
             EditPanel = new Panel();
@@ -90,7 +91,7 @@
             EditPanel.Controls.Add(btnAdd);
             EditPanel.Location = new Point(226, 393);
             EditPanel.Name = "EditPanel";
-            EditPanel.Size = new Size(851, 341);
+            EditPanel.Size = new Size(886, 341);
             EditPanel.TabIndex = 7;
             EditPanel.Visible = false;
             // 
@@ -189,8 +190,9 @@
             DGExp.Name = "DGExp";
             DGExp.ReadOnly = true;
             DGExp.ScrollBars = ScrollBars.Vertical;
-            DGExp.Size = new Size(851, 216);
+            DGExp.Size = new Size(886, 216);
             DGExp.TabIndex = 6;
+            DGExp.CellContentClick += DGExp_CellContentClick;
             // 
             // button2
             // 
@@ -244,6 +246,7 @@
             ClientSize = new Size(1366, 749);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "TExpense";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TExpense";

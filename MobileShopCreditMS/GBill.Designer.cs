@@ -1,6 +1,6 @@
 ﻿namespace MobileShopCreditMS
 {
-    partial class VCustomers
+    partial class GBill
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VCustomers));
             panel2 = new Panel();
-            button5 = new Button();
-            button4 = new Button();
             button3 = new Button();
             btnView = new Button();
             label2 = new Label();
             button2 = new Button();
             panel1 = new Panel();
-            customer = new DataGridView();
+            btnGBill = new Button();
             label3 = new Label();
             button1 = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)customer).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -50,37 +46,14 @@
             panel2.AutoScroll = true;
             panel2.AutoSize = true;
             panel2.BackColor = Color.Bisque;
-            panel2.Controls.Add(button5);
-            panel2.Controls.Add(button4);
             panel2.Controls.Add(button3);
             panel2.Controls.Add(btnView);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(button2);
-            panel2.Location = new Point(5, 4);
+            panel2.Location = new Point(5, 6);
             panel2.Name = "panel2";
             panel2.Size = new Size(234, 737);
-            panel2.TabIndex = 3;
-            // 
-            // button5
-            // 
-            button5.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.Location = new Point(5, 309);
-            button5.Name = "button5";
-            button5.Size = new Size(209, 43);
-            button5.TabIndex = 6;
-            button5.Text = "SHOW CUSTOMERS";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
-            // button4
-            // 
-            button4.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            button4.Location = new Point(5, 247);
-            button4.Name = "button4";
-            button4.Size = new Size(209, 43);
-            button4.TabIndex = 5;
-            button4.Text = "MANAGE INVENTORY";
-            button4.UseVisualStyleBackColor = true;
+            panel2.TabIndex = 4;
             // 
             // button3
             // 
@@ -91,6 +64,7 @@
             button3.TabIndex = 4;
             button3.Text = "VIEW CATALOGUE";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // btnView
             // 
@@ -138,24 +112,27 @@
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Bisque;
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(customer);
+            panel1.Controls.Add(btnGBill);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(button1);
             panel1.ForeColor = Color.Maroon;
-            panel1.Location = new Point(242, 4);
+            panel1.Location = new Point(242, 5);
             panel1.Name = "panel1";
             panel1.Size = new Size(1122, 737);
-            panel1.TabIndex = 4;
+            panel1.TabIndex = 5;
+            panel1.Paint += panel1_Paint;
             // 
-            // customer
+            // btnGBill
             // 
-            customer.BackgroundColor = SystemColors.GradientActiveCaption;
-            customer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            customer.Location = new Point(26, 92);
-            customer.Name = "customer";
-            customer.Size = new Size(1065, 616);
-            customer.TabIndex = 7;
-            customer.CellContentClick += customer_CellContentClick;
+            btnGBill.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btnGBill.ForeColor = SystemColors.ActiveCaptionText;
+            btnGBill.Location = new Point(82, 655);
+            btnGBill.Name = "btnGBill";
+            btnGBill.Size = new Size(209, 43);
+            btnGBill.TabIndex = 24;
+            btnGBill.Text = "GENERATE BILL";
+            btnGBill.UseVisualStyleBackColor = true;
+            btnGBill.Click += btnGBill_Click;
             // 
             // label3
             // 
@@ -165,9 +142,9 @@
             label3.ForeColor = Color.Black;
             label3.Location = new Point(26, 23);
             label3.Name = "label3";
-            label3.Size = new Size(281, 34);
+            label3.Size = new Size(246, 34);
             label3.TabIndex = 23;
-            label3.Text = "VIEW CUSTOMERS";
+            label3.Text = "GENERATE BILL";
             // 
             // button1
             // 
@@ -184,27 +161,22 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // VCustomers
+            // GBill
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoScroll = true;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1366, 749);
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "VCustomers";
+            Name = "GBill";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "View Customers";
-            TopMost = true;
-            Load += VCustomers_Load;
+            Text = "GBill";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)customer).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -212,8 +184,6 @@
         #endregion
 
         private Panel panel2;
-        private Button button5;
-        private Button button4;
         private Button button3;
         private Button btnView;
         private Label label2;
@@ -221,6 +191,6 @@
         private Panel panel1;
         private Label label3;
         private Button button1;
-        private DataGridView customer;
+        private Button btnGBill;
     }
 }

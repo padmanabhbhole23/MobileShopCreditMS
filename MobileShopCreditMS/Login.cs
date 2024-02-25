@@ -22,7 +22,14 @@ namespace MobileShopCreditMS
 
         }
 
-        //Data Source=(localdb)\local;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                // Perform the action associated with your button
+                button1.PerformClick();
+            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -38,9 +45,10 @@ namespace MobileShopCreditMS
             {
                 try
                 {
-                    /*Padma*/ //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
-                   /*AFFAN*/ SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
-                    //chnages the db to MSlocal with dbname=project and table name=usr
+                    /*Padma*/
+                    SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+                    /*AFFAN*/ //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+                              //chnages the db to MSlocal with dbname=project and table name=usr
                     string query = "select * from usr where name='" + textBox1.Text + "'and pass='" + textPass.Text + "'";
                     SqlCommand cmd = new SqlCommand(query, con);
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
@@ -51,6 +59,7 @@ namespace MobileShopCreditMS
                     {
                         MessageBox.Show("Login Successful");
                         this.Hide();
+                        
                         if (textBox1.Text.Equals("admin"))
                         {
                             var ADash = new ADash();
@@ -81,13 +90,18 @@ namespace MobileShopCreditMS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
             textPass.Clear();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

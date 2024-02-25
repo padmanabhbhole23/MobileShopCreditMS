@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace MobileShopCreditMS
@@ -21,9 +22,9 @@ namespace MobileShopCreditMS
             InitializeComponent();
         }
         /*Padma*/
-        // SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
         /*AFFAN*/
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+        //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -40,11 +41,23 @@ namespace MobileShopCreditMS
             products.DataSource = ds.Tables[0];
             con.Close();
         }
+        private void ClearT()
+        {
+            PName.Text = "";
+            PDesc.Text = "";
+            PPrice.Text = "";
+            PCat.Text = "";
+            PBrand.Text = "";
+            PImage.Text = "";
+            PQty.Text = "";
+            PDp.Text = "";
 
+
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (PName.Text == ""  || PPrice.Text == "")
+            if (PName.Text == "" || PPrice.Text == "")
             {
                 MessageBox.Show("missing information");
             }
@@ -53,12 +66,19 @@ namespace MobileShopCreditMS
                 try
                 {
                     con.Open();
-                    String sql = "insert into Product values('" + PName.Text + "','" + PDesc.Text + "','" + PPrice.Text + "','" + PCat.SelectedItem.ToString() + "','" + PBrand.Text + "','" + PImage.Text + "','" + PQty.Text + "','" + PDp.Text + "') ";
+                    string sql = "insert into Product values('" + PName.Text + "','" + PDesc.Text + "','" + PPrice.Text + "','" + PCat.SelectedItem.ToString() + "','" + PBrand.Text + "','" + PImage.Text + "','" + PQty.Text + "','" + PDp.Text + "') ";
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("PRODUCT ADDED SUCCESSFULLY");
-                    con.Close();
+
                     populate();
+
+                    con.Open();
+                    DateTime date = DateTime.Now;
+                    string query = "insert into Expenses values('" + PName.Text + "','" + date + "','" + PPrice.Text + "','" + PDesc.Text + "')";
+                    SqlDataAdapter d = new SqlDataAdapter(query, con);
+                    SqlCommandBuilder builder = new SqlCommandBuilder(d);
+                    con.Close();
 
                 }
                 catch (Exception ex)
@@ -66,8 +86,8 @@ namespace MobileShopCreditMS
                     MessageBox.Show(ex.Message);
                 }
 
-                con.Close();
-
+                
+                ClearT();
             }
 
         }
@@ -80,6 +100,19 @@ namespace MobileShopCreditMS
         private void label10_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var v = new ADash();
+            v.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+
         }
     }
 }

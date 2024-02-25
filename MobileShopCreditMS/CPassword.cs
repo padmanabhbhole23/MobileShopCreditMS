@@ -21,5 +21,12 @@ namespace MobileShopCreditMS
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var v = new ADash();
+            this.Close();
+            v.Show();
+        }
     }
 }

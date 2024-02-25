@@ -72,6 +72,30 @@ namespace MobileShopCreditMS
             vc.Show();
             this.Close();
         }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ADash_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            var vc = new GBill();
+            vc.Show();
+            this.Close();
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            var login=new Login();
+            this.Close();       
+            login.Show();
+        }
     }
 }
 

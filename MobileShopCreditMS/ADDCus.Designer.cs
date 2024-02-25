@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADDCus));
             panel2 = new Panel();
-            button5 = new Button();
             button4 = new Button();
             button3 = new Button();
             btnView = new Button();
@@ -67,7 +67,6 @@
             panel2.AutoScroll = true;
             panel2.AutoSize = true;
             panel2.BackColor = Color.Bisque;
-            panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
             panel2.Controls.Add(button3);
             panel2.Controls.Add(btnView);
@@ -78,38 +77,32 @@
             panel2.Size = new Size(234, 737);
             panel2.TabIndex = 3;
             // 
-            // button5
-            // 
-            button5.Location = new Point(5, 309);
-            button5.Name = "button5";
-            button5.Size = new Size(209, 43);
-            button5.TabIndex = 6;
-            button5.UseVisualStyleBackColor = true;
-            // 
             // button4
             // 
             button4.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            button4.Location = new Point(5, 247);
+            button4.Location = new Point(5, 292);
             button4.Name = "button4";
             button4.Size = new Size(209, 43);
             button4.TabIndex = 5;
             button4.Text = "MANAGE INVENTORY";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
             button3.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            button3.Location = new Point(5, 185);
+            button3.Location = new Point(5, 235);
             button3.Name = "button3";
             button3.Size = new Size(209, 43);
             button3.TabIndex = 4;
             button3.Text = "VIEW CATALOGUE";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // btnView
             // 
             btnView.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btnView.Location = new Point(5, 126);
+            btnView.Location = new Point(3, 177);
             btnView.Name = "btnView";
             btnView.Size = new Size(209, 43);
             btnView.TabIndex = 3;
@@ -137,7 +130,7 @@
             button2.Font = new Font("Calibri", 12F, FontStyle.Bold);
             button2.ForeColor = Color.White;
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(5, 93);
+            button2.Location = new Point(18, 110);
             button2.Name = "button2";
             button2.RightToLeft = RightToLeft.No;
             button2.Size = new Size(116, 27);
@@ -260,6 +253,7 @@
             // txtCont
             // 
             txtCont.Location = new Point(152, 234);
+            txtCont.MaxLength = 10;
             txtCont.Name = "txtCont";
             txtCont.Size = new Size(166, 23);
             txtCont.TabIndex = 17;
@@ -397,7 +391,9 @@
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ADDCus";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ADDCus";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -410,7 +406,6 @@
         #endregion
 
         private Panel panel2;
-        private Button button5;
         private Button button4;
         private Button button3;
         private Button btnView;

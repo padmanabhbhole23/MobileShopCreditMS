@@ -64,9 +64,9 @@ namespace MobileShopCreditMS
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string date=monthCalendar1.SelectionRange.Start.ToString();
+            string date = monthCalendar1.SelectionRange.Start.ToString();
             //con.Open();
-            string query = "insert into Expenses values('"+txtET.Text+"','"+date+"','"+txtAmt.Text+"','"+txtDesc.Text + "') ";
+            string query = "insert into Expenses values('" + txtET.Text + "','" + date + "','" + txtAmt.Text + "','" + txtDesc.Text + "') ";
             SqlDataAdapter d = new SqlDataAdapter(query, con);
             SqlCommandBuilder builder = new SqlCommandBuilder(d);
             var dast = new DataSet();
@@ -74,7 +74,12 @@ namespace MobileShopCreditMS
             clr();
             showExp();
             con.Close();
-            
+
+        }
+
+        private void DGExp_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

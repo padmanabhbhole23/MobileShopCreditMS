@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CPassword));
             panel1 = new Panel();
             lblName = new Label();
+            button2 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Bisque;
+            panel1.Controls.Add(button2);
             panel1.Controls.Add(lblName);
             panel1.ForeColor = SystemColors.ControlText;
             panel1.Location = new Point(5, 4);
@@ -55,6 +58,23 @@
             lblName.TabIndex = 3;
             lblName.Text = "PHONE LINK";
             // 
+            // button2
+            // 
+            button2.BackColor = Color.LimeGreen;
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.Cursor = Cursors.AppStarting;
+            button2.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button2.ForeColor = Color.White;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(35, 90);
+            button2.Name = "button2";
+            button2.RightToLeft = RightToLeft.No;
+            button2.Size = new Size(116, 27);
+            button2.TabIndex = 4;
+            button2.Text = "BACK";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // CPassword
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -63,7 +83,9 @@
             ClientSize = new Size(1366, 749);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CPassword";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CPassword";
             Load += CPassword_Load;
             panel1.ResumeLayout(false);
@@ -75,5 +97,6 @@
 
         private Panel panel1;
         private Label lblName;
+        private Button button2;
     }
 }

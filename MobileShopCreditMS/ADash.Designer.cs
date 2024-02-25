@@ -46,6 +46,9 @@
             btnExpense = new Button();
             pictureBox7 = new PictureBox();
             pictureBox8 = new PictureBox();
+            btn = new Button();
+            pictureBox9 = new PictureBox();
+            pictureBox10 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -54,6 +57,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -67,6 +72,7 @@
             button1.Text = "VIEW CUSTOMER";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            button1.MouseHover += button1_MouseHover;
             // 
             // button2
             // 
@@ -133,7 +139,7 @@
             label2.BorderStyle = BorderStyle.FixedSingle;
             label2.Font = new Font("Arial Rounded MT Bold", 21.75F, FontStyle.Bold);
             label2.ForeColor = Color.Maroon;
-            label2.Location = new Point(26, 23);
+            label2.Location = new Point(39, 31);
             label2.Name = "label2";
             label2.Size = new Size(209, 35);
             label2.TabIndex = 7;
@@ -243,13 +249,49 @@
             pictureBox8.TabIndex = 17;
             pictureBox8.TabStop = false;
             // 
+            // btn
+            // 
+            btn.Cursor = Cursors.Hand;
+            btn.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btn.Location = new Point(911, 87);
+            btn.Name = "btn";
+            btn.Size = new Size(167, 75);
+            btn.TabIndex = 18;
+            btn.Text = "GENERATE BILL";
+            btn.UseVisualStyleBackColor = true;
+            btn.Click += btn_Click;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
+            pictureBox9.Location = new Point(821, 103);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(84, 50);
+            pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox9.TabIndex = 19;
+            pictureBox9.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
+            pictureBox10.Location = new Point(1060, 21);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(42, 35);
+            pictureBox10.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox10.TabIndex = 20;
+            pictureBox10.TabStop = false;
+            pictureBox10.Click += pictureBox10_Click;
+            // 
             // ADash
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.Bisque;
-            ClientSize = new Size(857, 579);
+            ClientSize = new Size(1129, 564);
+            Controls.Add(pictureBox10);
+            Controls.Add(pictureBox9);
+            Controls.Add(btn);
             Controls.Add(pictureBox8);
             Controls.Add(pictureBox7);
             Controls.Add(btnExpense);
@@ -267,8 +309,12 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ADash";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Admin DashBoard";
+            Load += ADash_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -277,6 +323,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -300,5 +348,8 @@
         private Button btnExpense;
         private PictureBox pictureBox7;
         private PictureBox pictureBox8;
+        private Button btn;
+        private PictureBox pictureBox9;
+        private PictureBox pictureBox10;
     }
 }

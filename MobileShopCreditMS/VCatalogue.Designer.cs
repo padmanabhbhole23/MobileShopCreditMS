@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VCatalogue));
             panel2 = new Panel();
             label2 = new Label();
             button2 = new Button();
             panel1 = new Panel();
+            dgv1 = new DataGridView();
             label3 = new Label();
             button1 = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv1).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -70,7 +73,7 @@
             button2.Font = new Font("Calibri", 12F, FontStyle.Bold);
             button2.ForeColor = Color.White;
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(5, 93);
+            button2.Location = new Point(9, 106);
             button2.Name = "button2";
             button2.RightToLeft = RightToLeft.No;
             button2.Size = new Size(116, 27);
@@ -85,6 +88,7 @@
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Bisque;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(dgv1);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(button1);
             panel1.ForeColor = Color.Maroon;
@@ -92,6 +96,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1122, 737);
             panel1.TabIndex = 5;
+            // 
+            // dgv1
+            // 
+            dgv1.AllowUserToDeleteRows = false;
+            dgv1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv1.BackgroundColor = SystemColors.Control;
+            dgv1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv1.Location = new Point(51, 140);
+            dgv1.Name = "dgv1";
+            dgv1.ReadOnly = true;
+            dgv1.Size = new Size(1027, 422);
+            dgv1.TabIndex = 24;
             // 
             // label3
             // 
@@ -101,9 +117,9 @@
             label3.ForeColor = Color.Black;
             label3.Location = new Point(26, 23);
             label3.Name = "label3";
-            label3.Size = new Size(269, 34);
+            label3.Size = new Size(279, 34);
             label3.TabIndex = 23;
-            label3.Text = "ADD CUSTOMERS";
+            label3.Text = "VIEW CATALOGUE";
             // 
             // button1
             // 
@@ -129,12 +145,15 @@
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "VCatalogue";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "VCatalogue";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -147,5 +166,6 @@
         private Panel panel1;
         private Label label3;
         private Button button1;
+        private DataGridView dgv1;
     }
 }
