@@ -9,6 +9,12 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+
+
+
 
 namespace MobileShopCreditMS
 {
@@ -19,19 +25,28 @@ namespace MobileShopCreditMS
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+       
+
+        private void button2_Click(object sender, EventArgs e)
         {
             try
             {
-                WebClient cl = new WebClient();
-                Stream s = cl.OpenRead(string.Format("http://api.clickatell.com/http/sendmsg?user=unclepaani1708363628&password=uncleJIpaani2&api_id=[d6f4978ee1c7430cb3d0bea54906c651]&to=(0)&text=(1)",9860017436,textBox1.Text));
-                StreamReader reader = new StreamReader(s);  
-                string result= reader.ReadToEnd();
-                MessageBox.Show(result,"Message",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                const string accountsid = "AC7de3ff2e20df4f87d508aa6902ec30bb";
+                const string authtoken = "d2bec883e58eacd0e72d962fbf9a4a72";
+
+                TwilioClient.Init(accountsid, authtoken);
+
+                MessageResource.Create(
+                    to: new PhoneNumber("+91" + textBox2.Text),
+                    from: new PhoneNumber("+16505819725"),
+                    body: textBox1.Text);
+
+                MessageBox.Show("successfull");
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Message",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("failed");
             }
         }
     }

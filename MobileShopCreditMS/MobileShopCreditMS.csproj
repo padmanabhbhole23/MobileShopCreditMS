@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="Twilio" Version="6.18.0" />
   </ItemGroup>
 
   <ItemGroup>
