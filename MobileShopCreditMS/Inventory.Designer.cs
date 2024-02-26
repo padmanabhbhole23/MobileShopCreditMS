@@ -50,6 +50,8 @@
             products = new DataGridView();
             button2 = new Button();
             button1 = new Button();
+            button3 = new Button();
+            PID = new TextBox();
             ((System.ComponentModel.ISupportInitialize)products).BeginInit();
             SuspendLayout();
             // 
@@ -208,7 +210,7 @@
             // AddBtn
             // 
             AddBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AddBtn.Location = new Point(151, 624);
+            AddBtn.Location = new Point(150, 587);
             AddBtn.Name = "AddBtn";
             AddBtn.Size = new Size(290, 55);
             AddBtn.TabIndex = 21;
@@ -222,8 +224,10 @@
             products.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             products.Location = new Point(548, 89);
             products.Name = "products";
+            products.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             products.Size = new Size(787, 590);
             products.TabIndex = 22;
+            products.CellContentClick += products_CellContentClick;
             // 
             // button2
             // 
@@ -257,12 +261,32 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.Location = new Point(150, 669);
+            button3.Name = "button3";
+            button3.Size = new Size(290, 55);
+            button3.TabIndex = 26;
+            button3.Text = "UPDATE";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // PID
+            // 
+            PID.Location = new Point(283, 65);
+            PID.Name = "PID";
+            PID.Size = new Size(100, 23);
+            PID.TabIndex = 27;
+            // 
             // Inventory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
             ClientSize = new Size(1366, 749);
+            Controls.Add(PID);
+            Controls.Add(button3);
             Controls.Add(button1);
             Controls.Add(button2);
             Controls.Add(products);
@@ -318,5 +342,7 @@
         private DataGridView products;
         private Button button2;
         private Button button1;
+        private Button button3;
+        private TextBox PID;
     }
 }

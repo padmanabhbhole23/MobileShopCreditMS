@@ -46,9 +46,9 @@ namespace MobileShopCreditMS
                 try
                 {
                     /*Padma*/
-                    SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
-                    /*AFFAN*/ //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
-                              //chnages the db to MSlocal with dbname=project and table name=usr
+                   // SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+                    /*AFFAN*/ SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+                             // chnages the db to MSlocal with dbname=project and table name=usr
                     string query = "select * from usr where name='" + textBox1.Text + "'and pass='" + textPass.Text + "'";
                     SqlCommand cmd = new SqlCommand(query, con);
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
