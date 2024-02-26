@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,29 +20,21 @@ namespace MobileShopCreditMS
         public GBill()
         {
             InitializeComponent();
-        }
+            /*Padma*/
+            SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+            //affan
+            //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand cmd = new SqlCommand("select Productid,ProductName from Product");
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            DataTable table1 = new DataTable();
+            da.Fill(table1);
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            var a = new ADash();
-            a.Show();
+            combPName.DataSource = table1;
+            combPName.DisplayMember = "ProductName";
+            combPName.ValueMember = "Productid";
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        private Cell CreateHeaderCell(string content)
-        {
-            return new Cell().Add(new Paragraph(content).SetBold().SetTextAlignment(TextAlignment.CENTER));
-        }
-
-        private Cell CreateCell(string content, TextAlignment alignment)
-        {
-            return new Cell().Add(new Paragraph(content).SetTextAlignment(alignment));
-        }
-        private void btnGBill_Click(object sender, EventArgs e)
+        private void gpdf()
         {
             /*
             string path = @"E:\Padmanabh\PROJECT\invoice.pdf";
@@ -141,6 +134,31 @@ namespace MobileShopCreditMS
                 MessageBox.Show($"PDF bill generated successfully!\nFile saved to: {filePath}");
             }
         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            var a = new ADash();
+            a.Show();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private Cell CreateHeaderCell(string content)
+        {
+            return new Cell().Add(new Paragraph(content).SetBold().SetTextAlignment(TextAlignment.CENTER));
+        }
+
+        private Cell CreateCell(string content, TextAlignment alignment)
+        {
+            return new Cell().Add(new Paragraph(content).SetTextAlignment(alignment));
+        }
+        private void btnGBill_Click(object sender, EventArgs e)
+        {
+            gpdf();
+
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -159,6 +177,38 @@ namespace MobileShopCreditMS
             this.Close();
             var c = new VCatalogue();
             c.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            txtCID.Text = "";
+            txtQnty.Text = "";
+            cbCName.Text = "";
+            combPName.Text = "";
+            combPTYPE.Text = "";
+            txtpp.Text = "";
+
+
+        }
+
+        private void combPTYPE_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbp_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnAdCrt_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

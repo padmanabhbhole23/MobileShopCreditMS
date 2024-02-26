@@ -48,8 +48,9 @@
             PDp = new TextBox();
             AddBtn = new Button();
             products = new DataGridView();
-            button2 = new Button();
             button1 = new Button();
+            button2 = new Button();
+            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)products).BeginInit();
             SuspendLayout();
             // 
@@ -57,11 +58,11 @@
             // 
             label2.AutoSize = true;
             label2.BorderStyle = BorderStyle.FixedSingle;
-            label2.Font = new Font("Arial Rounded MT Bold", 23F, FontStyle.Bold);
-            label2.ForeColor = Color.Maroon;
+            label2.Font = new Font("Arial Rounded MT Bold", 20F, FontStyle.Bold);
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(250, 24);
             label2.Name = "label2";
-            label2.Size = new Size(366, 38);
+            label2.Size = new Size(320, 34);
             label2.TabIndex = 3;
             label2.Text = "MANAGE INVENTORY";
             // 
@@ -225,23 +226,6 @@
             products.Size = new Size(787, 590);
             products.TabIndex = 22;
             // 
-            // button2
-            // 
-            button2.BackColor = Color.LimeGreen;
-            button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.Cursor = Cursors.AppStarting;
-            button2.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            button2.ForeColor = Color.White;
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(30, 24);
-            button2.Name = "button2";
-            button2.RightToLeft = RightToLeft.No;
-            button2.Size = new Size(116, 27);
-            button2.TabIndex = 24;
-            button2.Text = "BACK";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
-            // 
             // button1
             // 
             button1.BackColor = Color.Red;
@@ -257,12 +241,42 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
+            // button2
+            // 
+            button2.BackColor = Color.LimeGreen;
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.Cursor = Cursors.AppStarting;
+            button2.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button2.ForeColor = Color.White;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(12, 76);
+            button2.Name = "button2";
+            button2.RightToLeft = RightToLeft.No;
+            button2.Size = new Size(116, 27);
+            button2.TabIndex = 24;
+            button2.Text = "BACK";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BorderStyle = BorderStyle.FixedSingle;
+            label10.Font = new Font("Arial Rounded MT Bold", 23F, FontStyle.Bold);
+            label10.ForeColor = Color.Maroon;
+            label10.Location = new Point(12, 24);
+            label10.Name = "label10";
+            label10.Size = new Size(226, 38);
+            label10.TabIndex = 26;
+            label10.Text = "PHONE LINK";
+            // 
             // Inventory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
             ClientSize = new Size(1366, 749);
+            Controls.Add(label10);
             Controls.Add(button1);
             Controls.Add(button2);
             Controls.Add(products);
@@ -316,7 +330,8 @@
         private TextBox PDp;
         private Button AddBtn;
         private DataGridView products;
-        private Button button2;
         private Button button1;
+        private Button button2;
+        private Label label10;
     }
 }

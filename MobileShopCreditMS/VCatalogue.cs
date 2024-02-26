@@ -21,7 +21,7 @@ namespace MobileShopCreditMS
         {
             InitializeComponent();
             con.Open();
-            string query = "select Brand,ProductName from Product";
+            string query = "select Brand,ProductName from Product where StockQuantity>=1";
             SqlDataAdapter da = new SqlDataAdapter(query, con);
             SqlCommandBuilder builder = new SqlCommandBuilder(da);
             var ds = new DataSet();
