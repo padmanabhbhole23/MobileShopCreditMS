@@ -12,9 +12,9 @@ namespace MobileShopCreditMS
         int totalamt = 0;
         string partialpayment = "Full";
         /*Padma*/
-        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+       // SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
         //affan
-        //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
 
         public GBill()
         {
@@ -155,7 +155,7 @@ namespace MobileShopCreditMS
                 string dateString = currentDate.ToString("yyyy-MM-dd");
                 int q = int.Parse(txtQnty.Text);
                 int pp = int.Parse(txtpp.Text);
-                int t = q * pp;
+              //  int t = q * pp;
                 string partialpayment;
                 if (lblRMAmt.Text == "0")
                 {
@@ -169,6 +169,7 @@ namespace MobileShopCreditMS
                 string query = " insert into Bill values('" + txtCID.Text + "', '" + dateString + "', '" + totalamt + "', '" + partialpayment + "', '" + txtPAmt.Text + "')";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("bill generated");
 
 
 
@@ -192,15 +193,15 @@ namespace MobileShopCreditMS
                     command1.ExecuteNonQuery();
 
                     //update inventory
-                    /*
+                    
                     string updateQuery = "UPDATE Product SET StockQuantity = StockQuantity - @Quantity WHERE ProductID = @ProductID";
                     SqlCommand updateCommand = new SqlCommand(updateQuery, con);
                     updateCommand.Parameters.AddWithValue("@Quantity", quan);
                     updateCommand.Parameters.AddWithValue("@ProductID", pid);
                     updateCommand.ExecuteNonQuery();
-                    */
+                    
                 }
-                //gpdf(lastId.ToString());
+                gpdf(lastId.ToString());
                 con.Close();
             
         }
@@ -268,8 +269,8 @@ namespace MobileShopCreditMS
 
             txtpid.Text = "";
             txtPName.Text = "";
-            txtpp.Text = "";
-            txtQnty.Text = "";
+           // txtpp.Text = "";
+           // txtQnty.Text = "";
 
         }
 
