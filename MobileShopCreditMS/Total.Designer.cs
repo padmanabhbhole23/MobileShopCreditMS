@@ -30,16 +30,28 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Total));
             panel1 = new Panel();
+            AddBtn = new Button();
+            EDITPANEL = new Panel();
             DGTTL = new DataGridView();
             button2 = new Button();
             label2 = new Label();
+            txtET = new TextBox();
+            lblAmt = new Label();
+            lblType = new Label();
+            label1 = new Label();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            button1 = new Button();
             panel1.SuspendLayout();
+            EDITPANEL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGTTL).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Bisque;
+            panel1.Controls.Add(AddBtn);
+            panel1.Controls.Add(EDITPANEL);
             panel1.Controls.Add(DGTTL);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(label2);
@@ -49,17 +61,43 @@
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
+            // AddBtn
+            // 
+            AddBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AddBtn.Location = new Point(275, 323);
+            AddBtn.Name = "AddBtn";
+            AddBtn.Size = new Size(290, 55);
+            AddBtn.TabIndex = 22;
+            AddBtn.Text = "UPDATE";
+            AddBtn.UseVisualStyleBackColor = true;
+            AddBtn.Click += AddBtn_Click;
+            // 
+            // EDITPANEL
+            // 
+            EDITPANEL.Controls.Add(button1);
+            EDITPANEL.Controls.Add(textBox2);
+            EDITPANEL.Controls.Add(textBox1);
+            EDITPANEL.Controls.Add(txtET);
+            EDITPANEL.Controls.Add(lblAmt);
+            EDITPANEL.Controls.Add(label1);
+            EDITPANEL.Controls.Add(lblType);
+            EDITPANEL.Location = new Point(200, 384);
+            EDITPANEL.Name = "EDITPANEL";
+            EDITPANEL.Size = new Size(1022, 334);
+            EDITPANEL.TabIndex = 8;
+            EDITPANEL.Visible = false;
+            // 
             // DGTTL
             // 
             DGTTL.AllowUserToAddRows = false;
             DGTTL.AllowUserToDeleteRows = false;
             DGTTL.BackgroundColor = SystemColors.InactiveCaption;
             DGTTL.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGTTL.Location = new Point(301, 72);
+            DGTTL.Location = new Point(275, 62);
             DGTTL.Name = "DGTTL";
             DGTTL.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             DGTTL.ScrollBars = ScrollBars.Vertical;
-            DGTTL.Size = new Size(921, 279);
+            DGTTL.Size = new Size(921, 243);
             DGTTL.TabIndex = 7;
             DGTTL.CellContentClick += DGTTL_CellContentClick;
             // 
@@ -92,6 +130,69 @@
             label2.TabIndex = 3;
             label2.Text = "PHONE LINK";
             // 
+            // txtET
+            // 
+            txtET.Location = new Point(204, 67);
+            txtET.Name = "txtET";
+            txtET.Size = new Size(223, 23);
+            txtET.TabIndex = 13;
+            // 
+            // lblAmt
+            // 
+            lblAmt.AutoSize = true;
+            lblAmt.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lblAmt.Location = new Point(26, 71);
+            lblAmt.Name = "lblAmt";
+            lblAmt.Size = new Size(158, 19);
+            lblAmt.TabIndex = 11;
+            lblAmt.Text = "REMAINING AMOUNT";
+            lblAmt.Click += lblAmt_Click;
+            // 
+            // lblType
+            // 
+            lblType.AutoSize = true;
+            lblType.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lblType.Location = new Point(275, 19);
+            lblType.Name = "lblType";
+            lblType.Size = new Size(107, 19);
+            lblType.TabIndex = 10;
+            lblType.Text = "EXPENSE TYPE";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label1.Location = new Point(26, 15);
+            label1.Name = "label1";
+            label1.Size = new Size(54, 19);
+            label1.TabIndex = 10;
+            label1.Text = "BILL ID";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(204, 11);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(223, 23);
+            textBox1.TabIndex = 13;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(232, 170);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(164, 23);
+            textBox2.TabIndex = 14;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(221, 242);
+            button1.Name = "button1";
+            button1.Size = new Size(185, 53);
+            button1.TabIndex = 23;
+            button1.Text = "OK";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Total
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -106,6 +207,8 @@
             Text = "Total";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            EDITPANEL.ResumeLayout(false);
+            EDITPANEL.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DGTTL).EndInit();
             ResumeLayout(false);
         }
@@ -116,5 +219,14 @@
         private Label label2;
         private DataGridView DGTTL;
         private Button button2;
+        private Panel EDITPANEL;
+        private Button AddBtn;
+        private TextBox textBox2;
+        private TextBox textBox1;
+        private TextBox txtET;
+        private Label lblAmt;
+        private Label label1;
+        private Label lblType;
+        private Button button1;
     }
 }

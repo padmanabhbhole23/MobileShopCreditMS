@@ -127,37 +127,41 @@
             // lblDesc
             // 
             lblDesc.AutoSize = true;
+            lblDesc.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblDesc.ImageAlign = ContentAlignment.TopLeft;
-            lblDesc.Location = new Point(56, 292);
+            lblDesc.Location = new Point(30, 289);
             lblDesc.Name = "lblDesc";
-            lblDesc.Size = new Size(129, 15);
+            lblDesc.Size = new Size(164, 19);
             lblDesc.TabIndex = 5;
             lblDesc.Text = "EXPENSE DESCRIPTION";
             // 
             // lblAmt
             // 
             lblAmt.AutoSize = true;
-            lblAmt.Location = new Point(77, 247);
+            lblAmt.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lblAmt.Location = new Point(30, 244);
             lblAmt.Name = "lblAmt";
-            lblAmt.Size = new Size(108, 15);
+            lblAmt.Size = new Size(138, 19);
             lblAmt.TabIndex = 4;
             lblAmt.Text = "EXPENSE AMOUNT";
             // 
             // lbldate
             // 
             lbldate.AutoSize = true;
-            lbldate.Location = new Point(101, 82);
+            lbldate.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lbldate.Location = new Point(30, 75);
             lbldate.Name = "lbldate";
-            lbldate.Size = new Size(84, 15);
+            lbldate.Size = new Size(109, 19);
             lbldate.TabIndex = 3;
             lbldate.Text = "EXPENSE DATE";
             // 
             // lblType
             // 
             lblType.AutoSize = true;
-            lblType.Location = new Point(101, 25);
+            lblType.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lblType.Location = new Point(32, 26);
             lblType.Name = "lblType";
-            lblType.Size = new Size(83, 15);
+            lblType.Size = new Size(107, 19);
             lblType.TabIndex = 2;
             lblType.Text = "EXPENSE TYPE";
             // 
