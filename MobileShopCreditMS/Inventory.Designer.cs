@@ -37,7 +37,6 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
-            label9 = new Label();
             PName = new TextBox();
             PDesc = new TextBox();
             PPrice = new TextBox();
@@ -45,7 +44,6 @@
             PBrand = new TextBox();
             PImage = new TextBox();
             PQty = new TextBox();
-            PDp = new TextBox();
             AddBtn = new Button();
             products = new DataGridView();
             button2 = new Button();
@@ -72,7 +70,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label1.Location = new Point(116, 197);
+            label1.Location = new Point(118, 222);
             label1.Name = "label1";
             label1.Size = new Size(108, 19);
             label1.TabIndex = 4;
@@ -83,7 +81,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label3.Location = new Point(110, 309);
+            label3.Location = new Point(118, 334);
             label3.Name = "label3";
             label3.Size = new Size(145, 19);
             label3.TabIndex = 5;
@@ -93,7 +91,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label4.Location = new Point(116, 411);
+            label4.Location = new Point(118, 441);
             label4.Name = "label4";
             label4.Size = new Size(102, 19);
             label4.TabIndex = 6;
@@ -103,7 +101,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label5.Location = new Point(116, 109);
+            label5.Location = new Point(118, 124);
             label5.Name = "label5";
             label5.Size = new Size(129, 19);
             label5.TabIndex = 7;
@@ -113,7 +111,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label6.Location = new Point(116, 147);
+            label6.Location = new Point(118, 171);
             label6.Name = "label6";
             label6.Size = new Size(109, 19);
             label6.TabIndex = 8;
@@ -123,7 +121,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label7.Location = new Point(105, 465);
+            label7.Location = new Point(118, 495);
             label7.Name = "label7";
             label7.Size = new Size(132, 19);
             label7.TabIndex = 9;
@@ -133,32 +131,22 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label8.Location = new Point(110, 249);
+            label8.Location = new Point(118, 272);
             label8.Name = "label8";
             label8.Size = new Size(128, 19);
             label8.TabIndex = 10;
             label8.Text = "Product Quantity";
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(116, 535);
-            label9.Name = "label9";
-            label9.Size = new Size(98, 17);
-            label9.TabIndex = 11;
-            label9.Text = "Downpayment";
-            // 
             // PName
             // 
-            PName.Location = new Point(283, 191);
+            PName.Location = new Point(285, 218);
             PName.Name = "PName";
             PName.Size = new Size(201, 23);
             PName.TabIndex = 13;
             // 
             // PDesc
             // 
-            PDesc.Location = new Point(283, 303);
+            PDesc.Location = new Point(285, 334);
             PDesc.Multiline = true;
             PDesc.Name = "PDesc";
             PDesc.Size = new Size(210, 70);
@@ -166,7 +154,7 @@
             // 
             // PPrice
             // 
-            PPrice.Location = new Point(283, 405);
+            PPrice.Location = new Point(285, 441);
             PPrice.Name = "PPrice";
             PPrice.Size = new Size(100, 23);
             PPrice.TabIndex = 15;
@@ -175,38 +163,31 @@
             // 
             PCat.FormattingEnabled = true;
             PCat.Items.AddRange(new object[] { "MOBILE PHONE", "ACCESSORIES", "OTHER" });
-            PCat.Location = new Point(283, 109);
+            PCat.Location = new Point(285, 124);
             PCat.Name = "PCat";
             PCat.Size = new Size(121, 23);
             PCat.TabIndex = 16;
             // 
             // PBrand
             // 
-            PBrand.Location = new Point(283, 147);
+            PBrand.Location = new Point(285, 171);
             PBrand.Name = "PBrand";
             PBrand.Size = new Size(201, 23);
             PBrand.TabIndex = 17;
             // 
             // PImage
             // 
-            PImage.Location = new Point(283, 465);
+            PImage.Location = new Point(285, 495);
             PImage.Name = "PImage";
             PImage.Size = new Size(210, 23);
             PImage.TabIndex = 18;
             // 
             // PQty
             // 
-            PQty.Location = new Point(283, 243);
+            PQty.Location = new Point(285, 272);
             PQty.Name = "PQty";
             PQty.Size = new Size(100, 23);
             PQty.TabIndex = 19;
-            // 
-            // PDp
-            // 
-            PDp.Location = new Point(283, 529);
-            PDp.Name = "PDp";
-            PDp.Size = new Size(100, 23);
-            PDp.TabIndex = 20;
             // 
             // AddBtn
             // 
@@ -272,13 +253,13 @@
             button3.Name = "button3";
             button3.Size = new Size(290, 55);
             button3.TabIndex = 26;
-            button3.Text = "UPDATE";
+            button3.Text = "UPDATE PRODUCT";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
             // PID
             // 
-            PID.Location = new Point(283, 76);
+            PID.Location = new Point(285, 89);
             PID.Name = "PID";
             PID.Size = new Size(100, 23);
             PID.TabIndex = 27;
@@ -287,7 +268,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label10.Location = new Point(116, 76);
+            label10.Location = new Point(118, 89);
             label10.Name = "label10";
             label10.Size = new Size(82, 19);
             label10.TabIndex = 28;
@@ -306,7 +287,6 @@
             Controls.Add(button2);
             Controls.Add(products);
             Controls.Add(AddBtn);
-            Controls.Add(PDp);
             Controls.Add(PQty);
             Controls.Add(PImage);
             Controls.Add(PBrand);
@@ -314,7 +294,6 @@
             Controls.Add(PPrice);
             Controls.Add(PDesc);
             Controls.Add(PName);
-            Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -344,7 +323,6 @@
         private Label label6;
         private Label label7;
         private Label label8;
-        private Label label9;
         private TextBox PName;
         private TextBox PDesc;
         private TextBox PPrice;
@@ -352,7 +330,6 @@
         private TextBox PBrand;
         private TextBox PImage;
         private TextBox PQty;
-        private TextBox PDp;
         private Button AddBtn;
         private DataGridView products;
         private Button button2;

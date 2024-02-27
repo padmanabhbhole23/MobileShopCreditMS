@@ -32,16 +32,17 @@
             panel1 = new Panel();
             AddBtn = new Button();
             EDITPANEL = new Panel();
+            button1 = new Button();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
+            txtET = new TextBox();
+            lblAmt = new Label();
+            label1 = new Label();
+            lblType = new Label();
             DGTTL = new DataGridView();
             button2 = new Button();
             label2 = new Label();
-            txtET = new TextBox();
-            lblAmt = new Label();
-            lblType = new Label();
-            label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            button1 = new Button();
+            label3 = new Label();
             panel1.SuspendLayout();
             EDITPANEL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGTTL).BeginInit();
@@ -50,6 +51,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Bisque;
+            panel1.Controls.Add(label3);
             panel1.Controls.Add(AddBtn);
             panel1.Controls.Add(EDITPANEL);
             panel1.Controls.Add(DGTTL);
@@ -66,7 +68,7 @@
             AddBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AddBtn.Location = new Point(275, 323);
             AddBtn.Name = "AddBtn";
-            AddBtn.Size = new Size(290, 55);
+            AddBtn.Size = new Size(210, 44);
             AddBtn.TabIndex = 22;
             AddBtn.Text = "UPDATE";
             AddBtn.UseVisualStyleBackColor = true;
@@ -81,11 +83,74 @@
             EDITPANEL.Controls.Add(lblAmt);
             EDITPANEL.Controls.Add(label1);
             EDITPANEL.Controls.Add(lblType);
-            EDITPANEL.Location = new Point(200, 384);
+            EDITPANEL.Location = new Point(275, 383);
             EDITPANEL.Name = "EDITPANEL";
-            EDITPANEL.Size = new Size(1022, 334);
+            EDITPANEL.Size = new Size(693, 334);
             EDITPANEL.TabIndex = 8;
             EDITPANEL.Visible = false;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(221, 242);
+            button1.Name = "button1";
+            button1.Size = new Size(185, 53);
+            button1.TabIndex = 23;
+            button1.Text = "OK";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(232, 170);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(164, 23);
+            textBox2.TabIndex = 14;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(204, 11);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(223, 23);
+            textBox1.TabIndex = 13;
+            // 
+            // txtET
+            // 
+            txtET.Location = new Point(204, 67);
+            txtET.Name = "txtET";
+            txtET.Size = new Size(223, 23);
+            txtET.TabIndex = 13;
+            // 
+            // lblAmt
+            // 
+            lblAmt.AutoSize = true;
+            lblAmt.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lblAmt.Location = new Point(26, 71);
+            lblAmt.Name = "lblAmt";
+            lblAmt.Size = new Size(158, 19);
+            lblAmt.TabIndex = 11;
+            lblAmt.Text = "REMAINING AMOUNT";
+            lblAmt.Click += lblAmt_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label1.Location = new Point(26, 15);
+            label1.Name = "label1";
+            label1.Size = new Size(54, 19);
+            label1.TabIndex = 10;
+            label1.Text = "BILL ID";
+            // 
+            // lblType
+            // 
+            lblType.AutoSize = true;
+            lblType.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lblType.Location = new Point(275, 19);
+            lblType.Name = "lblType";
+            lblType.Size = new Size(107, 19);
+            lblType.TabIndex = 10;
+            lblType.Text = "EXPENSE TYPE";
             // 
             // DGTTL
             // 
@@ -130,68 +195,17 @@
             label2.TabIndex = 3;
             label2.Text = "PHONE LINK";
             // 
-            // txtET
+            // label3
             // 
-            txtET.Location = new Point(204, 67);
-            txtET.Name = "txtET";
-            txtET.Size = new Size(223, 23);
-            txtET.TabIndex = 13;
-            // 
-            // lblAmt
-            // 
-            lblAmt.AutoSize = true;
-            lblAmt.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lblAmt.Location = new Point(26, 71);
-            lblAmt.Name = "lblAmt";
-            lblAmt.Size = new Size(158, 19);
-            lblAmt.TabIndex = 11;
-            lblAmt.Text = "REMAINING AMOUNT";
-            lblAmt.Click += lblAmt_Click;
-            // 
-            // lblType
-            // 
-            lblType.AutoSize = true;
-            lblType.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lblType.Location = new Point(275, 19);
-            lblType.Name = "lblType";
-            lblType.Size = new Size(107, 19);
-            lblType.TabIndex = 10;
-            lblType.Text = "EXPENSE TYPE";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label1.Location = new Point(26, 15);
-            label1.Name = "label1";
-            label1.Size = new Size(54, 19);
-            label1.TabIndex = 10;
-            label1.Text = "BILL ID";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(204, 11);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(223, 23);
-            textBox1.TabIndex = 13;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(232, 170);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(164, 23);
-            textBox2.TabIndex = 14;
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(221, 242);
-            button1.Name = "button1";
-            button1.Size = new Size(185, 53);
-            button1.TabIndex = 23;
-            button1.Text = "OK";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            label3.AutoSize = true;
+            label3.BorderStyle = BorderStyle.Fixed3D;
+            label3.Font = new Font("Arial Rounded MT Bold", 20F, FontStyle.Bold);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(275, 23);
+            label3.Name = "label3";
+            label3.Size = new Size(227, 34);
+            label3.TabIndex = 24;
+            label3.Text = "TOTAL CREDIT";
             // 
             // Total
             // 
@@ -228,5 +242,6 @@
         private Label label1;
         private Label lblType;
         private Button button1;
+        private Label label3;
     }
 }

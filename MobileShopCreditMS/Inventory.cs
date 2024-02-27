@@ -22,9 +22,9 @@ namespace MobileShopCreditMS
             InitializeComponent();
         }
         /*Padma*/
-       //  SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
         /*AFFAN*/
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+        //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -50,7 +50,7 @@ namespace MobileShopCreditMS
             PBrand.Text = "";
             PImage.Text = "";
             PQty.Text = "";
-            PDp.Text = "";
+            
 
 
         }
@@ -66,11 +66,11 @@ namespace MobileShopCreditMS
                 try
                 {
                     con.Open();
-                    string sql = "insert into Product values('" + PName.Text + "','" + PDesc.Text + "','" + PPrice.Text + "','" + PCat.SelectedItem.ToString() + "','" + PBrand.Text + "','" + PImage.Text + "','" + PQty.Text + "','" + PDp.Text + "') ";
+                    string sql = "insert into Product values('" + PName.Text + "','" + PDesc.Text + "','" + PPrice.Text + "','" + PCat.SelectedItem.ToString() + "','" + PBrand.Text + "','" + PImage.Text + "','" + PQty.Text + "') ";
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("PRODUCT ADDED SUCCESSFULLY");
-
+                    con.Close();
                     populate();
 
                     con.Open();
@@ -126,7 +126,7 @@ namespace MobileShopCreditMS
             PBrand.Text = products.SelectedRows[0].Cells[5].Value.ToString();
             PImage.Text = products.SelectedRows[0].Cells[6].Value.ToString();
             PQty.Text = products.SelectedRows[0].Cells[7].Value.ToString();
-            PDp.Text = products.SelectedRows[0].Cells[8].Value.ToString();
+            
 
            
         }

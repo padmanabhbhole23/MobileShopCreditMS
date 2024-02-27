@@ -30,6 +30,7 @@ namespace MobileShopCreditMS
         private void InitializeComponent()
         {
             panel2 = new Panel();
+            button4 = new Button();
             button3 = new Button();
             btnView = new Button();
             label2 = new Label();
@@ -79,6 +80,7 @@ namespace MobileShopCreditMS
             panel2.AutoScroll = true;
             panel2.AutoSize = true;
             panel2.BackColor = Color.Bisque;
+            panel2.Controls.Add(button4);
             panel2.Controls.Add(button3);
             panel2.Controls.Add(btnView);
             panel2.Controls.Add(label2);
@@ -87,6 +89,17 @@ namespace MobileShopCreditMS
             panel2.Name = "panel2";
             panel2.Size = new Size(234, 737);
             panel2.TabIndex = 4;
+            // 
+            // button4
+            // 
+            button4.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button4.Location = new Point(5, 242);
+            button4.Name = "button4";
+            button4.Size = new Size(209, 43);
+            button4.TabIndex = 5;
+            button4.Text = "VIEW TOTAL CREDIT";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click_2;
             // 
             // button3
             // 
@@ -182,7 +195,7 @@ namespace MobileShopCreditMS
             // 
             // txtpid
             // 
-            txtpid.Location = new Point(216, 71);
+            txtpid.Location = new Point(260, 93);
             txtpid.Margin = new Padding(4, 3, 4, 3);
             txtpid.Name = "txtpid";
             txtpid.Size = new Size(200, 23);
@@ -193,7 +206,7 @@ namespace MobileShopCreditMS
             label13.AutoSize = true;
             label13.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label13.ForeColor = SystemColors.ActiveCaptionText;
-            label13.Location = new Point(32, 71);
+            label13.Location = new Point(76, 93);
             label13.Margin = new Padding(4, 0, 4, 0);
             label13.Name = "label13";
             label13.Size = new Size(92, 19);
@@ -202,7 +215,7 @@ namespace MobileShopCreditMS
             // 
             // txtPName
             // 
-            txtPName.Location = new Point(216, 113);
+            txtPName.Location = new Point(260, 135);
             txtPName.Margin = new Padding(4, 3, 4, 3);
             txtPName.Name = "txtPName";
             txtPName.Size = new Size(200, 23);
@@ -213,7 +226,7 @@ namespace MobileShopCreditMS
             lblTAmt.AutoSize = true;
             lblTAmt.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblTAmt.ForeColor = Color.FromArgb(0, 192, 0);
-            lblTAmt.Location = new Point(754, 365);
+            lblTAmt.Location = new Point(951, 366);
             lblTAmt.Margin = new Padding(4, 0, 4, 0);
             lblTAmt.Name = "lblTAmt";
             lblTAmt.Size = new Size(17, 19);
@@ -225,7 +238,7 @@ namespace MobileShopCreditMS
             label15.AutoSize = true;
             label15.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label15.ForeColor = SystemColors.ControlText;
-            label15.Location = new Point(595, 365);
+            label15.Location = new Point(790, 366);
             label15.Margin = new Padding(4, 0, 4, 0);
             label15.Name = "label15";
             label15.Size = new Size(120, 19);
@@ -237,7 +250,7 @@ namespace MobileShopCreditMS
             lblRMAmt.AutoSize = true;
             lblRMAmt.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblRMAmt.ForeColor = Color.Red;
-            lblRMAmt.Location = new Point(216, 365);
+            lblRMAmt.Location = new Point(951, 403);
             lblRMAmt.Margin = new Padding(4, 0, 4, 0);
             lblRMAmt.Name = "lblRMAmt";
             lblRMAmt.Size = new Size(17, 19);
@@ -249,7 +262,7 @@ namespace MobileShopCreditMS
             label11.AutoSize = true;
             label11.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label11.ForeColor = SystemColors.ControlText;
-            label11.Location = new Point(32, 365);
+            label11.Location = new Point(774, 403);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
             label11.Size = new Size(158, 19);
@@ -258,7 +271,7 @@ namespace MobileShopCreditMS
             // 
             // txtCName
             // 
-            txtCName.Location = new Point(216, 273);
+            txtCName.Location = new Point(260, 295);
             txtCName.Margin = new Padding(4, 3, 4, 3);
             txtCName.Name = "txtCName";
             txtCName.Size = new Size(200, 23);
@@ -266,31 +279,31 @@ namespace MobileShopCreditMS
             // 
             // txtPAmt
             // 
-            txtPAmt.Location = new Point(216, 319);
+            txtPAmt.Location = new Point(260, 417);
             txtPAmt.Margin = new Padding(4, 3, 4, 3);
             txtPAmt.Name = "txtPAmt";
             txtPAmt.Size = new Size(200, 23);
             txtPAmt.TabIndex = 45;
-            txtPAmt.TextChanged += txtPAmt_TextChanged;
+            txtPAmt.TextChanged += txtPAmt_TextChanged_1;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label10.ForeColor = SystemColors.ControlText;
-            label10.Location = new Point(32, 319);
+            label10.Location = new Point(76, 421);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new Size(157, 19);
+            label10.Size = new Size(156, 19);
             label10.TabIndex = 44;
-            label10.Text = "TOTAL PIAD AMOUNT";
+            label10.Text = "TOTAL PAID AMOUNT";
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label9.ForeColor = SystemColors.ControlText;
-            label9.Location = new Point(39, 487);
+            label9.Location = new Point(18, 487);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(146, 19);
@@ -302,7 +315,7 @@ namespace MobileShopCreditMS
             label8.AutoSize = true;
             label8.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label8.ForeColor = SystemColors.ControlText;
-            label8.Location = new Point(584, 487);
+            label8.Location = new Point(567, 487);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(131, 19);
@@ -314,24 +327,26 @@ namespace MobileShopCreditMS
             dgproduct.AllowUserToAddRows = false;
             dgproduct.AllowUserToDeleteRows = false;
             dgproduct.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgproduct.Location = new Point(584, 509);
+            dgproduct.Location = new Point(567, 509);
             dgproduct.Name = "dgproduct";
             dgproduct.ReadOnly = true;
             dgproduct.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgproduct.Size = new Size(552, 202);
+            dgproduct.Size = new Size(537, 202);
             dgproduct.TabIndex = 41;
             dgproduct.CellContentClick += dgproduct_CellContentClick;
+            dgproduct.CellContentDoubleClick += dgproduct_CellContentClick;
             // 
             // dgcust
             // 
             dgcust.AllowUserToAddRows = false;
             dgcust.AllowUserToDeleteRows = false;
+            dgcust.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgcust.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgcust.Location = new Point(26, 509);
+            dgcust.Location = new Point(18, 509);
             dgcust.Name = "dgcust";
             dgcust.ReadOnly = true;
             dgcust.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgcust.Size = new Size(552, 202);
+            dgcust.Size = new Size(537, 202);
             dgcust.TabIndex = 40;
             dgcust.CellContentClick += dgcust_CellContentClick;
             // 
@@ -340,7 +355,7 @@ namespace MobileShopCreditMS
             label7.AutoSize = true;
             label7.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label7.ForeColor = SystemColors.ActiveCaptionText;
-            label7.Location = new Point(790, 71);
+            label7.Location = new Point(790, 57);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(44, 19);
@@ -351,13 +366,17 @@ namespace MobileShopCreditMS
             // 
             dgcart.AllowUserToAddRows = false;
             dgcart.AllowUserToDeleteRows = false;
+            dgcart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dgcart.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             dgcart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgcart.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
-            dgcart.Location = new Point(546, 93);
+            dgcart.Location = new Point(546, 79);
             dgcart.Name = "dgcart";
             dgcart.ReadOnly = true;
+            dgcart.RowHeadersWidth = 40;
+            dgcart.ScrollBars = ScrollBars.Vertical;
             dgcart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgcart.Size = new Size(530, 252);
+            dgcart.Size = new Size(530, 266);
             dgcart.TabIndex = 38;
             dgcart.CellContentClick += dgcart_CellContentClick;
             // 
@@ -366,28 +385,32 @@ namespace MobileShopCreditMS
             Column1.HeaderText = "ProductID";
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
+            Column1.Width = 85;
             // 
             // Column2
             // 
             Column2.HeaderText = "Product Name";
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
+            Column2.Width = 109;
             // 
             // Column3
             // 
             Column3.HeaderText = "Quantity";
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
+            Column3.Width = 78;
             // 
             // Column4
             // 
             Column4.HeaderText = "Total Amount";
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
+            Column4.Width = 104;
             // 
             // txtCID
             // 
-            txtCID.Location = new Point(216, 232);
+            txtCID.Location = new Point(260, 254);
             txtCID.Margin = new Padding(4, 3, 4, 3);
             txtCID.Name = "txtCID";
             txtCID.Size = new Size(200, 23);
@@ -399,7 +422,7 @@ namespace MobileShopCreditMS
             label6.AutoSize = true;
             label6.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label6.ForeColor = SystemColors.ControlText;
-            label6.Location = new Point(32, 273);
+            label6.Location = new Point(76, 295);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(132, 19);
@@ -411,7 +434,7 @@ namespace MobileShopCreditMS
             label4.AutoSize = true;
             label4.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label4.ForeColor = SystemColors.ControlText;
-            label4.Location = new Point(32, 232);
+            label4.Location = new Point(76, 254);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(103, 19);
@@ -422,10 +445,10 @@ namespace MobileShopCreditMS
             // 
             btnAdCrt.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btnAdCrt.ForeColor = SystemColors.ControlText;
-            btnAdCrt.Location = new Point(140, 417);
+            btnAdCrt.Location = new Point(62, 354);
             btnAdCrt.Margin = new Padding(4, 3, 4, 3);
             btnAdCrt.Name = "btnAdCrt";
-            btnAdCrt.Size = new Size(209, 43);
+            btnAdCrt.Size = new Size(424, 43);
             btnAdCrt.TabIndex = 33;
             btnAdCrt.Text = "ADD TO CART";
             btnAdCrt.UseVisualStyleBackColor = true;
@@ -433,7 +456,7 @@ namespace MobileShopCreditMS
             // 
             // txtpp
             // 
-            txtpp.Location = new Point(216, 193);
+            txtpp.Location = new Point(260, 215);
             txtpp.Margin = new Padding(4, 3, 4, 3);
             txtpp.Name = "txtpp";
             txtpp.Size = new Size(200, 23);
@@ -444,7 +467,7 @@ namespace MobileShopCreditMS
             label5.AutoSize = true;
             label5.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label5.ForeColor = SystemColors.ActiveCaptionText;
-            label5.Location = new Point(32, 197);
+            label5.Location = new Point(76, 219);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(116, 19);
@@ -453,7 +476,7 @@ namespace MobileShopCreditMS
             // 
             // txtQnty
             // 
-            txtQnty.Location = new Point(216, 151);
+            txtQnty.Location = new Point(260, 173);
             txtQnty.Margin = new Padding(4, 3, 4, 3);
             txtQnty.Name = "txtQnty";
             txtQnty.Size = new Size(200, 23);
@@ -464,7 +487,7 @@ namespace MobileShopCreditMS
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(32, 151);
+            label1.Location = new Point(76, 173);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(148, 19);
@@ -476,7 +499,7 @@ namespace MobileShopCreditMS
             label12.AutoSize = true;
             label12.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label12.ForeColor = SystemColors.ActiveCaptionText;
-            label12.Location = new Point(32, 113);
+            label12.Location = new Point(76, 135);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
             label12.Size = new Size(121, 19);
@@ -487,7 +510,7 @@ namespace MobileShopCreditMS
             // 
             btnGBill.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btnGBill.ForeColor = SystemColors.ActiveCaptionText;
-            btnGBill.Location = new Point(699, 417);
+            btnGBill.Location = new Point(757, 441);
             btnGBill.Name = "btnGBill";
             btnGBill.Size = new Size(209, 43);
             btnGBill.TabIndex = 24;
@@ -545,6 +568,56 @@ namespace MobileShopCreditMS
             PerformLayout();
         }
 
+        private void button4_Click_2(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Button4_Click_1(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BtnAdCrt_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void TxtCID_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void dgcart_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Dgcust_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Dgproduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void txtPAmt_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BtnView_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
@@ -590,5 +663,6 @@ namespace MobileShopCreditMS
         private DataGridViewTextBoxColumn Column4;
         private TextBox txtpid;
         private Label label13;
+        private Button button4;
     }
 }

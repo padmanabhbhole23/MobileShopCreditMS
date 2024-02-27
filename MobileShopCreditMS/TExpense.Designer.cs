@@ -46,6 +46,7 @@
             button2 = new Button();
             button1 = new Button();
             label2 = new Label();
+            label3 = new Label();
             panel1.SuspendLayout();
             EditPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGExp).BeginInit();
@@ -54,6 +55,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Bisque;
+            panel1.Controls.Add(label3);
             panel1.Controls.Add(button3);
             panel1.Controls.Add(EditPanel);
             panel1.Controls.Add(DGExp);
@@ -242,6 +244,18 @@
             label2.TabIndex = 3;
             label2.Text = "PHONE LINK";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BorderStyle = BorderStyle.Fixed3D;
+            label3.Font = new Font("Arial Rounded MT Bold", 20F, FontStyle.Bold);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(258, 24);
+            label3.Name = "label3";
+            label3.Size = new Size(253, 34);
+            label3.TabIndex = 24;
+            label3.Text = "TOTAL EXPENSE";
+            // 
             // TExpense
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -281,5 +295,6 @@
         private TextBox txtDesc;
         private TextBox txtAmt;
         private TextBox txtET;
+        private Label label3;
     }
 }

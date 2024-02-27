@@ -1,21 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DocumentFormat.OpenXml.VariantTypes;
-using iText.Bouncycastlefips.Math;
-using iText.Kernel.Pdf;
+﻿using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
-using Org.BouncyCastle.Crypto.General;
-using System.Drawing;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace MobileShopCreditMS
 {
@@ -24,9 +12,9 @@ namespace MobileShopCreditMS
         int totalamt = 0;
         string partialpayment = "Full";
         /*Padma*/
-        //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
         //affan
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+        //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
 
         public GBill()
         {
@@ -56,26 +44,8 @@ namespace MobileShopCreditMS
             dgcust.DataSource = ds.Tables[0];
             con.Close();
         }
-        private void gpdf()
+        private void gpdf(string customerId)
         {
-            /*
-            string path = @"E:\Padmanabh\PROJECT\invoice.pdf";
-            PdfWriter writer = new PdfWriter(path);
-            PdfDocument pdf = new PdfDocument(writer);
-            Document document = new Document(pdf);
-
-            //document.Close();
-            */
-            //string customerId = txtCustID.Text.Trim();
-            string customerId = 101.ToString();
-            /*
-            if (string.IsNullOrEmpty(customerId))
-            {
-                MessageBox.Show("Please enter a customer ID.");
-                return;
-            }*/
-
-
             string fileName = $"Invoice_{customerId}.pdf";
             //string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), fileName);
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
@@ -101,52 +71,53 @@ namespace MobileShopCreditMS
                     document.Add(title);
                     document.Add(shopInfo);
 
-                    // Add table for items
                     float[] columnWidths = { 1, 5, 2 };
                     Table table = new Table(columnWidths);
                     table.SetWidth(UnitValue.CreatePercentValue(100));
-                    table.AddCell(CreateHeaderCell("Sr No."));
-                    table.AddCell(CreateHeaderCell("Item Name"));
-                    table.AddCell(CreateHeaderCell("Item Price"));
+                    // Initialize total price variable
+                    decimal totalPrice = 0;
+                    decimal srno = 0;
 
                     // Add items to the table
                     // Replace this with actual data from your database
-                    table.AddCell(CreateCell("1", TextAlignment.CENTER));
-                    table.AddCell(CreateCell("Product A", TextAlignment.LEFT));
-                    table.AddCell(CreateCell("$10", TextAlignment.RIGHT));
+                    foreach (DataGridViewRow row in dgcart.Rows)
+                    {
+                        // Assuming you have four columns: Quantity, Product Name, Price, and Total
+                        string quantity = row.Cells["Column2"].Value.ToString(); // Change "QuantityColumn" to the actual name of the column
+                        string productName = row.Cells["Column3"].Value.ToString(); // Change "ProductNameColumn" to the actual name of the column
+                        string price = row.Cells["Column4"].Value.ToString(); // Change "PriceColumn" to the actual name of the column
 
-                    table.AddCell(CreateCell("2", TextAlignment.CENTER));
-                    table.AddCell(CreateCell("Product B", TextAlignment.LEFT));
-                    table.AddCell(CreateCell("$20", TextAlignment.RIGHT));
+                        // Calculate total price
+                        decimal itemPrice = decimal.Parse(price);
+                        decimal itemQuantity = decimal.Parse(quantity);
+                        decimal totalPriceForItem = itemPrice * itemQuantity;
+                        totalPrice += totalPriceForItem;
 
+                        // Increment serial number
+                        srno += 1;
+                        string s = srno.ToString();
+
+                        // Add cells to the table
+                        table.AddCell(CreateCell(s, TextAlignment.LEFT));
+                        table.AddCell(CreateCell(productName, TextAlignment.LEFT));
+                        table.AddCell(CreateCell(price, TextAlignment.RIGHT));
+                        table.AddCell(CreateCell(quantity, TextAlignment.CENTER));
+                        table.AddCell(CreateCell(totalPriceForItem.ToString(), TextAlignment.RIGHT));
+                    }
+
+                    // Add a row for total price
+                    table.AddCell(new Cell(1, 4).Add(new Paragraph("Total Price:")).SetTextAlignment(TextAlignment.RIGHT));
+                    table.AddCell(new Cell(1, 1));
+                    table.AddCell(new Cell(1, 1));
+                    table.AddCell(new Cell(1, 1));
+                    table.AddCell(CreateCell(totalPrice.ToString(), TextAlignment.RIGHT));
+
+                    // Add the table to the document
                     document.Add(table);
 
-                    // Add total amount
-                    double totalAmount = 30; // Replace with actual total amount
-                    Paragraph total = new Paragraph($"Total: ${totalAmount}").SetTextAlignment(TextAlignment.RIGHT);
-                    document.Add(total);
-
-                    // Add GST
-                    double gstPercentage = 12;
-                    double gstAmount = (totalAmount * gstPercentage) / 100;
-                    Paragraph gst = new Paragraph($"GST ({gstPercentage}%): ${gstAmount}").SetTextAlignment(TextAlignment.RIGHT);
-                    document.Add(gst);
-
-                    // Add total including GST
-                    double totalIncludingGst = totalAmount + gstAmount;
-                    Paragraph totalWithGst = new Paragraph($"Total (Including GST): ${totalIncludingGst}").SetTextAlignment(TextAlignment.RIGHT);
-                    document.Add(totalWithGst);
-
-                    // Add remaining amount and cash paid
-                    double remainingAmount = 0; // Calculate remaining amount
-                    double cashPaid = totalIncludingGst; // Assuming cash paid is the total amount
-                    Paragraph remainingAndPaid = new Paragraph($"Remaining Amount: ${remainingAmount}\nCash Paid: ${cashPaid}")
-                        .SetTextAlignment(TextAlignment.RIGHT);
-                    document.Add(remainingAndPaid);
 
                     // Add closing message
-                    Paragraph closing = new Paragraph("THANK YOU FOR PURCHASING.\nDO VISIT AGAIN")
-                        .SetTextAlignment(TextAlignment.CENTER).SetFontSize(10);
+                    Paragraph closing = new Paragraph("THANK YOU FOR PURCHASING.\nDO VISIT AGAIN").SetTextAlignment(TextAlignment.CENTER).SetFontSize(10);
                     document.Add(closing);
 
                     // Close the document
@@ -154,6 +125,7 @@ namespace MobileShopCreditMS
                 }
 
                 MessageBox.Show($"PDF bill generated successfully!\nFile saved to: {filePath}");
+
             }
         }
         private void button2_Click(object sender, EventArgs e)
@@ -179,59 +151,62 @@ namespace MobileShopCreditMS
         private void btnGBill_Click(object sender, EventArgs e)
         {
             con.Open();
+                DateTime currentDate = DateTime.Now;
+                string dateString = currentDate.ToString("yyyy-MM-dd");
+                int q = int.Parse(txtQnty.Text);
+                int pp = int.Parse(txtpp.Text);
+                int t = q * pp;
+                string partialpayment;
+                if (lblRMAmt.Text == "0")
+                {
+                    partialpayment = "Full";
+                }
+                else
+                {
+                    partialpayment = "Half";
+                }
 
-            DateTime currentDate = DateTime.Now;
-            string dateString = currentDate.ToString("yyyy-MM-dd");
-            int q = int.Parse(txtQnty.Text);
-            int pp = int.Parse(txtpp.Text);
-            int t = q * pp;
-            string partialpayment;
-            if (lblRMAmt.Text == "0")
-            {
-                partialpayment = "Full";
-            }
-            else
-            {
-                partialpayment = "Half";
-            }
-
-            string query = " insert into Bill values('" + txtCID.Text + "', '" + dateString + "', '" + totalamt + "', '" + partialpayment + "', '" + txtPAmt.Text + "')";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.ExecuteNonQuery();
-            con.Close();
+                string query = " insert into Bill values('" + txtCID.Text + "', '" + dateString + "', '" + totalamt + "', '" + partialpayment + "', '" + txtPAmt.Text + "')";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
 
 
 
-            //Product going in MpBills
-            string cmd1 = "SELECT MAX(BillId) FROM Bill";
-            SqlCommand command = new SqlCommand(cmd1, con);
-            con.Open();
-            int lastId = Convert.ToInt32(command.ExecuteScalar());
+
+                //Product going in MpBills
+                string cmd1 = "SELECT MAX(BillId) FROM Bill";
+                SqlCommand command = new SqlCommand(cmd1, con);
+
+                int lastId = Convert.ToInt32(command.ExecuteScalar());
+
+
+                foreach (DataGridViewRow row in dgcart.Rows)
+                {
+                    int pid = int.Parse(row.Cells[0].Value.ToString());
+                    string pname = row.Cells[1].Value.ToString();
+                    string quan = row.Cells[2].Value.ToString();
+                    string ttamt = row.Cells[3].Value.ToString();
+
+                    string query1 = " insert into MPBills values('" + pid + "','" + lastId + "','" + pname + "','" + ttamt + "')";
+                    SqlCommand command1 = new SqlCommand(query1, con);
+                    command1.ExecuteNonQuery();
+
+                    //update inventory
+                    /*
+                    string updateQuery = "UPDATE Product SET StockQuantity = StockQuantity - @Quantity WHERE ProductID = @ProductID";
+                    SqlCommand updateCommand = new SqlCommand(updateQuery, con);
+                    updateCommand.Parameters.AddWithValue("@Quantity", quan);
+                    updateCommand.Parameters.AddWithValue("@ProductID", pid);
+                    updateCommand.ExecuteNonQuery();
+                    */
+                }
+                //gpdf(lastId.ToString());
+                con.Close();
             
-
-            foreach(DataGridViewRow row in dgcart.Rows)
-            {
-                int pid = int.Parse(row.Cells[0].Value.ToString());
-                string pname = row.Cells[1].Value.ToString();
-                string quan = row.Cells[2].Value.ToString();
-                string ttamt = row.Cells[3].Value.ToString();
-                
-                string query1 = " insert into MPBills values('"+pid+"','"+lastId+"','"+pname+"','"+ttamt+"')";
-                SqlCommand command1 = new SqlCommand(query1, con);
-                command1.ExecuteNonQuery();
-                
-
-            }
-            con.Close();
-            //gpdf();
         }
-
-
-
-
-
         private void btnView_Click(object sender, EventArgs e)
         {
+            //
             this.Close();
             var c = new VCustomers();
             c.Show();
@@ -251,8 +226,8 @@ namespace MobileShopCreditMS
             txtCName.Text = "";
             txtPAmt.Text = "";
             txtPName.Text = "";
-            lblRMAmt.Text = "0.0/-";
-            lblTAmt.Text = "0.0/-";
+            lblRMAmt.Text = "0";
+            lblTAmt.Text = "0";
             txtpp.Text = "";
 
 
@@ -290,7 +265,11 @@ namespace MobileShopCreditMS
             totalamt += t;
 
             lblTAmt.Text = totalamt.ToString();
-            //txtpp.Text = dgproduct.SelectedRows[0].Cells[2].Value.ToString();
+
+            txtpid.Text = "";
+            txtPName.Text = "";
+            txtpp.Text = "";
+            txtQnty.Text = "";
 
         }
 
@@ -308,17 +287,23 @@ namespace MobileShopCreditMS
             txtCName.Text = dgcust.SelectedRows[0].Cells[1].Value.ToString();
         }
 
-        private void dgcart_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+
+        
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            var t = new Total();
+            t.Show();
         }
 
-        private void txtPAmt_TextChanged(object sender, EventArgs e)
+        private void txtPAmt_TextChanged_1(object sender, EventArgs e)
         {
             int ttl = int.Parse(lblTAmt.Text);
             int pamt = int.Parse(txtPAmt.Text);
-            int r = ttl-pamt;
-            lblRMAmt.Text=r.ToString();
+            int r = ttl - pamt;
+            lblRMAmt.Text = r.ToString();
         }
     }
 }
