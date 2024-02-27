@@ -22,7 +22,7 @@ namespace MobileShopCreditMS
         {
             InitializeComponent();
             con.Open();
-            string query = "SELECT c.FirstName, c.MidName, c.LastName, ct.TransactionDate, ct.CreditAmount, ct.PaymentStatus FROM CreditTransasction ct JOIN Customer c ON ct.CustomerId = c.CustomerId WHERE ct.PaymentStatus = 'Half';";
+            string query = "select c.FirstName,c.MidName,c.LastName,b.*  FROM Customer c JOIN bill b ON c.customerId=b.customerId where PaymentStatus='Half'";
             SqlDataAdapter da = new SqlDataAdapter(query, con);
             SqlCommandBuilder builder = new SqlCommandBuilder(da);
             var ds = new DataSet();
@@ -42,6 +42,11 @@ namespace MobileShopCreditMS
             this.Hide();
             var a = new ADash();
             a.Show();
+        }
+
+        private void DGTTL_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

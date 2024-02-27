@@ -1,4 +1,5 @@
-﻿namespace MobileShopCreditMS
+﻿
+namespace MobileShopCreditMS
 {
     partial class GBill
     {
@@ -34,6 +35,8 @@
             label2 = new Label();
             button2 = new Button();
             panel1 = new Panel();
+            txtpid = new TextBox();
+            label13 = new Label();
             txtPName = new TextBox();
             lblTAmt = new Label();
             label15 = new Label();
@@ -48,6 +51,10 @@
             dgcust = new DataGridView();
             label7 = new Label();
             dgcart = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
             txtCID = new TextBox();
             label6 = new Label();
             label4 = new Label();
@@ -138,6 +145,8 @@
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Bisque;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(txtpid);
+            panel1.Controls.Add(label13);
             panel1.Controls.Add(txtPName);
             panel1.Controls.Add(lblTAmt);
             panel1.Controls.Add(label15);
@@ -171,9 +180,29 @@
             panel1.TabIndex = 5;
             panel1.Paint += panel1_Paint;
             // 
+            // txtpid
+            // 
+            txtpid.Location = new Point(216, 71);
+            txtpid.Margin = new Padding(4, 3, 4, 3);
+            txtpid.Name = "txtpid";
+            txtpid.Size = new Size(200, 23);
+            txtpid.TabIndex = 53;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label13.ForeColor = SystemColors.ActiveCaptionText;
+            label13.Location = new Point(32, 71);
+            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(92, 19);
+            label13.TabIndex = 52;
+            label13.Text = "PRODUCT ID";
+            // 
             // txtPName
             // 
-            txtPName.Location = new Point(216, 104);
+            txtPName.Location = new Point(216, 113);
             txtPName.Margin = new Padding(4, 3, 4, 3);
             txtPName.Name = "txtPName";
             txtPName.Size = new Size(200, 23);
@@ -183,13 +212,13 @@
             // 
             lblTAmt.AutoSize = true;
             lblTAmt.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lblTAmt.ForeColor = SystemColors.ControlText;
+            lblTAmt.ForeColor = Color.FromArgb(0, 192, 0);
             lblTAmt.Location = new Point(754, 365);
             lblTAmt.Margin = new Padding(4, 0, 4, 0);
             lblTAmt.Name = "lblTAmt";
-            lblTAmt.Size = new Size(41, 19);
+            lblTAmt.Size = new Size(17, 19);
             lblTAmt.TabIndex = 50;
-            lblTAmt.Text = "0.0/-";
+            lblTAmt.Text = "0";
             // 
             // label15
             // 
@@ -207,13 +236,13 @@
             // 
             lblRMAmt.AutoSize = true;
             lblRMAmt.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lblRMAmt.ForeColor = SystemColors.ControlText;
+            lblRMAmt.ForeColor = Color.Red;
             lblRMAmt.Location = new Point(216, 365);
             lblRMAmt.Margin = new Padding(4, 0, 4, 0);
             lblRMAmt.Name = "lblRMAmt";
-            lblRMAmt.Size = new Size(41, 19);
+            lblRMAmt.Size = new Size(17, 19);
             lblRMAmt.TabIndex = 48;
-            lblRMAmt.Text = "0.0/-";
+            lblRMAmt.Text = "0";
             // 
             // label11
             // 
@@ -242,6 +271,7 @@
             txtPAmt.Name = "txtPAmt";
             txtPAmt.Size = new Size(200, 23);
             txtPAmt.TabIndex = 45;
+            txtPAmt.TextChanged += txtPAmt_TextChanged;
             // 
             // label10
             // 
@@ -288,7 +318,7 @@
             dgproduct.Name = "dgproduct";
             dgproduct.ReadOnly = true;
             dgproduct.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgproduct.Size = new Size(470, 202);
+            dgproduct.Size = new Size(552, 202);
             dgproduct.TabIndex = 41;
             dgproduct.CellContentClick += dgproduct_CellContentClick;
             // 
@@ -297,11 +327,11 @@
             dgcust.AllowUserToAddRows = false;
             dgcust.AllowUserToDeleteRows = false;
             dgcust.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgcust.Location = new Point(39, 509);
+            dgcust.Location = new Point(26, 509);
             dgcust.Name = "dgcust";
             dgcust.ReadOnly = true;
             dgcust.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgcust.Size = new Size(470, 202);
+            dgcust.Size = new Size(552, 202);
             dgcust.TabIndex = 40;
             dgcust.CellContentClick += dgcust_CellContentClick;
             // 
@@ -319,13 +349,41 @@
             // 
             // dgcart
             // 
+            dgcart.AllowUserToAddRows = false;
             dgcart.AllowUserToDeleteRows = false;
             dgcart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgcart.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
             dgcart.Location = new Point(546, 93);
             dgcart.Name = "dgcart";
+            dgcart.ReadOnly = true;
             dgcart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgcart.Size = new Size(530, 252);
             dgcart.TabIndex = 38;
+            dgcart.CellContentClick += dgcart_CellContentClick;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "ProductID";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Product Name";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Quantity";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Total Amount";
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
             // 
             // txtCID
             // 
@@ -418,7 +476,7 @@
             label12.AutoSize = true;
             label12.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label12.ForeColor = SystemColors.ActiveCaptionText;
-            label12.Location = new Point(32, 104);
+            label12.Location = new Point(32, 113);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
             label12.Size = new Size(121, 19);
@@ -487,6 +545,11 @@
             PerformLayout();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private Panel panel2;
@@ -521,5 +584,11 @@
         private Label label15;
         private Label lblTAmt;
         private TextBox txtPName;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private TextBox txtpid;
+        private Label label13;
     }
 }

@@ -18,8 +18,9 @@ namespace MobileShopCreditMS
             InitializeComponent();
             populate();
         }
-        /*Padma*/SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
-       //affan
+        /*Padma*/
+        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+        //affan
         //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
 
         private void button2_Click(object sender, EventArgs e)
@@ -72,6 +73,20 @@ namespace MobileShopCreditMS
         private void VCustomers_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var dash = new VCatalogue();
+            dash.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var dash = new Inventory();
+            dash.Show();
         }
     }
 }

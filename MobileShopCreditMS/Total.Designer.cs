@@ -51,15 +51,17 @@
             // 
             // DGTTL
             // 
+            DGTTL.AllowUserToAddRows = false;
+            DGTTL.AllowUserToDeleteRows = false;
             DGTTL.BackgroundColor = SystemColors.InactiveCaption;
             DGTTL.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGTTL.Location = new Point(191, 157);
+            DGTTL.Location = new Point(301, 72);
             DGTTL.Name = "DGTTL";
-            DGTTL.ReadOnly = true;
             DGTTL.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             DGTTL.ScrollBars = ScrollBars.Vertical;
-            DGTTL.Size = new Size(946, 209);
+            DGTTL.Size = new Size(921, 279);
             DGTTL.TabIndex = 7;
+            DGTTL.CellContentClick += DGTTL_CellContentClick;
             // 
             // button2
             // 

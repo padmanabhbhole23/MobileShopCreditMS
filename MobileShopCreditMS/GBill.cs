@@ -9,16 +9,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DocumentFormat.OpenXml.VariantTypes;
+using iText.Bouncycastlefips.Math;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
 using Org.BouncyCastle.Crypto.General;
+using System.Drawing;
 
 namespace MobileShopCreditMS
 {
     public partial class GBill : Form
     {
+        int totalamt = 0;
         string partialpayment = "Full";
         /*Padma*/
         SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
@@ -175,14 +178,57 @@ namespace MobileShopCreditMS
         }
         private void btnGBill_Click(object sender, EventArgs e)
         {
-            gpdf();
+            con.Open();
 
+            DateTime currentDate = DateTime.Now;
+            string dateString = currentDate.ToString("yyyy-MM-dd");
+            int q = int.Parse(txtQnty.Text);
+            int pp = int.Parse(txtpp.Text);
+            int t = q * pp;
+            string partialpayment;
+            if (lblRMAmt.Text == "0")
+            {
+                partialpayment = "Full";
+            }
+            else
+            {
+                partialpayment = "Half";
+            }
+
+            string query = " insert into Bill values('" + txtCID.Text + "', '" + dateString + "', '" + totalamt + "', '" + partialpayment + "', '" + txtPAmt.Text + "')";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+
+
+            //Product going in MpBills
+            string cmd1 = "SELECT MAX(BillId) FROM Bill";
+            SqlCommand command = new SqlCommand(cmd1, con);
+            con.Open();
+            int lastId = Convert.ToInt32(command.ExecuteScalar());
+            
+
+            foreach(DataGridViewRow row in dgcart.Rows)
+            {
+                int pid = int.Parse(row.Cells[0].Value.ToString());
+                string pname = row.Cells[1].Value.ToString();
+                string quan = row.Cells[2].Value.ToString();
+                string ttamt = row.Cells[3].Value.ToString();
+                
+                string query1 = " insert into MPBills values('"+pid+"','"+lastId+"','"+pname+"','"+ttamt+"')";
+                SqlCommand command1 = new SqlCommand(query1, con);
+                command1.ExecuteNonQuery();
+                
+
+            }
+            con.Close();
+            //gpdf();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+
+
+
 
         private void btnView_Click(object sender, EventArgs e)
         {
@@ -229,22 +275,28 @@ namespace MobileShopCreditMS
 
         private void btnAdCrt_Click(object sender, EventArgs e)
         {
+
             DateTime currentDate = DateTime.Now;
             string dateString = currentDate.ToString("yyyy-MM-dd");
+            string pid = txtpid.Text;
+            string pn = txtPName.Text;
+            int q = int.Parse(txtQnty.Text);
+            int pp = int.Parse(txtpp.Text);
+            string cid = txtCID.Text;
+            string cn = txtCName.Text;
+            int t = q * pp;
+            string[] row = new string[] { pid, pn, q.ToString(), t.ToString() };
+            dgcart.Rows.Add(row);
+            totalamt += t;
 
-            con.Open();
-            string query = "insert into Bill values('"+ txtCID.Text+"','"+dateString+"','"+"')";
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(da);
-            var ds = new DataSet();
-            da.Fill(ds);
-            dgcart.DataSource = ds.Tables[0];
-            con.Close();
+            lblTAmt.Text = totalamt.ToString();
+            //txtpp.Text = dgproduct.SelectedRows[0].Cells[2].Value.ToString();
 
         }
 
         private void dgproduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            txtpid.Text = dgproduct.SelectedRows[0].Cells[0].Value.ToString();
             txtPName.Text = dgproduct.SelectedRows[0].Cells[1].Value.ToString();
             txtpp.Text = dgproduct.SelectedRows[0].Cells[2].Value.ToString();
 
@@ -254,6 +306,19 @@ namespace MobileShopCreditMS
         {
             txtCID.Text = dgcust.SelectedRows[0].Cells[0].Value.ToString();
             txtCName.Text = dgcust.SelectedRows[0].Cells[1].Value.ToString();
+        }
+
+        private void dgcart_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtPAmt_TextChanged(object sender, EventArgs e)
+        {
+            int ttl = int.Parse(lblTAmt.Text);
+            int pamt = int.Parse(txtPAmt.Text);
+            int r = ttl-pamt;
+            lblRMAmt.Text=r.ToString();
         }
     }
 }

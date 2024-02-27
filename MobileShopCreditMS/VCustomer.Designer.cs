@@ -81,6 +81,7 @@
             button4.TabIndex = 5;
             button4.Text = "MANAGE INVENTORY";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -91,6 +92,7 @@
             button3.TabIndex = 4;
             button3.Text = "VIEW CATALOGUE";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // btnView
             // 
