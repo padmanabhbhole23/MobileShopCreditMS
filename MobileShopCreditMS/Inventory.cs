@@ -22,9 +22,9 @@ namespace MobileShopCreditMS
             InitializeComponent();
         }
         /*Padma*/
-        // SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+         SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
         /*AFFAN*/
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+        //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -128,20 +128,12 @@ namespace MobileShopCreditMS
             PQty.Text = products.SelectedRows[0].Cells[7].Value.ToString();
             PDp.Text = products.SelectedRows[0].Cells[8].Value.ToString();
 
-            /*
-                        pId.Text = Stock.SelectedRows[0].Cells[0].Value.ToString();
-                        pCat.SelectedItem = Stock.SelectedRows[0].Cells[1].Value.ToString();
-                        pName.Text = Stock.SelectedRows[0].Cells[2].Value.ToString();
-                        pDes.Text = Stock.SelectedRows[0].Cells[3].Value.ToString();
-                        pPrice.Text = Stock.SelectedRows[0].Cells[4].Value.ToString();
-                        pBrand.Text = Stock.SelectedRows[0].Cells[5].Value.ToString();
-                        pStock.Text = Stock.SelectedRows[0].Cells[6].Value.ToString();
-            */
+           
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (PName.Text == "" || PPrice.Text == "" || PDesc.Text == "")
+            if (PID.Text=="")
             {
                 MessageBox.Show("missing information");
             }
@@ -152,7 +144,8 @@ namespace MobileShopCreditMS
                 {
                     con.Open();
                     //String sql = "update products set pStock='" + pStock.Text + "' where pId='" + pId.Text + "';";
-                    string sql = "update Product set StockQuantity='" +PQty.Text+" ' where ProductID='"+PID.Text+"';";
+                    string sql = "UPDATE Product SET StockQuantity = '" + PQty.Text + "', ProductPrice = '" + PPrice.Text + "'WHERE ProductID = '" + PID.Text + "'; ";
+
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("PRODUCT UPDATED SUCCESSFULLY");

@@ -209,7 +209,7 @@
             // 
             btnnotify.Cursor = Cursors.Hand;
             btnnotify.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btnnotify.Location = new Point(186, 415);
+            btnnotify.Location = new Point(869, 304);
             btnnotify.Name = "btnnotify";
             btnnotify.Size = new Size(167, 75);
             btnnotify.TabIndex = 14;
@@ -221,7 +221,7 @@
             // 
             btnExpense.Cursor = Cursors.Hand;
             btnExpense.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btnExpense.Location = new Point(535, 415);
+            btnExpense.Location = new Point(869, 193);
             btnExpense.Name = "btnExpense";
             btnExpense.Size = new Size(167, 75);
             btnExpense.TabIndex = 15;
@@ -232,7 +232,7 @@
             // pictureBox7
             // 
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(96, 428);
+            pictureBox7.Location = new Point(779, 317);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(84, 50);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
@@ -242,7 +242,7 @@
             // pictureBox8
             // 
             pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(445, 428);
+            pictureBox8.Location = new Point(779, 206);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(84, 50);
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
@@ -253,7 +253,7 @@
             // 
             btn.Cursor = Cursors.Hand;
             btn.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btn.Location = new Point(911, 87);
+            btn.Location = new Point(869, 87);
             btn.Name = "btn";
             btn.Size = new Size(167, 75);
             btn.TabIndex = 18;
@@ -264,7 +264,7 @@
             // pictureBox9
             // 
             pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(821, 103);
+            pictureBox9.Location = new Point(779, 103);
             pictureBox9.Name = "pictureBox9";
             pictureBox9.Size = new Size(84, 50);
             pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
@@ -288,7 +288,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.Bisque;
-            ClientSize = new Size(1129, 564);
+            ClientSize = new Size(1129, 471);
             Controls.Add(pictureBox10);
             Controls.Add(pictureBox9);
             Controls.Add(btn);

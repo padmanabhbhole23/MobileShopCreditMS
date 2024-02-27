@@ -52,6 +52,7 @@
             button1 = new Button();
             button3 = new Button();
             PID = new TextBox();
+            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)products).BeginInit();
             SuspendLayout();
             // 
@@ -61,7 +62,7 @@
             label2.BorderStyle = BorderStyle.FixedSingle;
             label2.Font = new Font("Arial Rounded MT Bold", 23F, FontStyle.Bold);
             label2.ForeColor = Color.Maroon;
-            label2.Location = new Point(250, 24);
+            label2.Location = new Point(230, 19);
             label2.Name = "label2";
             label2.Size = new Size(366, 38);
             label2.TabIndex = 3;
@@ -102,7 +103,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label5.Location = new Point(116, 106);
+            label5.Location = new Point(116, 109);
             label5.Name = "label5";
             label5.Size = new Size(129, 19);
             label5.TabIndex = 7;
@@ -174,14 +175,14 @@
             // 
             PCat.FormattingEnabled = true;
             PCat.Items.AddRange(new object[] { "MOBILE PHONE", "ACCESSORIES", "OTHER" });
-            PCat.Location = new Point(283, 105);
+            PCat.Location = new Point(283, 109);
             PCat.Name = "PCat";
             PCat.Size = new Size(121, 23);
             PCat.TabIndex = 16;
             // 
             // PBrand
             // 
-            PBrand.Location = new Point(283, 141);
+            PBrand.Location = new Point(283, 147);
             PBrand.Name = "PBrand";
             PBrand.Size = new Size(201, 23);
             PBrand.TabIndex = 17;
@@ -220,10 +221,13 @@
             // 
             // products
             // 
+            products.AllowUserToAddRows = false;
+            products.AllowUserToDeleteRows = false;
             products.BackgroundColor = SystemColors.InactiveCaption;
             products.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             products.Location = new Point(548, 89);
             products.Name = "products";
+            products.ReadOnly = true;
             products.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             products.Size = new Size(787, 590);
             products.TabIndex = 22;
@@ -274,10 +278,20 @@
             // 
             // PID
             // 
-            PID.Location = new Point(283, 65);
+            PID.Location = new Point(283, 76);
             PID.Name = "PID";
             PID.Size = new Size(100, 23);
             PID.TabIndex = 27;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label10.Location = new Point(116, 76);
+            label10.Name = "label10";
+            label10.Size = new Size(82, 19);
+            label10.TabIndex = 28;
+            label10.Text = "Product ID";
             // 
             // Inventory
             // 
@@ -285,6 +299,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
             ClientSize = new Size(1366, 749);
+            Controls.Add(label10);
             Controls.Add(PID);
             Controls.Add(button3);
             Controls.Add(button1);
@@ -344,5 +359,6 @@
         private Button button1;
         private Button button3;
         private TextBox PID;
+        private Label label10;
     }
 }

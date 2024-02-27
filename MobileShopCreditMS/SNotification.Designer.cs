@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SNotification));
-            label2 = new Label();
             button1 = new Button();
             button3 = new Button();
             label3 = new Label();
@@ -51,22 +50,11 @@
             label6 = new Label();
             custgview = new DataGridView();
             txtSearch = new TextBox();
+            label2 = new Label();
             smspanel.SuspendLayout();
             whtsppanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)custgview).BeginInit();
             SuspendLayout();
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BorderStyle = BorderStyle.FixedSingle;
-            label2.Font = new Font("Arial Rounded MT Bold", 20F, FontStyle.Bold);
-            label2.ForeColor = Color.Black;
-            label2.Location = new Point(256, 25);
-            label2.Name = "label2";
-            label2.Size = new Size(314, 34);
-            label2.TabIndex = 5;
-            label2.Text = "SEND NOTIFICATION";
             // 
             // button1
             // 
@@ -119,10 +107,11 @@
             smspanel.Controls.Add(textBox2);
             smspanel.Controls.Add(textBox1);
             smspanel.Controls.Add(label1);
-            smspanel.Location = new Point(196, 327);
+            smspanel.Location = new Point(196, 317);
             smspanel.Name = "smspanel";
             smspanel.Size = new Size(508, 367);
             smspanel.TabIndex = 28;
+            smspanel.Visible = false;
             // 
             // label5
             // 
@@ -138,9 +127,9 @@
             // button2
             // 
             button2.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            button2.Location = new Point(192, 299);
+            button2.Location = new Point(138, 299);
             button2.Name = "button2";
-            button2.Size = new Size(146, 23);
+            button2.Size = new Size(209, 43);
             button2.TabIndex = 8;
             button2.Text = "SEND SMS";
             button2.UseVisualStyleBackColor = true;
@@ -178,17 +167,18 @@
             whtsppanel.Controls.Add(txtcustmob);
             whtsppanel.Controls.Add(txtwtxt);
             whtsppanel.Controls.Add(label8);
-            whtsppanel.Location = new Point(710, 327);
+            whtsppanel.Location = new Point(710, 317);
             whtsppanel.Name = "whtsppanel";
             whtsppanel.Size = new Size(508, 367);
             whtsppanel.TabIndex = 29;
+            whtsppanel.Visible = false;
             // 
             // btnwhtssms
             // 
             btnwhtssms.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btnwhtssms.Location = new Point(210, 299);
+            btnwhtssms.Location = new Point(160, 299);
             btnwhtssms.Name = "btnwhtssms";
-            btnwhtssms.Size = new Size(225, 23);
+            btnwhtssms.Size = new Size(209, 43);
             btnwhtssms.TabIndex = 14;
             btnwhtssms.Text = "SEND WHATSAPP MESSAGE";
             btnwhtssms.UseVisualStyleBackColor = true;
@@ -235,7 +225,7 @@
             // 
             rbsms.AutoSize = true;
             rbsms.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            rbsms.Location = new Point(388, 288);
+            rbsms.Location = new Point(435, 288);
             rbsms.Name = "rbsms";
             rbsms.Size = new Size(57, 23);
             rbsms.TabIndex = 30;
@@ -248,7 +238,7 @@
             // 
             rbwhatsapp.AutoSize = true;
             rbwhatsapp.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            rbwhatsapp.Location = new Point(451, 288);
+            rbwhatsapp.Location = new Point(922, 290);
             rbwhatsapp.Name = "rbwhatsapp";
             rbwhatsapp.Size = new Size(105, 23);
             rbwhatsapp.TabIndex = 31;
@@ -271,7 +261,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label6.Location = new Point(204, 119);
+            label6.Location = new Point(204, 158);
             label6.Name = "label6";
             label6.Size = new Size(136, 19);
             label6.TabIndex = 33;
@@ -293,12 +283,24 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(346, 119);
+            txtSearch.Location = new Point(348, 129);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(208, 23);
             txtSearch.TabIndex = 35;
             txtSearch.TextChanged += textBox3_TextChanged;
             txtSearch.KeyPress += txtSearch_KeyPress;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BorderStyle = BorderStyle.FixedSingle;
+            label2.Font = new Font("Arial Rounded MT Bold", 20F, FontStyle.Bold);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(256, 25);
+            label2.Name = "label2";
+            label2.Size = new Size(314, 34);
+            label2.TabIndex = 5;
+            label2.Text = "SEND NOTIFICATION";
             // 
             // SNotification
             // 
@@ -311,9 +313,9 @@
             Controls.Add(label6);
             Controls.Add(label4);
             Controls.Add(rbwhatsapp);
-            Controls.Add(rbsms);
             Controls.Add(whtsppanel);
             Controls.Add(smspanel);
+            Controls.Add(rbsms);
             Controls.Add(label3);
             Controls.Add(button3);
             Controls.Add(button1);
@@ -333,7 +335,6 @@
         }
 
         #endregion
-        private Label label2;
         private Button button1;
         private Button button3;
         private Label label3;
@@ -355,5 +356,6 @@
         private Button btnwhtssms;
         private DataGridView custgview;
         private TextBox txtSearch;
+        private Label label2;
     }
 }

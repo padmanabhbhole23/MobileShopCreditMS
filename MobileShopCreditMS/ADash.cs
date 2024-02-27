@@ -56,7 +56,7 @@ namespace MobileShopCreditMS
         {
             var vc = new CPassword();
             vc.Show();
-            this.Close();
+            
         }
 
         private void btnnotify_Click(object sender, EventArgs e)

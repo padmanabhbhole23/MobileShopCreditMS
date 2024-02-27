@@ -8,31 +8,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DocumentFormat.OpenXml.VariantTypes;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
+using Org.BouncyCastle.Crypto.General;
 
 namespace MobileShopCreditMS
 {
     public partial class GBill : Form
     {
+        string partialpayment = "Full";
+        /*Padma*/
+        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+        //affan
+        //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+
         public GBill()
         {
             InitializeComponent();
-            /*Padma*/
-            SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
-            //affan
-            //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlCommand cmd = new SqlCommand("select Productid,ProductName from Product");
-            SqlDataAdapter da = new SqlDataAdapter();
-            da.SelectCommand = cmd;
-            DataTable table1 = new DataTable();
-            da.Fill(table1);
-
-            combPName.DataSource = table1;
-            combPName.DisplayMember = "ProductName";
-            combPName.ValueMember = "Productid";
+            populateproduct();
+            populatecust();
+        }
+        private void populateproduct()
+        {
+            con.Open();
+            string query = "select ProductId,ProductName,ProductPrice,Category, Brand,StockQuantity from Product";
+            SqlDataAdapter da = new SqlDataAdapter(query, con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(da);
+            var ds = new DataSet();
+            da.Fill(ds);
+            dgproduct.DataSource = ds.Tables[0];
+            con.Close();
+        }
+        private void populatecust()
+        {
+            con.Open();
+            string query = "select CustomerId,FirstName,MidName,LastName,PhoneNo from Customer";
+            SqlDataAdapter da = new SqlDataAdapter(query, con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(da);
+            var ds = new DataSet();
+            da.Fill(ds);
+            dgcust.DataSource = ds.Tables[0];
+            con.Close();
         }
         private void gpdf()
         {
@@ -183,9 +202,11 @@ namespace MobileShopCreditMS
         {
             txtCID.Text = "";
             txtQnty.Text = "";
-            cbCName.Text = "";
-            combPName.Text = "";
-            combPTYPE.Text = "";
+            txtCName.Text = "";
+            txtPAmt.Text = "";
+            txtPName.Text = "";
+            lblRMAmt.Text = "0.0/-";
+            lblTAmt.Text = "0.0/-";
             txtpp.Text = "";
 
 
@@ -208,7 +229,31 @@ namespace MobileShopCreditMS
 
         private void btnAdCrt_Click(object sender, EventArgs e)
         {
+            DateTime currentDate = DateTime.Now;
+            string dateString = currentDate.ToString("yyyy-MM-dd");
 
+            con.Open();
+            string query = "insert into Bill values('"+ txtCID.Text+"','"+dateString+"','"+"')";
+            SqlDataAdapter da = new SqlDataAdapter(query, con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(da);
+            var ds = new DataSet();
+            da.Fill(ds);
+            dgcart.DataSource = ds.Tables[0];
+            con.Close();
+
+        }
+
+        private void dgproduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtPName.Text = dgproduct.SelectedRows[0].Cells[1].Value.ToString();
+            txtpp.Text = dgproduct.SelectedRows[0].Cells[2].Value.ToString();
+
+        }
+
+        private void dgcust_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtCID.Text = dgcust.SelectedRows[0].Cells[0].Value.ToString();
+            txtCName.Text = dgcust.SelectedRows[0].Cells[1].Value.ToString();
         }
     }
 }
