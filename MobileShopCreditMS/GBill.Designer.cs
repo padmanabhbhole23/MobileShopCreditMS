@@ -93,7 +93,7 @@ namespace MobileShopCreditMS
             // button4
             // 
             button4.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            button4.Location = new Point(5, 242);
+            button4.Location = new Point(5, 195);
             button4.Name = "button4";
             button4.Size = new Size(209, 43);
             button4.TabIndex = 5;
@@ -104,7 +104,7 @@ namespace MobileShopCreditMS
             // button3
             // 
             button3.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            button3.Location = new Point(5, 185);
+            button3.Location = new Point(5, 254);
             button3.Name = "button3";
             button3.Size = new Size(209, 43);
             button3.TabIndex = 4;

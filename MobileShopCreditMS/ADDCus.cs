@@ -62,33 +62,40 @@ namespace MobileShopCreditMS
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            try
+            if (txtFName.Text == "" && txtMName.Text == "" && txtLName.Text == "" && txtCont.Text == "" && txtEmail.Text=="" && txtCAdd.Text=="")
             {
-                /*Padma*/
-                SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
-                /*Affan*/
-                //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
-
-                con.Open();
-                String sql = "insert into Customer values('" + txtFName.Text + "','" + txtMName.Text + "','" + txtLName.Text + "','" + txtEmail.Text + "','" + txtCont.Text + "','" + txtCAdd.Text + "','" + txtNomN.Text + "','" + txtNomR.Text + "','" + txtNomC.Text + "','" + txtNomA.Text + "') ";
-                SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("CUSTOMER ADDED SUCCESSFULLY");
-                con.Close();
-                txtFName.Text = "";
-                txtMName.Text = "";
-                txtLName.Text = "";
-                txtCAdd.Text = "";
-                txtCont.Text = "";
-                txtEmail.Text = "";
-                txtNomA.Text = "";
-                txtNomN.Text = "";
-                txtNomC.Text = "";
-                txtNomR.Text = "";
+                MessageBox.Show("MISSING INFORMATION");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("" + ex);
+                try
+                {
+                    /*Padma*/
+                    SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+                    /*Affan*/
+                    //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+
+                    con.Open();
+                    String sql = "insert into Customer values('" + txtFName.Text + "','" + txtMName.Text + "','" + txtLName.Text + "','" + txtEmail.Text + "','" + txtCont.Text + "','" + txtCAdd.Text + "','" + txtNomN.Text + "','" + txtNomR.Text + "','" + txtNomC.Text + "','" + txtNomA.Text + "') ";
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("CUSTOMER ADDED SUCCESSFULLY");
+                    con.Close();
+                    txtFName.Text = "";
+                    txtMName.Text = "";
+                    txtLName.Text = "";
+                    txtCAdd.Text = "";
+                    txtCont.Text = "";
+                    txtEmail.Text = "";
+                    txtNomA.Text = "";
+                    txtNomN.Text = "";
+                    txtNomC.Text = "";
+                    txtNomR.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("" + ex);
+                }
             }
         }
 
