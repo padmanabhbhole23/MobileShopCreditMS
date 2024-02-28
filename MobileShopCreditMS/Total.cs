@@ -14,9 +14,9 @@ namespace MobileShopCreditMS
     public partial class Total : Form
     {
         /*Padma*/
-       SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+        // SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
         //affan
-        //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
 
         public Total()
         {
@@ -50,6 +50,7 @@ namespace MobileShopCreditMS
 
         private void DGTTL_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            textBox1.Text = DGTTL.SelectedRows[0].Cells[3].Value.ToString();
 
         }
 
@@ -66,6 +67,50 @@ namespace MobileShopCreditMS
         private void button1_Click(object sender, EventArgs e)
         {
             populate();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int t = int.Parse(DGTTL.SelectedRows[0].Cells[6].Value.ToString());
+            int p = int.Parse(DGTTL.SelectedRows[0].Cells[8].Value.ToString());
+            int c = t - p;
+            label4.Text = c.ToString();
+
+        }
+
+        private void txtET_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //update bill table
+            int id=int.Parse( DGTTL.SelectedRows[0].Cells[3].Value.ToString());
+            int amt =int.Parse( txtET.Text);
+            con.Open();
+            
+
+            string updateQuery = "UPDATE bill SET PaidAmount=PaidAmount + @paid,Paymentstatus='Full' WHERE BillId=@bill ";
+            SqlCommand updateCommand = new SqlCommand(updateQuery, con);
+            updateCommand.Parameters.AddWithValue("@paid", amt);
+            updateCommand.Parameters.AddWithValue("@bill", id);
+            updateCommand.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("amount updated successfully");
+            populate();
+
+
         }
     }
 }

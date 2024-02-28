@@ -33,7 +33,10 @@
             label3 = new Label();
             AddBtn = new Button();
             EDITPANEL = new Panel();
-            button1 = new Button();
+            button4 = new Button();
+            label5 = new Label();
+            button3 = new Button();
+            label4 = new Label();
             textBox1 = new TextBox();
             txtET = new TextBox();
             lblAmt = new Label();
@@ -87,7 +90,10 @@
             // 
             // EDITPANEL
             // 
-            EDITPANEL.Controls.Add(button1);
+            EDITPANEL.Controls.Add(button4);
+            EDITPANEL.Controls.Add(label5);
+            EDITPANEL.Controls.Add(button3);
+            EDITPANEL.Controls.Add(label4);
             EDITPANEL.Controls.Add(textBox1);
             EDITPANEL.Controls.Add(txtET);
             EDITPANEL.Controls.Add(lblAmt);
@@ -99,16 +105,49 @@
             EDITPANEL.TabIndex = 8;
             EDITPANEL.Visible = false;
             // 
-            // button1
+            // button4
             // 
-            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(221, 242);
-            button1.Name = "button1";
-            button1.Size = new Size(185, 53);
-            button1.TabIndex = 23;
-            button1.Text = "OK";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.Location = new Point(290, 208);
+            button4.Name = "button4";
+            button4.Size = new Size(115, 25);
+            button4.TabIndex = 27;
+            button4.Text = "Confirm Amount";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label5.Location = new Point(26, 116);
+            label5.Name = "label5";
+            label5.Size = new Size(106, 38);
+            label5.TabIndex = 26;
+            label5.Text = "Enter Amount\r\n\r\n";
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.Location = new Point(433, 11);
+            button3.Name = "button3";
+            button3.Size = new Size(57, 23);
+            button3.TabIndex = 25;
+            button3.Text = "OK";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label4.ForeColor = Color.Red;
+            label4.Location = new Point(221, 71);
+            label4.Name = "label4";
+            label4.Size = new Size(29, 19);
+            label4.TabIndex = 24;
+            label4.Text = "0.0";
+            label4.Click += label4_Click;
             // 
             // textBox1
             // 
@@ -116,13 +155,15 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(223, 23);
             textBox1.TabIndex = 13;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // txtET
             // 
-            txtET.Location = new Point(183, 116);
+            txtET.Location = new Point(204, 116);
             txtET.Name = "txtET";
             txtET.Size = new Size(223, 23);
             txtET.TabIndex = 13;
+            txtET.TextChanged += txtET_TextChanged;
             // 
             // lblAmt
             // 
@@ -163,8 +204,10 @@
             DGTTL.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGTTL.Location = new Point(275, 62);
             DGTTL.Name = "DGTTL";
+            DGTTL.ReadOnly = true;
             DGTTL.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             DGTTL.ScrollBars = ScrollBars.Vertical;
+            DGTTL.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGTTL.Size = new Size(921, 243);
             DGTTL.TabIndex = 7;
             DGTTL.CellContentClick += DGTTL_CellContentClick;
@@ -231,7 +274,10 @@
         private Label lblAmt;
         private Label label1;
         private Label lblType;
-        private Button button1;
         private Label label3;
+        private Label label4;
+        private Button button3;
+        private Label label5;
+        private Button button4;
     }
 }
