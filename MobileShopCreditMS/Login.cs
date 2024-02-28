@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 
 namespace MobileShopCreditMS
 {
+
     public partial class Login : Form
     {
         public Login()
@@ -15,7 +16,6 @@ namespace MobileShopCreditMS
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                // Perform the action associated with your button
                 button1.PerformClick();
             }
         }
@@ -32,12 +32,14 @@ namespace MobileShopCreditMS
             }
             else
             {
+
                 try
                 {
                     /*Padma*/
                     SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;");
-                    /*AFFAN*/ //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
-                             //chnages the db to MSlocal with dbname=project and table name=usr
+                    /*AFFAN*/
+                    //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+
                     string query = "select * from usr where name='" + textBox1.Text + "'and pass='" + textPass.Text + "'";
                     SqlCommand cmd = new SqlCommand(query, con);
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
@@ -48,7 +50,7 @@ namespace MobileShopCreditMS
                     {
                         MessageBox.Show("Login Successful");
                         this.Hide();
-                        
+
                         if (textBox1.Text.Equals("admin"))
                         {
                             var ADash = new ADash();
@@ -67,30 +69,15 @@ namespace MobileShopCreditMS
             }
         }
 
-        private void textPass_TextChanged(object sender, EventArgs e)
+ 
+        private void label1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
             textPass.Clear();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
-        }
-
-        private void pictureBox9_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

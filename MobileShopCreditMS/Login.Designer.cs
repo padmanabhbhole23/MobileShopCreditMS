@@ -32,13 +32,13 @@
             textBox1 = new TextBox();
             textPass = new TextBox();
             button1 = new Button();
-            button2 = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
-            button3 = new Button();
             lblUsr = new Label();
             lblPass = new Label();
             panel1 = new Panel();
+            label3 = new Label();
+            label1 = new Label();
             label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -65,30 +65,19 @@
             textPass.Size = new Size(197, 23);
             textPass.TabIndex = 2;
             textPass.UseSystemPasswordChar = true;
-            textPass.TextChanged += textPass_TextChanged;
             textPass.KeyPress += Form1_KeyPress;
             // 
             // button1
             // 
             button1.AccessibleRole = AccessibleRole.PushButton;
-            button1.Location = new Point(170, 371);
+            button1.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button1.Location = new Point(167, 343);
             button1.Name = "button1";
             button1.Size = new Size(117, 43);
             button1.TabIndex = 3;
             button1.Text = "LOGIN";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
-            button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.Location = new Point(334, 275);
-            button2.Name = "button2";
-            button2.Size = new Size(31, 28);
-            button2.TabIndex = 6;
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // pictureBox1
             // 
@@ -110,46 +99,36 @@
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
             // 
-            // button3
-            // 
-            button3.BackgroundImage = (Image)resources.GetObject("button3.BackgroundImage");
-            button3.BackgroundImageLayout = ImageLayout.Zoom;
-            button3.Location = new Point(334, 178);
-            button3.Name = "button3";
-            button3.Size = new Size(31, 28);
-            button3.TabIndex = 9;
-            button3.TextImageRelation = TextImageRelation.ImageAboveText;
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
             // lblUsr
             // 
             lblUsr.AutoSize = true;
+            lblUsr.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblUsr.Location = new Point(131, 156);
             lblUsr.Name = "lblUsr";
-            lblUsr.Size = new Size(105, 15);
+            lblUsr.Size = new Size(135, 19);
             lblUsr.TabIndex = 10;
             lblUsr.Text = "ENTER USERNAME";
             // 
             // lblPass
             // 
             lblPass.AutoSize = true;
+            lblPass.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblPass.Location = new Point(131, 252);
             lblPass.Name = "lblPass";
-            lblPass.Size = new Size(105, 15);
+            lblPass.Size = new Size(136, 19);
             lblPass.TabIndex = 11;
             lblPass.Text = "ENTER PASSWORD";
             // 
             // panel1
             // 
             panel1.BackColor = Color.Bisque;
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(lblPass);
             panel1.Controls.Add(lblUsr);
-            panel1.Controls.Add(button3);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(button2);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(textPass);
             panel1.Controls.Add(textBox1);
@@ -158,13 +137,35 @@
             panel1.Size = new Size(437, 475);
             panel1.TabIndex = 0;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label3.Location = new Point(334, 187);
+            label3.Name = "label3";
+            label3.Size = new Size(18, 19);
+            label3.TabIndex = 14;
+            label3.Text = "X";
+            label3.Click += label3_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label1.Location = new Point(334, 279);
+            label1.Name = "label1";
+            label1.Size = new Size(18, 19);
+            label1.TabIndex = 13;
+            label1.Text = "X";
+            label1.Click += label1_Click;
+            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.BorderStyle = BorderStyle.FixedSingle;
             label2.Font = new Font("Arial Rounded MT Bold", 23F, FontStyle.Bold);
             label2.ForeColor = Color.Maroon;
-            label2.Location = new Point(131, 61);
+            label2.Location = new Point(102, 61);
             label2.Name = "label2";
             label2.Size = new Size(226, 38);
             label2.TabIndex = 12;
@@ -195,13 +196,13 @@
         private TextBox textBox1;
         private TextBox textPass;
         private Button button1;
-        private Button button2;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
-        private Button button3;
         private Label lblUsr;
         private Label lblPass;
         private Panel panel1;
         private Label label2;
+        private Label label3;
+        private Label label1;
     }
 }

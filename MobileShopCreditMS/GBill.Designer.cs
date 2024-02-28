@@ -29,6 +29,7 @@ namespace MobileShopCreditMS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GBill));
             panel2 = new Panel();
             button4 = new Button();
             button3 = new Button();
@@ -36,6 +37,7 @@ namespace MobileShopCreditMS
             label2 = new Label();
             button2 = new Button();
             panel1 = new Panel();
+            button5 = new Button();
             txtpid = new TextBox();
             label13 = new Label();
             txtPName = new TextBox();
@@ -68,7 +70,6 @@ namespace MobileShopCreditMS
             btnGBill = new Button();
             label3 = new Label();
             button1 = new Button();
-            button5 = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgproduct).BeginInit();
@@ -193,7 +194,19 @@ namespace MobileShopCreditMS
             panel1.Name = "panel1";
             panel1.Size = new Size(1122, 737);
             panel1.TabIndex = 5;
-            panel1.Paint += panel1_Paint;
+            // 
+            // button5
+            // 
+            button5.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button5.ForeColor = SystemColors.ControlText;
+            button5.Location = new Point(950, 403);
+            button5.Margin = new Padding(4, 3, 4, 3);
+            button5.Name = "button5";
+            button5.Size = new Size(60, 23);
+            button5.TabIndex = 54;
+            button5.Text = "OK";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // txtpid
             // 
@@ -228,7 +241,7 @@ namespace MobileShopCreditMS
             lblTAmt.AutoSize = true;
             lblTAmt.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblTAmt.ForeColor = Color.FromArgb(0, 192, 0);
-            lblTAmt.Location = new Point(951, 366);
+            lblTAmt.Location = new Point(706, 361);
             lblTAmt.Margin = new Padding(4, 0, 4, 0);
             lblTAmt.Name = "lblTAmt";
             lblTAmt.Size = new Size(17, 19);
@@ -240,7 +253,7 @@ namespace MobileShopCreditMS
             label15.AutoSize = true;
             label15.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label15.ForeColor = SystemColors.ControlText;
-            label15.Location = new Point(790, 366);
+            label15.Location = new Point(578, 361);
             label15.Margin = new Padding(4, 0, 4, 0);
             label15.Name = "label15";
             label15.Size = new Size(120, 19);
@@ -252,7 +265,7 @@ namespace MobileShopCreditMS
             lblRMAmt.AutoSize = true;
             lblRMAmt.Font = new Font("Calibri", 12F, FontStyle.Bold);
             lblRMAmt.ForeColor = Color.Red;
-            lblRMAmt.Location = new Point(951, 403);
+            lblRMAmt.Location = new Point(992, 361);
             lblRMAmt.Margin = new Padding(4, 0, 4, 0);
             lblRMAmt.Name = "lblRMAmt";
             lblRMAmt.Size = new Size(17, 19);
@@ -264,7 +277,7 @@ namespace MobileShopCreditMS
             label11.AutoSize = true;
             label11.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label11.ForeColor = SystemColors.ControlText;
-            label11.Location = new Point(774, 403);
+            label11.Location = new Point(826, 361);
             label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
             label11.Size = new Size(158, 19);
@@ -281,19 +294,18 @@ namespace MobileShopCreditMS
             // 
             // txtPAmt
             // 
-            txtPAmt.Location = new Point(260, 417);
+            txtPAmt.Location = new Point(742, 403);
             txtPAmt.Margin = new Padding(4, 3, 4, 3);
             txtPAmt.Name = "txtPAmt";
             txtPAmt.Size = new Size(200, 23);
             txtPAmt.TabIndex = 45;
-            txtPAmt.TextChanged += txtPAmt_TextChanged_1;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label10.ForeColor = SystemColors.ControlText;
-            label10.Location = new Point(76, 421);
+            label10.Location = new Point(550, 403);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new Size(156, 19);
@@ -357,7 +369,7 @@ namespace MobileShopCreditMS
             label7.AutoSize = true;
             label7.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label7.ForeColor = SystemColors.ActiveCaptionText;
-            label7.Location = new Point(790, 57);
+            label7.Location = new Point(590, 52);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(44, 19);
@@ -372,15 +384,14 @@ namespace MobileShopCreditMS
             dgcart.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             dgcart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgcart.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
-            dgcart.Location = new Point(546, 79);
+            dgcart.Location = new Point(574, 74);
             dgcart.Name = "dgcart";
             dgcart.ReadOnly = true;
-            dgcart.RowHeadersWidth = 40;
+            dgcart.RowHeadersWidth = 90;
             dgcart.ScrollBars = ScrollBars.Vertical;
             dgcart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgcart.Size = new Size(530, 266);
+            dgcart.Size = new Size(468, 266);
             dgcart.TabIndex = 38;
-            dgcart.CellContentClick += dgcart_CellContentClick;
             // 
             // Column1
             // 
@@ -417,7 +428,6 @@ namespace MobileShopCreditMS
             txtCID.Name = "txtCID";
             txtCID.Size = new Size(200, 23);
             txtCID.TabIndex = 36;
-            txtCID.TextChanged += txtCID_TextChanged;
             // 
             // label6
             // 
@@ -447,10 +457,10 @@ namespace MobileShopCreditMS
             // 
             btnAdCrt.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btnAdCrt.ForeColor = SystemColors.ControlText;
-            btnAdCrt.Location = new Point(62, 354);
+            btnAdCrt.Location = new Point(98, 374);
             btnAdCrt.Margin = new Padding(4, 3, 4, 3);
             btnAdCrt.Name = "btnAdCrt";
-            btnAdCrt.Size = new Size(424, 43);
+            btnAdCrt.Size = new Size(338, 52);
             btnAdCrt.TabIndex = 33;
             btnAdCrt.Text = "ADD TO CART";
             btnAdCrt.UseVisualStyleBackColor = true;
@@ -512,9 +522,9 @@ namespace MobileShopCreditMS
             // 
             btnGBill.Font = new Font("Calibri", 12F, FontStyle.Bold);
             btnGBill.ForeColor = SystemColors.ActiveCaptionText;
-            btnGBill.Location = new Point(757, 441);
+            btnGBill.Location = new Point(731, 432);
             btnGBill.Name = "btnGBill";
-            btnGBill.Size = new Size(209, 43);
+            btnGBill.Size = new Size(220, 43);
             btnGBill.TabIndex = 24;
             btnGBill.Text = "GENERATE BILL";
             btnGBill.UseVisualStyleBackColor = true;
@@ -547,19 +557,6 @@ namespace MobileShopCreditMS
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // button5
-            // 
-            button5.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            button5.ForeColor = SystemColors.ControlText;
-            button5.Location = new Point(487, 416);
-            button5.Margin = new Padding(4, 3, 4, 3);
-            button5.Name = "button5";
-            button5.Size = new Size(77, 28);
-            button5.TabIndex = 54;
-            button5.Text = "OK";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
             // GBill
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -569,6 +566,7 @@ namespace MobileShopCreditMS
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "GBill";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GBill";
@@ -583,59 +581,9 @@ namespace MobileShopCreditMS
             PerformLayout();
         }
 
-        private void button4_Click_2(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Button4_Click_1(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void BtnAdCrt_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void TxtCID_TextChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void dgcart_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Dgcust_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Dgproduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void txtPAmt_TextChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Button3_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void BtnView_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Application.Exit();
         }
 
         #endregion

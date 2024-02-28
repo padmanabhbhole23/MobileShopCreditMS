@@ -25,7 +25,7 @@ namespace MobileShopCreditMS
         private void populateproduct()
         {
             con.Open();
-            string query = "select ProductId,ProductName,ProductPrice,Category, Brand,StockQuantity from Product where StockQuantity>=1";
+            string query = "select ProductId,ProductName,ProductPrice,Category,StockQuantity from Product where StockQuantity>=1";
             SqlDataAdapter da = new SqlDataAdapter(query, con);
             SqlCommandBuilder builder = new SqlCommandBuilder(da);
             var ds = new DataSet();
@@ -54,7 +54,13 @@ namespace MobileShopCreditMS
             txtQnty.Clear();
             txtPName.Clear();
             dgcart.Rows.Clear();
+            lblTAmt.Text = "0";
+            lblRMAmt.Text = "0";
         }
+
+
+
+
         private void gpdf(string customerId)
         {
             string fileName = $"Invoice_{customerId}.pdf";
@@ -146,10 +152,7 @@ namespace MobileShopCreditMS
             a.Show();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
         private Cell CreateHeaderCell(string content)
         {
             return new Cell().Add(new Paragraph(content).SetBold().SetTextAlignment(TextAlignment.CENTER));
@@ -161,61 +164,73 @@ namespace MobileShopCreditMS
         }
         private void btnGBill_Click(object sender, EventArgs e)
         {
-            con.Open();
-            DateTime currentDate = DateTime.Now;
-            string dateString = currentDate.ToString("yyyy-MM-dd");
 
-            string partialpayment;
-            if (lblRMAmt.Text == "0")
+            if (dgcart.RowCount == 0)
             {
-                partialpayment = "Full";
+                MessageBox.Show("ADD PRODUCT YOUR PRODUCT IN CART");
+            }
+            else if (txtPAmt.Text == "")
+            {
+                MessageBox.Show("ENTER PAYING AMOUNT..! ");
             }
             else
             {
-                partialpayment = "Half";
+
+                con.Open();
+                DateTime currentDate = DateTime.Now;
+                string dateString = currentDate.ToString("yyyy-MM-dd");
+
+                string partialpayment;
+                if (lblRMAmt.Text == "0")
+                {
+                    partialpayment = "Full";
+                }
+                else
+                {
+                    partialpayment = "Half";
+                }
+
+                string query = " insert into Bill values('" + txtCID.Text + "', '" + dateString + "', '" + totalamt + "', '" + partialpayment + "', '" + txtPAmt.Text + "')";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("bill generated");
+
+
+
+
+                //Product going in MpBills
+                string cmd1 = "SELECT MAX(BillId) FROM Bill";
+                SqlCommand command = new SqlCommand(cmd1, con);
+
+                int lastId = Convert.ToInt32(command.ExecuteScalar());
+
+
+                foreach (DataGridViewRow row in dgcart.Rows)
+                {
+                    int pid = int.Parse(row.Cells[0].Value.ToString());
+                    string pname = row.Cells[1].Value.ToString();
+                    string quan = row.Cells[2].Value.ToString();
+                    string ttamt = row.Cells[3].Value.ToString();
+
+                    string query1 = " insert into MPBills values('" + pid + "','" + lastId + "','" + pname + "','" + ttamt + "')";
+                    SqlCommand command1 = new SqlCommand(query1, con);
+                    command1.ExecuteNonQuery();
+
+                    //update inventory
+
+                    string updateQuery = "UPDATE Product SET StockQuantity = StockQuantity - @Quantity WHERE ProductID = @ProductID";
+                    SqlCommand updateCommand = new SqlCommand(updateQuery, con);
+                    updateCommand.Parameters.AddWithValue("@Quantity", quan);
+                    updateCommand.Parameters.AddWithValue("@ProductID", pid);
+                    updateCommand.ExecuteNonQuery();
+
+                }
+                gpdf(lastId.ToString());
+                con.Close();
+                populateproduct();
+                clrall();
+
             }
-
-            string query = " insert into Bill values('" + txtCID.Text + "', '" + dateString + "', '" + totalamt + "', '" + partialpayment + "', '" + txtPAmt.Text + "')";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("bill generated");
-
-
-
-
-            //Product going in MpBills
-            string cmd1 = "SELECT MAX(BillId) FROM Bill";
-            SqlCommand command = new SqlCommand(cmd1, con);
-
-            int lastId = Convert.ToInt32(command.ExecuteScalar());
-
-
-            foreach (DataGridViewRow row in dgcart.Rows)
-            {
-                int pid = int.Parse(row.Cells[0].Value.ToString());
-                string pname = row.Cells[1].Value.ToString();
-                string quan = row.Cells[2].Value.ToString();
-                string ttamt = row.Cells[3].Value.ToString();
-
-                string query1 = " insert into MPBills values('" + pid + "','" + lastId + "','" + pname + "','" + ttamt + "')";
-                SqlCommand command1 = new SqlCommand(query1, con);
-                command1.ExecuteNonQuery();
-
-                //update inventory
-
-                string updateQuery = "UPDATE Product SET StockQuantity = StockQuantity - @Quantity WHERE ProductID = @ProductID";
-                SqlCommand updateCommand = new SqlCommand(updateQuery, con);
-                updateCommand.Parameters.AddWithValue("@Quantity", quan);
-                updateCommand.Parameters.AddWithValue("@ProductID", pid);
-                updateCommand.ExecuteNonQuery();
-
-            }
-            gpdf(lastId.ToString());
-            con.Close();
-            populateproduct();
-            clrall();
-
-
         }
         private void btnView_Click(object sender, EventArgs e)
         {
@@ -246,44 +261,41 @@ namespace MobileShopCreditMS
 
         }
 
-        private void combPTYPE_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void txtCID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbp_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void btnAdCrt_Click(object sender, EventArgs e)
         {
+            if (txtCID.Text == "" || txtQnty.Text == "" || txtCName.Text == "" || txtPName.Text == "" || txtpp.Text == "" || txtpid.Text == "")
+            {
+                MessageBox.Show("INFORMATION MISSING\n Please enter complete information");
 
-            DateTime currentDate = DateTime.Now;
-            string dateString = currentDate.ToString("yyyy-MM-dd");
-            string pid = txtpid.Text;
-            string pn = txtPName.Text;
-            int q = int.Parse(txtQnty.Text);
-            int pp = int.Parse(txtpp.Text);
-            string cid = txtCID.Text;
-            string cn = txtCName.Text;
-            int t = q * pp;
-            string[] row = new string[] { pid, pn, q.ToString(), t.ToString() };
-            dgcart.Rows.Add(row);
-            totalamt += t;
+            }
+            else if (txtQnty > Stockquant)
+            {
+                MessageBox.Show("NOT ENOUGH PRODUCTS IN STOCK..!");
+            }
+            else
+            {
+                
+                DateTime currentDate = DateTime.Now;
+                string dateString = currentDate.ToString("yyyy-MM-dd");
+                string pid = txtpid.Text;
+                string pn = txtPName.Text;
+                int q = int.Parse(txtQnty.Text);
+                int pp = int.Parse(txtpp.Text);
+                string cid = txtCID.Text;
+                string cn = txtCName.Text;
+                int t = q * pp;
+                string[] row = new string[] { pid, pn, q.ToString(), t.ToString() };
+                dgcart.Rows.Add(row);
+                totalamt += t;
 
-            lblTAmt.Text = totalamt.ToString();
+                lblTAmt.Text = totalamt.ToString();
 
-            txtpid.Text = "";
-            txtPName.Text = "";
-            // txtpp.Text = "";
-            // txtQnty.Text = "";
+                txtpid.Text = "";
+                txtPName.Text = "";
 
+            }
         }
 
         private void dgproduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -306,22 +318,33 @@ namespace MobileShopCreditMS
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             var t = new Total();
             t.Show();
         }
 
-        private void txtPAmt_TextChanged_1(object sender, EventArgs e)
-        {
-           
-        }
+
 
         private void button5_Click(object sender, EventArgs e)
         {
-            int ttl = int.Parse(lblTAmt.Text);
-            int pamt = int.Parse(txtPAmt.Text);
-            int r = ttl - pamt;
-            lblRMAmt.Text = r.ToString();
+            if (int.Parse(txtPAmt.Text) <= int.Parse(lblTAmt.Text) && int.Parse(txtPAmt.Text) > 0)
+            {
+                int ttl = int.Parse(lblTAmt.Text);
+                int pamt = int.Parse(txtPAmt.Text);
+                int r = ttl - pamt;
+                lblRMAmt.Text = r.ToString();
+            }
+            else
+            {
+                MessageBox.Show("ENTER VALID AMOUNT");
+            }
+        }
+
+        private void button4_Click_2(object sender, EventArgs e)
+        {
+            this.Close();
+            var t = new Total();
+            t.Show();
         }
     }
 }
