@@ -12,9 +12,9 @@ namespace MobileShopCreditMS
         int totalamt = 0;
         string partialpayment = "Full";
         /*Padma*/
-       // SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
         //affan
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+        //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
 
         public GBill()
         {
@@ -25,7 +25,7 @@ namespace MobileShopCreditMS
         private void populateproduct()
         {
             con.Open();
-            string query = "select ProductId,ProductName,ProductPrice,Category, Brand,StockQuantity from Product";
+            string query = "select ProductId,ProductName,ProductPrice,Category, Brand,StockQuantity from Product where StockQuantity>=1";
             SqlDataAdapter da = new SqlDataAdapter(query, con);
             SqlCommandBuilder builder = new SqlCommandBuilder(da);
             var ds = new DataSet();
@@ -43,6 +43,17 @@ namespace MobileShopCreditMS
             da.Fill(ds);
             dgcust.DataSource = ds.Tables[0];
             con.Close();
+        }
+        private void clrall()
+        {
+            txtCID.Clear();
+            txtCName.Clear();
+            txtPAmt.Clear();
+            txtpid.Clear();
+            txtpp.Clear();
+            txtQnty.Clear();
+            txtPName.Clear();
+            dgcart.Rows.Clear();
         }
         private void gpdf(string customerId)
         {
@@ -83,8 +94,8 @@ namespace MobileShopCreditMS
                     foreach (DataGridViewRow row in dgcart.Rows)
                     {
                         // Assuming you have four columns: Quantity, Product Name, Price, and Total
-                        string quantity = row.Cells["Column2"].Value.ToString(); // Change "QuantityColumn" to the actual name of the column
-                        string productName = row.Cells["Column3"].Value.ToString(); // Change "ProductNameColumn" to the actual name of the column
+                        string quantity = row.Cells["Column3"].Value.ToString(); // Change "QuantityColumn" to the actual name of the column
+                        string productName = row.Cells["Column2"].Value.ToString(); // Change "ProductNameColumn" to the actual name of the column
                         string price = row.Cells["Column4"].Value.ToString(); // Change "PriceColumn" to the actual name of the column
 
                         // Calculate total price
@@ -151,59 +162,60 @@ namespace MobileShopCreditMS
         private void btnGBill_Click(object sender, EventArgs e)
         {
             con.Open();
-                DateTime currentDate = DateTime.Now;
-                string dateString = currentDate.ToString("yyyy-MM-dd");
-                int q = int.Parse(txtQnty.Text);
-                int pp = int.Parse(txtpp.Text);
-              //  int t = q * pp;
-                string partialpayment;
-                if (lblRMAmt.Text == "0")
-                {
-                    partialpayment = "Full";
-                }
-                else
-                {
-                    partialpayment = "Half";
-                }
+            DateTime currentDate = DateTime.Now;
+            string dateString = currentDate.ToString("yyyy-MM-dd");
 
-                string query = " insert into Bill values('" + txtCID.Text + "', '" + dateString + "', '" + totalamt + "', '" + partialpayment + "', '" + txtPAmt.Text + "')";
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("bill generated");
+            string partialpayment;
+            if (lblRMAmt.Text == "0")
+            {
+                partialpayment = "Full";
+            }
+            else
+            {
+                partialpayment = "Half";
+            }
+
+            string query = " insert into Bill values('" + txtCID.Text + "', '" + dateString + "', '" + totalamt + "', '" + partialpayment + "', '" + txtPAmt.Text + "')";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("bill generated");
 
 
 
 
-                //Product going in MpBills
-                string cmd1 = "SELECT MAX(BillId) FROM Bill";
-                SqlCommand command = new SqlCommand(cmd1, con);
+            //Product going in MpBills
+            string cmd1 = "SELECT MAX(BillId) FROM Bill";
+            SqlCommand command = new SqlCommand(cmd1, con);
 
-                int lastId = Convert.ToInt32(command.ExecuteScalar());
+            int lastId = Convert.ToInt32(command.ExecuteScalar());
 
 
-                foreach (DataGridViewRow row in dgcart.Rows)
-                {
-                    int pid = int.Parse(row.Cells[0].Value.ToString());
-                    string pname = row.Cells[1].Value.ToString();
-                    string quan = row.Cells[2].Value.ToString();
-                    string ttamt = row.Cells[3].Value.ToString();
+            foreach (DataGridViewRow row in dgcart.Rows)
+            {
+                int pid = int.Parse(row.Cells[0].Value.ToString());
+                string pname = row.Cells[1].Value.ToString();
+                string quan = row.Cells[2].Value.ToString();
+                string ttamt = row.Cells[3].Value.ToString();
 
-                    string query1 = " insert into MPBills values('" + pid + "','" + lastId + "','" + pname + "','" + ttamt + "')";
-                    SqlCommand command1 = new SqlCommand(query1, con);
-                    command1.ExecuteNonQuery();
+                string query1 = " insert into MPBills values('" + pid + "','" + lastId + "','" + pname + "','" + ttamt + "')";
+                SqlCommand command1 = new SqlCommand(query1, con);
+                command1.ExecuteNonQuery();
 
-                    //update inventory
-                    
-                    string updateQuery = "UPDATE Product SET StockQuantity = StockQuantity - @Quantity WHERE ProductID = @ProductID";
-                    SqlCommand updateCommand = new SqlCommand(updateQuery, con);
-                    updateCommand.Parameters.AddWithValue("@Quantity", quan);
-                    updateCommand.Parameters.AddWithValue("@ProductID", pid);
-                    updateCommand.ExecuteNonQuery();
-                    
-                }
-                gpdf(lastId.ToString());
-                con.Close();
-            
+                //update inventory
+
+                string updateQuery = "UPDATE Product SET StockQuantity = StockQuantity - @Quantity WHERE ProductID = @ProductID";
+                SqlCommand updateCommand = new SqlCommand(updateQuery, con);
+                updateCommand.Parameters.AddWithValue("@Quantity", quan);
+                updateCommand.Parameters.AddWithValue("@ProductID", pid);
+                updateCommand.ExecuteNonQuery();
+
+            }
+            gpdf(lastId.ToString());
+            con.Close();
+            populateproduct();
+            clrall();
+
+
         }
         private void btnView_Click(object sender, EventArgs e)
         {
@@ -269,8 +281,8 @@ namespace MobileShopCreditMS
 
             txtpid.Text = "";
             txtPName.Text = "";
-           // txtpp.Text = "";
-           // txtQnty.Text = "";
+            // txtpp.Text = "";
+            // txtQnty.Text = "";
 
         }
 
@@ -290,7 +302,7 @@ namespace MobileShopCreditMS
 
 
 
-        
+
 
         private void button4_Click_1(object sender, EventArgs e)
         {
@@ -300,6 +312,11 @@ namespace MobileShopCreditMS
         }
 
         private void txtPAmt_TextChanged_1(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button5_Click(object sender, EventArgs e)
         {
             int ttl = int.Parse(lblTAmt.Text);
             int pamt = int.Parse(txtPAmt.Text);

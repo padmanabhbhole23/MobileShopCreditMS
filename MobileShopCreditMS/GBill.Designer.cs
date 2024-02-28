@@ -68,6 +68,7 @@ namespace MobileShopCreditMS
             btnGBill = new Button();
             label3 = new Label();
             button1 = new Button();
+            button5 = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgproduct).BeginInit();
@@ -158,6 +159,7 @@ namespace MobileShopCreditMS
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Bisque;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(button5);
             panel1.Controls.Add(txtpid);
             panel1.Controls.Add(label13);
             panel1.Controls.Add(txtPName);
@@ -545,6 +547,19 @@ namespace MobileShopCreditMS
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // button5
+            // 
+            button5.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button5.ForeColor = SystemColors.ControlText;
+            button5.Location = new Point(487, 416);
+            button5.Margin = new Padding(4, 3, 4, 3);
+            button5.Name = "button5";
+            button5.Size = new Size(77, 28);
+            button5.TabIndex = 54;
+            button5.Text = "OK";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
             // GBill
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -664,5 +679,6 @@ namespace MobileShopCreditMS
         private TextBox txtpid;
         private Label label13;
         private Button button4;
+        private Button button5;
     }
 }

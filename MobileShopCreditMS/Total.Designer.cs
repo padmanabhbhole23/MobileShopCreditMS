@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Total));
             panel1 = new Panel();
+            label3 = new Label();
             AddBtn = new Button();
             EDITPANEL = new Panel();
             button1 = new Button();
-            textBox2 = new TextBox();
             textBox1 = new TextBox();
             txtET = new TextBox();
             lblAmt = new Label();
@@ -42,7 +42,6 @@
             DGTTL = new DataGridView();
             button2 = new Button();
             label2 = new Label();
-            label3 = new Label();
             panel1.SuspendLayout();
             EDITPANEL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGTTL).BeginInit();
@@ -63,6 +62,18 @@
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BorderStyle = BorderStyle.Fixed3D;
+            label3.Font = new Font("Arial Rounded MT Bold", 20F, FontStyle.Bold);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(275, 23);
+            label3.Name = "label3";
+            label3.Size = new Size(227, 34);
+            label3.TabIndex = 24;
+            label3.Text = "TOTAL CREDIT";
+            // 
             // AddBtn
             // 
             AddBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -77,7 +88,6 @@
             // EDITPANEL
             // 
             EDITPANEL.Controls.Add(button1);
-            EDITPANEL.Controls.Add(textBox2);
             EDITPANEL.Controls.Add(textBox1);
             EDITPANEL.Controls.Add(txtET);
             EDITPANEL.Controls.Add(lblAmt);
@@ -100,13 +110,6 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(232, 170);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(164, 23);
-            textBox2.TabIndex = 14;
-            // 
             // textBox1
             // 
             textBox1.Location = new Point(204, 11);
@@ -116,7 +119,7 @@
             // 
             // txtET
             // 
-            txtET.Location = new Point(204, 67);
+            txtET.Location = new Point(183, 116);
             txtET.Name = "txtET";
             txtET.Size = new Size(223, 23);
             txtET.TabIndex = 13;
@@ -195,18 +198,6 @@
             label2.TabIndex = 3;
             label2.Text = "PHONE LINK";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BorderStyle = BorderStyle.Fixed3D;
-            label3.Font = new Font("Arial Rounded MT Bold", 20F, FontStyle.Bold);
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(275, 23);
-            label3.Name = "label3";
-            label3.Size = new Size(227, 34);
-            label3.TabIndex = 24;
-            label3.Text = "TOTAL CREDIT";
-            // 
             // Total
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -235,7 +226,6 @@
         private Button button2;
         private Panel EDITPANEL;
         private Button AddBtn;
-        private TextBox textBox2;
         private TextBox textBox1;
         private TextBox txtET;
         private Label lblAmt;
