@@ -18,9 +18,9 @@ namespace MobileShopCreditMS
             InitializeComponent();
         }
         /*Padma*/
-        // SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
         /*AFFAN*/
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+        //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
 
         private void CPassword_Load(object sender, EventArgs e)
         {
@@ -29,8 +29,9 @@ namespace MobileShopCreditMS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            var a = new ADash();
             this.Close();
+            a.Show();
             
         }
 

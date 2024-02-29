@@ -13,10 +13,11 @@ namespace MobileShopCreditMS
 {
     public partial class Total : Form
     {
+        int c = 0;
         /*Padma*/
-        // SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
         //affan
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+        //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
 
         public Total()
         {
@@ -83,7 +84,7 @@ namespace MobileShopCreditMS
         {
             int t = int.Parse(DGTTL.SelectedRows[0].Cells[6].Value.ToString());
             int p = int.Parse(DGTTL.SelectedRows[0].Cells[8].Value.ToString());
-            int c = t - p;
+            c = t - p;
             label4.Text = c.ToString();
 
         }
@@ -99,17 +100,28 @@ namespace MobileShopCreditMS
             int id=int.Parse( DGTTL.SelectedRows[0].Cells[3].Value.ToString());
             int amt =int.Parse( txtET.Text);
             con.Open();
-            
+            string par = "Half";
+            if (label4.Text == txtET.Text)
+            {
+                par = "Full";
+            }
+                
+                string updateQuery = "UPDATE bill SET PaidAmount=PaidAmount + @paid,Paymentstatus='"+par+"' WHERE BillId=@bill ";
+                SqlCommand updateCommand = new SqlCommand(updateQuery, con);
+                updateCommand.Parameters.AddWithValue("@paid", amt);
+                updateCommand.Parameters.AddWithValue("@bill", id);
+                updateCommand.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("amount updated successfully");
 
-            string updateQuery = "UPDATE bill SET PaidAmount=PaidAmount + @paid,Paymentstatus='Full' WHERE BillId=@bill ";
-            SqlCommand updateCommand = new SqlCommand(updateQuery, con);
-            updateCommand.Parameters.AddWithValue("@paid", amt);
-            updateCommand.Parameters.AddWithValue("@bill", id);
-            updateCommand.ExecuteNonQuery();
-            con.Close();
-            MessageBox.Show("amount updated successfully");
-            populate();
-
+            if (par=="Full")
+            {
+                MessageBox.Show("ALL CREDIT AMOUNT PAID..!");
+            }
+            label4.Text = c.ToString();
+            textBox1.Clear();
+            txtET.Clear();
+            populate();//parat selection change hotai yash la karun bg
 
         }
     }

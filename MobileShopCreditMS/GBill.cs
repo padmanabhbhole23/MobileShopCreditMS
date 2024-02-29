@@ -265,20 +265,27 @@ namespace MobileShopCreditMS
 
         private void btnAdCrt_Click(object sender, EventArgs e)
         {
+            con.Open();
+            string query = "select stockQuantity from Product where ProductId='" + txtpid.Text+ "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            //cmd.ExecuteNonQuery();
+            object result = cmd.ExecuteScalar();
+            int Stockquant = Convert.ToInt32(result);
             if (txtCID.Text == "" || txtQnty.Text == "" || txtCName.Text == "" || txtPName.Text == "" || txtpp.Text == "" || txtpid.Text == "")
             {
                 MessageBox.Show("INFORMATION MISSING\n Please enter complete information");
 
             }
-            else if (txtQnty > Stockquant)
+            else if (int.Parse(txtQnty.Text) > Stockquant)
             {
-                MessageBox.Show("NOT ENOUGH PRODUCTS IN STOCK..!");
+               MessageBox.Show("NOT ENOUGH PRODUCTS IN STOCK..!");
             }
             else
             {
                 
                 DateTime currentDate = DateTime.Now;
                 string dateString = currentDate.ToString("yyyy-MM-dd");
+
                 string pid = txtpid.Text;
                 string pn = txtPName.Text;
                 int q = int.Parse(txtQnty.Text);
@@ -296,6 +303,7 @@ namespace MobileShopCreditMS
                 txtPName.Text = "";
 
             }
+            con.Close();
         }
 
         private void dgproduct_CellContentClick(object sender, DataGridViewCellEventArgs e)

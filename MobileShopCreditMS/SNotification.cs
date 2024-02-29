@@ -22,24 +22,31 @@ namespace MobileShopCreditMS
 {
     public partial class SNotification : Form
     {
+        
         public SNotification()
         {
             InitializeComponent();
+            populate();
         }
 
 
         /*Padma*/
-        //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
         //affan
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+        //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //string custid = custgview.SelectedRows[0].Cells["CustomerId"].Value.ToString();
+            //con.Open();
+            //string cmd1 = "SELECT  FROM Bill WHERE CustomerId="+custid;
+            //SqlCommand command = new SqlCommand(cmd1, con);
+
+            //int lastId = Convert.ToInt32(command.ExecuteScalar());
             try
             {
                 const string accountsid = "AC7de3ff2e20df4f87d508aa6902ec30bb";
-                const string authtoken = "fd23d4c87ae6354b0437f9872ae85d24";
-                //AC7de3ff2e20df4f87d508aa6902ec30bb
+                const string authtoken = "941cde263134a09f5717c14a22a033d1";
 
                 TwilioClient.Init(accountsid, authtoken);
 
@@ -122,6 +129,17 @@ namespace MobileShopCreditMS
         {
             sendwhatsapp(txtcustmob.Text, txtwtxt.Text);
         }
+        private void populate()
+        {
+            con.Open();
+            string query = "select c.FirstName,c.MidName,c.LastName,c.PhoneNo ,b.*  FROM Customer c JOIN bill b ON c.customerId=b.customerId where PaymentStatus='Half'";
+            SqlDataAdapter da = new SqlDataAdapter(query, con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(da);
+            var ds = new DataSet();
+            da.Fill(ds);
+            custgview.DataSource = ds.Tables[0];
+            con.Close();
+        }/*
         private void PerformSearch()
         {
             string searchTerm = txtSearch.Text.Trim();
@@ -153,11 +171,8 @@ namespace MobileShopCreditMS
             {
                 custgview.DataSource = null; // Clear DataGridView if search term is empty
             }
-        }
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            PerformSearch();
-        }
+        }*/
+
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -170,12 +185,28 @@ namespace MobileShopCreditMS
                 // Assuming your DataGridView has a column named "MobileNoColumn"
                 string mobileNo = custgview.SelectedRows[0].Cells["PhoneNo"].Value.ToString();
                 txtcustmob.Text = mobileNo;
+                textBox2.Text = mobileNo;
             }
         }
 
         private void custgview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            string mobileNo = custgview.SelectedRows[0].Cells["PhoneNo"].Value.ToString();
+            txtcustmob.Text = mobileNo;
+            textBox2.Text = mobileNo;
+            int t = int.Parse(custgview.SelectedRows[0].Cells[7].Value.ToString());
+            int p = int.Parse(custgview.SelectedRows[0].Cells[9].Value.ToString());
+            int c = t - p;
+            textBox1.Text = "This message is sent from *PHONELINK SHOPIEE* \nRemaining Credit:" + c.ToString() + "Pay your credits asap...";
+            txtwtxt.Text = "This message is sent from *PHONELINK SHOPIEE* \nRemaining Credit:" + c.ToString() + "Pay your credits asap...";
+
+
+        }
+
+        private void rbsms_CheckedChanged(object sender, EventArgs e)
+        {
+           
+
         }
     }
 }

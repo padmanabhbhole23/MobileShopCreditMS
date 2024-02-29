@@ -73,9 +73,9 @@
             label3.ForeColor = Color.Black;
             label3.Location = new Point(275, 23);
             label3.Name = "label3";
-            label3.Size = new Size(227, 34);
+            label3.Size = new Size(258, 34);
             label3.TabIndex = 24;
-            label3.Text = "TOTAL CREDIT";
+            label3.Text = "MANAGE CREDIT";
             // 
             // AddBtn
             // 
@@ -108,9 +108,9 @@
             // button4
             // 
             button4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(290, 208);
+            button4.Location = new Point(172, 182);
             button4.Name = "button4";
-            button4.Size = new Size(115, 25);
+            button4.Size = new Size(233, 51);
             button4.TabIndex = 27;
             button4.Text = "Confirm Amount";
             button4.UseVisualStyleBackColor = true;

@@ -49,7 +49,6 @@
             label4 = new Label();
             label6 = new Label();
             custgview = new DataGridView();
-            txtSearch = new TextBox();
             label2 = new Label();
             smspanel.SuspendLayout();
             whtsppanel.SuspendLayout();
@@ -133,6 +132,7 @@
             button2.TabIndex = 8;
             button2.Text = "SEND SMS";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // textBox2
             // 
@@ -232,6 +232,7 @@
             rbsms.TabStop = true;
             rbsms.Text = "SMS";
             rbsms.UseVisualStyleBackColor = true;
+            rbsms.CheckedChanged += rbsms_CheckedChanged;
             rbsms.Click += rbsms_Click;
             // 
             // rbwhatsapp
@@ -261,7 +262,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label6.Location = new Point(204, 158);
+            label6.Location = new Point(121, 158);
             label6.Name = "label6";
             label6.Size = new Size(136, 19);
             label6.TabIndex = 33;
@@ -273,22 +274,14 @@
             custgview.AllowUserToDeleteRows = false;
             custgview.BackgroundColor = SystemColors.GradientActiveCaption;
             custgview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            custgview.Location = new Point(346, 158);
+            custgview.Location = new Point(263, 158);
             custgview.Name = "custgview";
             custgview.ReadOnly = true;
-            custgview.Size = new Size(627, 106);
+            custgview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            custgview.Size = new Size(967, 106);
             custgview.TabIndex = 34;
             custgview.CellContentClick += custgview_CellContentClick;
             custgview.MouseDoubleClick += custgview_MouseDoubleClick;
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(348, 129);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(208, 23);
-            txtSearch.TabIndex = 35;
-            txtSearch.TextChanged += textBox3_TextChanged;
-            txtSearch.KeyPress += txtSearch_KeyPress;
             // 
             // label2
             // 
@@ -308,7 +301,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
             ClientSize = new Size(1366, 749);
-            Controls.Add(txtSearch);
             Controls.Add(custgview);
             Controls.Add(label6);
             Controls.Add(label4);
@@ -355,7 +347,6 @@
         private Label label6;
         private Button btnwhtssms;
         private DataGridView custgview;
-        private TextBox txtSearch;
         private Label label2;
     }
 }

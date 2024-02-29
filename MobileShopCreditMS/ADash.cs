@@ -54,6 +54,7 @@ namespace MobileShopCreditMS
 
         private void button6_Click(object sender, EventArgs e)
         {
+            this.Close();
             var vc = new CPassword();
             vc.Show();
             

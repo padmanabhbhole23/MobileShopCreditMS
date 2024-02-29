@@ -117,7 +117,7 @@
             button5.Name = "button5";
             button5.Size = new Size(167, 75);
             button5.TabIndex = 4;
-            button5.Text = "TOTAL CREDIT";
+            button5.Text = "MANAGE CREDIT";
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
