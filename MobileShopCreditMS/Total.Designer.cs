@@ -33,6 +33,10 @@
             label3 = new Label();
             AddBtn = new Button();
             EDITPANEL = new Panel();
+            label7 = new Label();
+            button1 = new Button();
+            label6 = new Label();
+            textBox2 = new TextBox();
             button4 = new Button();
             label5 = new Label();
             button3 = new Button();
@@ -90,6 +94,10 @@
             // 
             // EDITPANEL
             // 
+            EDITPANEL.Controls.Add(label7);
+            EDITPANEL.Controls.Add(button1);
+            EDITPANEL.Controls.Add(label6);
+            EDITPANEL.Controls.Add(textBox2);
             EDITPANEL.Controls.Add(button4);
             EDITPANEL.Controls.Add(label5);
             EDITPANEL.Controls.Add(button3);
@@ -105,14 +113,53 @@
             EDITPANEL.TabIndex = 8;
             EDITPANEL.Visible = false;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label7.Location = new Point(298, 247);
+            label7.Name = "label7";
+            label7.Size = new Size(51, 19);
+            label7.TabIndex = 31;
+            label7.Text = "OK -->";
+            label7.Click += label7_Click;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(250, 145);
+            button1.Name = "button1";
+            button1.Size = new Size(132, 33);
+            button1.TabIndex = 30;
+            button1.Text = "Confirm Amount";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label6.Location = new Point(267, 198);
+            label6.Name = "label6";
+            label6.Size = new Size(115, 19);
+            label6.TabIndex = 29;
+            label6.Text = "Enter Password";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(221, 220);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(200, 23);
+            textBox2.TabIndex = 28;
+            // 
             // button4
             // 
             button4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(172, 182);
+            button4.Location = new Point(250, 269);
             button4.Name = "button4";
-            button4.Size = new Size(233, 51);
+            button4.Size = new Size(132, 33);
             button4.TabIndex = 27;
-            button4.Text = "Confirm Amount";
+            button4.Text = "Confirm";
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
@@ -279,5 +326,9 @@
         private Button button3;
         private Label label5;
         private Button button4;
+        private Label label6;
+        private TextBox textBox2;
+        private Button button1;
+        private Label label7;
     }
 }

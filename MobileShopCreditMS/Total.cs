@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Vml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,9 +16,9 @@ namespace MobileShopCreditMS
     {
         int c = 0;
         /*Padma*/
-        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+        // SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
         //affan
-        //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
 
         public Total()
         {
@@ -57,6 +58,10 @@ namespace MobileShopCreditMS
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+            label7.Visible = false;
+            label6.Visible = false;
+            textBox2.Visible = false;
+            button4.Visible = false;
             EDITPANEL.Visible = true;
         }
 
@@ -96,25 +101,27 @@ namespace MobileShopCreditMS
 
         private void button4_Click(object sender, EventArgs e)
         {
+
             //update bill table
-            int id=int.Parse( DGTTL.SelectedRows[0].Cells[3].Value.ToString());
-            int amt =int.Parse( txtET.Text);
+
+            int id = int.Parse(DGTTL.SelectedRows[0].Cells[3].Value.ToString());
+            int amt = int.Parse(txtET.Text);
             con.Open();
             string par = "Half";
             if (label4.Text == txtET.Text)
             {
                 par = "Full";
             }
-                
-                string updateQuery = "UPDATE bill SET PaidAmount=PaidAmount + @paid,Paymentstatus='"+par+"' WHERE BillId=@bill ";
-                SqlCommand updateCommand = new SqlCommand(updateQuery, con);
-                updateCommand.Parameters.AddWithValue("@paid", amt);
-                updateCommand.Parameters.AddWithValue("@bill", id);
-                updateCommand.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("amount updated successfully");
 
-            if (par=="Full")
+            string updateQuery = "UPDATE bill SET PaidAmount=PaidAmount + @paid,Paymentstatus='" + par + "' WHERE BillId=@bill ";
+            SqlCommand updateCommand = new SqlCommand(updateQuery, con);
+            updateCommand.Parameters.AddWithValue("@paid", amt);
+            updateCommand.Parameters.AddWithValue("@bill", id);
+            updateCommand.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("amount updated successfully");
+
+            if (par == "Full")
             {
                 MessageBox.Show("ALL CREDIT AMOUNT PAID..!");
             }
@@ -123,6 +130,67 @@ namespace MobileShopCreditMS
             txtET.Clear();
             populate();//parat selection change hotai yash la karun bg
 
+            label6.Visible = false;
+            label7.Visible = false;
+            textBox2.Visible = false;
+            button4.Visible = false;
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            textBox2.Visible = true;
+            label6.Visible = true;
+            label7.Visible = true;
+
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string query = "select * from usr where name='admin' and pass='" + textBox2.Text + "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            dataAdapter.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                button4.Visible = true;
+                textBox2.Clear();
+                label6.Visible = false;
+                label7.Visible = false;
+                textBox2.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show(" Password Incorrect!");
+            }
+            con.Close();
+
+          
+
         }
     }
 }
+/*
+ * 
+ * con.Open();
+            string query = "select * from usr where name='admin' and pass='" + textBox2.Text + "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            dataAdapter.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                button4.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show(" Password Incorrect!");
+            }
+            con.Close();
+
+*/
