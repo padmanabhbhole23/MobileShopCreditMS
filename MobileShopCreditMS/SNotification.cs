@@ -22,7 +22,7 @@ namespace MobileShopCreditMS
 {
     public partial class SNotification : Form
     {
-        
+
         public SNotification()
         {
             InitializeComponent();
@@ -46,7 +46,7 @@ namespace MobileShopCreditMS
             try
             {
                 const string accountsid = "AC7de3ff2e20df4f87d508aa6902ec30bb";
-                const string authtoken = "941cde263134a09f5717c14a22a033d1";
+                const string authtoken = "20944cea5605bec148b253420a59fc43";
 
                 TwilioClient.Init(accountsid, authtoken);
 
@@ -60,7 +60,7 @@ namespace MobileShopCreditMS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Message sending failed");
+                MessageBox.Show("Message sending failed..\n Please check your Internet connection..");
             }
         }
 
@@ -71,7 +71,7 @@ namespace MobileShopCreditMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             var c = new ADash();
             c.Show();
         }
@@ -197,15 +197,20 @@ namespace MobileShopCreditMS
             int t = int.Parse(custgview.SelectedRows[0].Cells[7].Value.ToString());
             int p = int.Parse(custgview.SelectedRows[0].Cells[9].Value.ToString());
             int c = t - p;
-            textBox1.Text = "This message is sent from *PHONELINK SHOPIEE* \nRemaining Credit:" + c.ToString() + "Pay your credits asap...";
-            txtwtxt.Text = "This message is sent from *PHONELINK SHOPIEE* \nRemaining Credit:" + c.ToString() + "Pay your credits asap...";
+            textBox1.Text = "This message is sent from *PHONELINK SHOPIEE* \nRemaining Credit:" + c.ToString() + " Pay your credits asap...";
+            txtwtxt.Text = "This message is sent from *PHONELINK SHOPIEE* \nRemaining Credit:" + c.ToString() + " Pay your credits asap...";
 
 
         }
 
         private void rbsms_CheckedChanged(object sender, EventArgs e)
         {
-           
+
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
 
         }
     }

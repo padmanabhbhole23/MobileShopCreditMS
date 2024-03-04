@@ -25,7 +25,7 @@ namespace MobileShopCreditMS
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             var dash = new ADash();
             dash.Show();
 
@@ -62,7 +62,7 @@ namespace MobileShopCreditMS
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtFName.Text == "" && txtMName.Text == "" && txtLName.Text == "" && txtCont.Text == "" && txtEmail.Text=="" && txtCAdd.Text=="")
+            if (txtFName.Text == "" || txtMName.Text == "" || txtLName.Text == "" || txtCont.Text == "" || txtEmail.Text=="" || txtCAdd.Text=="")
             {
                 MessageBox.Show("MISSING INFORMATION");
             }

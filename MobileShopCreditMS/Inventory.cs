@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Crypto.General;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,7 +60,7 @@ namespace MobileShopCreditMS
         {
             if (PName.Text == "" || PPrice.Text == "")
             {
-                MessageBox.Show("missing information");
+                MessageBox.Show("MISSING INFORMATION");
             }
             else
             {
@@ -104,7 +105,7 @@ namespace MobileShopCreditMS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             var v = new ADash();
             v.Show();
         }
@@ -126,16 +127,28 @@ namespace MobileShopCreditMS
             PBrand.Text = products.SelectedRows[0].Cells[5].Value.ToString();
             PImage.Text = products.SelectedRows[0].Cells[6].Value.ToString();
             PQty.Text = products.SelectedRows[0].Cells[7].Value.ToString();
+            AddBtn.Visible = false;
             
 
            
         }
-
+        private void clrall()
+        {
+            PID.Clear();
+            PName.Clear();
+            PDesc.Clear();
+            PPrice.Clear();
+            PCat.Items.Clear();
+            PCat.ResetText();
+            PBrand.Clear();
+            PImage.Clear();
+            PQty.Clear();
+        }
         private void button3_Click(object sender, EventArgs e)
         {
             if (PID.Text=="")
             {
-                MessageBox.Show("missing information");
+                MessageBox.Show("MISSING INFORMATION");
             }
 
             else
@@ -151,6 +164,8 @@ namespace MobileShopCreditMS
                     MessageBox.Show("PRODUCT UPDATED SUCCESSFULLY");
                     con.Close();
                     populate();
+                    AddBtn.Visible = true;
+                    clrall();
 
                 }
                 catch (Exception ex)
