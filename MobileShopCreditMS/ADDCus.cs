@@ -16,8 +16,12 @@ namespace MobileShopCreditMS
         public ADDCus()
         {
             InitializeComponent();
+            populateCust();
+            updateDGV.Visible = false;
+            button6.Visible = false;
         }
-        /*Affan*/SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+        /*Affan*/
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
 
         private void button1_Click1(object sender, EventArgs e)
         {
@@ -62,7 +66,7 @@ namespace MobileShopCreditMS
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtFName.Text == "" && txtMName.Text == "" && txtLName.Text == "" && txtCont.Text == "" && txtEmail.Text=="" && txtCAdd.Text=="")
+            if (txtFName.Text == "" && txtMName.Text == "" && txtLName.Text == "" && txtCont.Text == "" && txtEmail.Text == "" && txtCAdd.Text == "")
             {
                 MessageBox.Show("MISSING INFORMATION");
             }
@@ -71,9 +75,9 @@ namespace MobileShopCreditMS
                 try
                 {
                     /*Padma*/
-                    SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
+                    //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=project;Integrated Security=True;Connect Timeout=30;Encrypt=False;");
                     /*Affan*/
-                    //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
+                    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\SAMSUNG\Documents\project.mdf;Integrated Security=True;Connect Timeout=30");
 
                     con.Open();
                     String sql = "insert into Customer values('" + txtFName.Text + "','" + txtMName.Text + "','" + txtLName.Text + "','" + txtEmail.Text + "','" + txtCont.Text + "','" + txtCAdd.Text + "','" + txtNomN.Text + "','" + txtNomR.Text + "','" + txtNomC.Text + "','" + txtNomA.Text + "') ";
@@ -91,6 +95,7 @@ namespace MobileShopCreditMS
                     txtNomN.Text = "";
                     txtNomC.Text = "";
                     txtNomR.Text = "";
+                    populateCust();
                 }
                 catch (Exception ex)
                 {
@@ -144,6 +149,56 @@ namespace MobileShopCreditMS
             var v = new Inventory();
             this.Close();
             v.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            updateDGV.Visible = true;
+        }
+
+        private void populateCust()
+        {
+            con.Open();
+            string query = "select * from Customer where NomineeName='' ";
+            SqlDataAdapter da = new SqlDataAdapter(query, con);
+            SqlCommandBuilder builder = new SqlCommandBuilder(da);
+            var ds = new DataSet();
+            da.Fill(ds);
+            updateDGV.DataSource = ds.Tables[0];
+            con.Close();
+        }
+
+        private void updateDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnAdd.Visible = false;
+            button6.Visible = true;
+            txtFName.Text = updateDGV.SelectedRows[0].Cells[1].Value.ToString();
+            txtMName.Text = updateDGV.SelectedRows[0].Cells[2].Value.ToString();
+            txtLName.Text = updateDGV.SelectedRows[0].Cells[3].Value.ToString();
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.Open();
+               
+                
+                string sql = "UPDATE Customer SET NomineeName='"+ txtNomN.Text + "',NomineeRelationship='"+txtNomR.Text +"',NomineePhone='"+ txtNomC.Text+"',NomineeAddress='"+ txtNomA.Text+"' where FirstName ='"+ txtFName.Text +"';";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Customer UPDATED SUCCESSFULLY");
+                con.Close();
+                populateCust();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            con.Close();
         }
     }
 }

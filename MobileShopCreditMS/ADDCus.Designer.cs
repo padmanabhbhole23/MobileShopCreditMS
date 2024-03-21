@@ -30,12 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADDCus));
             panel2 = new Panel();
+            button5 = new Button();
             button4 = new Button();
             button3 = new Button();
             btnView = new Button();
             label2 = new Label();
             button2 = new Button();
             panel1 = new Panel();
+            updateDGV = new DataGridView();
             btnClr = new Button();
             btnAdd = new Button();
             label3 = new Label();
@@ -58,8 +60,10 @@
             lblEmail = new Label();
             lblName = new Label();
             button1 = new Button();
+            button6 = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)updateDGV).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -67,6 +71,7 @@
             panel2.AutoScroll = true;
             panel2.AutoSize = true;
             panel2.BackColor = Color.Bisque;
+            panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
             panel2.Controls.Add(button3);
             panel2.Controls.Add(btnView);
@@ -76,6 +81,17 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(234, 737);
             panel2.TabIndex = 3;
+            // 
+            // button5
+            // 
+            button5.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button5.Location = new Point(3, 351);
+            button5.Name = "button5";
+            button5.Size = new Size(209, 43);
+            button5.TabIndex = 6;
+            button5.Text = "Update Customer";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -145,6 +161,8 @@
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Bisque;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(button6);
+            panel1.Controls.Add(updateDGV);
             panel1.Controls.Add(btnClr);
             panel1.Controls.Add(btnAdd);
             panel1.Controls.Add(label3);
@@ -173,6 +191,18 @@
             panel1.Size = new Size(1122, 737);
             panel1.TabIndex = 4;
             panel1.Paint += panel1_Paint;
+            // 
+            // updateDGV
+            // 
+            updateDGV.AllowUserToDeleteRows = false;
+            updateDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            updateDGV.Location = new Point(598, 404);
+            updateDGV.Name = "updateDGV";
+            updateDGV.ReadOnly = true;
+            updateDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            updateDGV.Size = new Size(497, 203);
+            updateDGV.TabIndex = 26;
+            updateDGV.CellContentClick += updateDGV_CellContentClick;
             // 
             // btnClr
             // 
@@ -381,6 +411,18 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // button6
+            // 
+            button6.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button6.ForeColor = Color.Black;
+            button6.Location = new Point(86, 660);
+            button6.Name = "button6";
+            button6.Size = new Size(209, 43);
+            button6.TabIndex = 27;
+            button6.Text = "UPDATE CUSTOMER";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
             // ADDCus
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -399,6 +441,7 @@
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)updateDGV).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -434,5 +477,8 @@
         private Label lblEmail;
         private Label lblName;
         private Button button1;
+        private Button button5;
+        private DataGridView updateDGV;
+        private Button button6;
     }
 }
