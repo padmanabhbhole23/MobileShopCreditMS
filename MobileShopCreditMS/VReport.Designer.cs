@@ -30,12 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VReport));
             panel1 = new Panel();
+            label5 = new Label();
+            lblTC = new Label();
             label3 = new Label();
             button3 = new Button();
             button1 = new Button();
             dgexport = new DataGridView();
             button2 = new Button();
             label2 = new Label();
+            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgexport).BeginInit();
             SuspendLayout();
@@ -43,16 +46,42 @@
             // panel1
             // 
             panel1.BackColor = Color.Bisque;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(lblTC);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(dgexport);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(label2);
+            panel1.Font = new Font("Calibri", 12F, FontStyle.Bold);
             panel1.Location = new Point(3, 4);
             panel1.Name = "panel1";
             panel1.Size = new Size(1358, 741);
             panel1.TabIndex = 0;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label5.Location = new Point(1015, 152);
+            label5.Name = "label5";
+            label5.Size = new Size(186, 19);
+            label5.TabIndex = 26;
+            label5.Text = "TOTAL PENDING CREDITS :";
+            // 
+            // lblTC
+            // 
+            lblTC.AutoSize = true;
+            lblTC.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lblTC.ForeColor = Color.Red;
+            lblTC.Location = new Point(1222, 152);
+            lblTC.Name = "lblTC";
+            lblTC.Size = new Size(17, 19);
+            lblTC.TabIndex = 25;
+            lblTC.Text = "0";
+            lblTC.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -60,7 +89,7 @@
             label3.BorderStyle = BorderStyle.Fixed3D;
             label3.Font = new Font("Arial Rounded MT Bold", 20F, FontStyle.Bold);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(200, 98);
+            label3.Location = new Point(251, 34);
             label3.Name = "label3";
             label3.Size = new Size(218, 34);
             label3.TabIndex = 24;
@@ -84,7 +113,7 @@
             // button1
             // 
             button1.Font = new Font("Calibri", 16F, FontStyle.Bold);
-            button1.Location = new Point(592, 602);
+            button1.Location = new Point(596, 630);
             button1.Name = "button1";
             button1.Size = new Size(268, 58);
             button1.TabIndex = 6;
@@ -97,7 +126,7 @@
             dgexport.AllowUserToAddRows = false;
             dgexport.AllowUserToDeleteRows = false;
             dgexport.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgexport.Location = new Point(166, 165);
+            dgexport.Location = new Point(164, 202);
             dgexport.Name = "dgexport";
             dgexport.ReadOnly = true;
             dgexport.Size = new Size(1112, 390);
@@ -126,11 +155,21 @@
             label2.BorderStyle = BorderStyle.FixedSingle;
             label2.Font = new Font("Arial Rounded MT Bold", 23F, FontStyle.Bold);
             label2.ForeColor = Color.Maroon;
-            label2.Location = new Point(37, 33);
+            label2.Location = new Point(19, 17);
             label2.Name = "label2";
             label2.Size = new Size(226, 38);
             label2.TabIndex = 3;
             label2.Text = "PHONE LINK";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label1.Location = new Point(164, 162);
+            label1.Name = "label1";
+            label1.Size = new Size(112, 19);
+            label1.TabIndex = 27;
+            label1.Text = "CHOOSE DATE :";
             // 
             // VReport
             // 
@@ -159,5 +198,8 @@
         private Button button1;
         private Button button3;
         private Label label3;
+        private Label label5;
+        private Label lblTC;
+        private Label label1;
     }
 }

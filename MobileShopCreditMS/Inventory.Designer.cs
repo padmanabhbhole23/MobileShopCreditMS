@@ -126,6 +126,7 @@
             label7.Size = new Size(132, 19);
             label7.TabIndex = 9;
             label7.Text = "Product Image url";
+            label7.Visible = false;
             // 
             // label8
             // 
@@ -181,6 +182,7 @@
             PImage.Name = "PImage";
             PImage.Size = new Size(210, 23);
             PImage.TabIndex = 18;
+            PImage.Visible = false;
             // 
             // PQty
             // 
@@ -259,9 +261,12 @@
             // 
             // PID
             // 
-            PID.Location = new Point(285, 89);
+            PID.BackColor = Color.Bisque;
+            PID.Font = new Font("Calibri", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PID.Location = new Point(285, 86);
             PID.Name = "PID";
-            PID.Size = new Size(100, 23);
+            PID.ReadOnly = true;
+            PID.Size = new Size(81, 22);
             PID.TabIndex = 27;
             // 
             // label10

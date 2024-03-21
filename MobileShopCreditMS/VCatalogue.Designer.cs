@@ -36,6 +36,8 @@
             dgv1 = new DataGridView();
             label3 = new Label();
             button1 = new Button();
+            label1 = new Label();
+            lblTSQ = new Label();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv1).BeginInit();
@@ -88,10 +90,13 @@
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Bisque;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(lblTSQ);
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(dgv1);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(button1);
-            panel1.ForeColor = Color.Maroon;
+            panel1.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            panel1.ForeColor = SystemColors.ControlText;
             panel1.Location = new Point(241, 5);
             panel1.Name = "panel1";
             panel1.Size = new Size(1122, 737);
@@ -108,6 +113,7 @@
             dgv1.ReadOnly = true;
             dgv1.Size = new Size(1027, 422);
             dgv1.TabIndex = 24;
+            dgv1.CellContentClick += dgv1_CellContentClick;
             // 
             // label3
             // 
@@ -135,6 +141,29 @@
             button1.Text = "EXIT";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Calibri", 20.25F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.ControlText;
+            label1.Location = new Point(652, 619);
+            label1.Name = "label1";
+            label1.Size = new Size(296, 33);
+            label1.TabIndex = 25;
+            label1.Text = "TOTAL AVAILABLE ITEMS :";
+            label1.Click += label1_Click;
+            // 
+            // lblTSQ
+            // 
+            lblTSQ.AutoSize = true;
+            lblTSQ.Font = new Font("Calibri", 20.25F, FontStyle.Bold);
+            lblTSQ.ForeColor = Color.Green;
+            lblTSQ.Location = new Point(989, 619);
+            lblTSQ.Name = "lblTSQ";
+            lblTSQ.Size = new Size(29, 33);
+            lblTSQ.TabIndex = 26;
+            lblTSQ.Text = "0";
             // 
             // VCatalogue
             // 
@@ -167,5 +196,7 @@
         private Label label3;
         private Button button1;
         private DataGridView dgv1;
+        private Label lblTSQ;
+        private Label label1;
     }
 }

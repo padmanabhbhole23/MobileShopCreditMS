@@ -25,6 +25,12 @@ namespace MobileShopCreditMS
 
             con.Open();
             string query = "select c.FirstName,c.MidName,c.LastName, b.* FROM Customer c JOIN bill b ON c.customerId=b.customerId";
+            string q2 = "select SUM((TotalAmount-PaidAmount)) from bill where PaymentStatus='Half'";
+
+            SqlCommand command = new SqlCommand(q2, con);
+            int tc = Convert.ToInt32(command.ExecuteScalar());
+            lblTC.Text = tc.ToString();
+
             SqlDataAdapter da = new SqlDataAdapter(query, con);
             SqlCommandBuilder builder = new SqlCommandBuilder(da);
             var ds = new DataSet();

@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Total));
             panel1 = new Panel();
+            label8 = new Label();
+            lblTC = new Label();
             label3 = new Label();
             AddBtn = new Button();
             EDITPANEL = new Panel();
@@ -37,7 +39,6 @@
             button1 = new Button();
             label6 = new Label();
             textBox2 = new TextBox();
-            button4 = new Button();
             label5 = new Label();
             button3 = new Button();
             label4 = new Label();
@@ -57,6 +58,8 @@
             // panel1
             // 
             panel1.BackColor = Color.Bisque;
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(lblTC);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(AddBtn);
             panel1.Controls.Add(EDITPANEL);
@@ -69,6 +72,27 @@
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label8.Location = new Point(970, 59);
+            label8.Name = "label8";
+            label8.Size = new Size(186, 19);
+            label8.TabIndex = 26;
+            label8.Text = "TOTAL PENDING CREDITS :";
+            // 
+            // lblTC
+            // 
+            lblTC.AutoSize = true;
+            lblTC.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lblTC.ForeColor = Color.Red;
+            lblTC.Location = new Point(1191, 59);
+            lblTC.Name = "lblTC";
+            lblTC.Size = new Size(17, 19);
+            lblTC.TabIndex = 25;
+            lblTC.Text = "0";
+            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -77,14 +101,14 @@
             label3.ForeColor = Color.Black;
             label3.Location = new Point(275, 23);
             label3.Name = "label3";
-            label3.Size = new Size(258, 34);
+            label3.Size = new Size(277, 34);
             label3.TabIndex = 24;
-            label3.Text = "MANAGE CREDIT";
+            label3.Text = "MANAGE CREDITS";
             // 
             // AddBtn
             // 
             AddBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AddBtn.Location = new Point(275, 323);
+            AddBtn.Location = new Point(275, 346);
             AddBtn.Name = "AddBtn";
             AddBtn.Size = new Size(210, 44);
             AddBtn.TabIndex = 22;
@@ -98,7 +122,6 @@
             EDITPANEL.Controls.Add(button1);
             EDITPANEL.Controls.Add(label6);
             EDITPANEL.Controls.Add(textBox2);
-            EDITPANEL.Controls.Add(button4);
             EDITPANEL.Controls.Add(label5);
             EDITPANEL.Controls.Add(button3);
             EDITPANEL.Controls.Add(label4);
@@ -107,9 +130,9 @@
             EDITPANEL.Controls.Add(lblAmt);
             EDITPANEL.Controls.Add(label1);
             EDITPANEL.Controls.Add(lblType);
-            EDITPANEL.Location = new Point(275, 383);
+            EDITPANEL.Location = new Point(275, 415);
             EDITPANEL.Name = "EDITPANEL";
-            EDITPANEL.Size = new Size(693, 334);
+            EDITPANEL.Size = new Size(693, 290);
             EDITPANEL.TabIndex = 8;
             EDITPANEL.Visible = false;
             // 
@@ -117,7 +140,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label7.Location = new Point(298, 247);
+            label7.Location = new Point(299, 246);
             label7.Name = "label7";
             label7.Size = new Size(51, 19);
             label7.TabIndex = 31;
@@ -139,7 +162,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label6.Location = new Point(267, 198);
+            label6.Location = new Point(26, 224);
             label6.Name = "label6";
             label6.Size = new Size(115, 19);
             label6.TabIndex = 29;
@@ -147,27 +170,17 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(221, 220);
+            textBox2.Location = new Point(204, 220);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(200, 23);
+            textBox2.Size = new Size(223, 23);
             textBox2.TabIndex = 28;
-            // 
-            // button4
-            // 
-            button4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(250, 269);
-            button4.Name = "button4";
-            button4.Size = new Size(132, 33);
-            button4.TabIndex = 27;
-            button4.Text = "Confirm";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            textBox2.UseSystemPasswordChar = true;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label5.Location = new Point(26, 116);
+            label5.Location = new Point(26, 99);
             label5.Name = "label5";
             label5.Size = new Size(106, 38);
             label5.TabIndex = 26;
@@ -189,7 +202,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label4.ForeColor = Color.Red;
-            label4.Location = new Point(221, 71);
+            label4.Location = new Point(221, 55);
             label4.Name = "label4";
             label4.Size = new Size(29, 19);
             label4.TabIndex = 24;
@@ -206,7 +219,7 @@
             // 
             // txtET
             // 
-            txtET.Location = new Point(204, 116);
+            txtET.Location = new Point(204, 99);
             txtET.Name = "txtET";
             txtET.Size = new Size(223, 23);
             txtET.TabIndex = 13;
@@ -216,7 +229,7 @@
             // 
             lblAmt.AutoSize = true;
             lblAmt.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            lblAmt.Location = new Point(26, 71);
+            lblAmt.Location = new Point(26, 55);
             lblAmt.Name = "lblAmt";
             lblAmt.Size = new Size(158, 19);
             lblAmt.TabIndex = 11;
@@ -227,7 +240,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label1.Location = new Point(26, 15);
+            label1.Location = new Point(26, 11);
             label1.Name = "label1";
             label1.Size = new Size(54, 19);
             label1.TabIndex = 10;
@@ -249,7 +262,7 @@
             DGTTL.AllowUserToDeleteRows = false;
             DGTTL.BackgroundColor = SystemColors.InactiveCaption;
             DGTTL.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGTTL.Location = new Point(275, 62);
+            DGTTL.Location = new Point(275, 95);
             DGTTL.Name = "DGTTL";
             DGTTL.ReadOnly = true;
             DGTTL.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -325,10 +338,11 @@
         private Label label4;
         private Button button3;
         private Label label5;
-        private Button button4;
         private Label label6;
         private TextBox textBox2;
         private Button button1;
         private Label label7;
+        private Label lblTC;
+        private Label label8;
     }
 }

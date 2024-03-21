@@ -37,6 +37,8 @@ namespace MobileShopCreditMS
             label2 = new Label();
             button2 = new Button();
             panel1 = new Panel();
+            lblTC = new Label();
+            label16 = new Label();
             button5 = new Button();
             txtpid = new TextBox();
             label13 = new Label();
@@ -95,18 +97,18 @@ namespace MobileShopCreditMS
             // button4
             // 
             button4.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            button4.Location = new Point(5, 195);
+            button4.Location = new Point(3, 185);
             button4.Name = "button4";
             button4.Size = new Size(209, 43);
             button4.TabIndex = 5;
             button4.Text = "VIEW TOTAL CREDIT";
             button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click_2;
+            button4.Click += button4_Click_1;
             // 
             // button3
             // 
             button3.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            button3.Location = new Point(5, 254);
+            button3.Location = new Point(5, 242);
             button3.Name = "button3";
             button3.Size = new Size(209, 43);
             button3.TabIndex = 4;
@@ -160,6 +162,8 @@ namespace MobileShopCreditMS
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Bisque;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(lblTC);
+            panel1.Controls.Add(label16);
             panel1.Controls.Add(button5);
             panel1.Controls.Add(txtpid);
             panel1.Controls.Add(label13);
@@ -194,6 +198,30 @@ namespace MobileShopCreditMS
             panel1.Name = "panel1";
             panel1.Size = new Size(1122, 737);
             panel1.TabIndex = 5;
+            // 
+            // lblTC
+            // 
+            lblTC.AutoSize = true;
+            lblTC.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lblTC.ForeColor = Color.Red;
+            lblTC.Location = new Point(260, 341);
+            lblTC.Margin = new Padding(4, 0, 4, 0);
+            lblTC.Name = "lblTC";
+            lblTC.Size = new Size(17, 19);
+            lblTC.TabIndex = 56;
+            lblTC.Text = "0";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label16.ForeColor = SystemColors.ControlText;
+            label16.Location = new Point(77, 341);
+            label16.Margin = new Padding(4, 0, 4, 0);
+            label16.Name = "label16";
+            label16.Size = new Size(131, 19);
+            label16.TabIndex = 55;
+            label16.Text = "PENDING CREDITS";
             // 
             // button5
             // 
@@ -428,6 +456,7 @@ namespace MobileShopCreditMS
             txtCID.Name = "txtCID";
             txtCID.Size = new Size(200, 23);
             txtCID.TabIndex = 36;
+            txtCID.TextChanged += txtCID_TextChanged;
             // 
             // label6
             // 
@@ -628,5 +657,7 @@ namespace MobileShopCreditMS
         private Label label13;
         private Button button4;
         private Button button5;
+        private Label lblTC;
+        private Label label16;
     }
 }

@@ -61,7 +61,6 @@
             textPass.Cursor = Cursors.IBeam;
             textPass.Location = new Point(131, 279);
             textPass.Name = "textPass";
-            textPass.PasswordChar = '*';
             textPass.Size = new Size(197, 23);
             textPass.TabIndex = 2;
             textPass.UseSystemPasswordChar = true;

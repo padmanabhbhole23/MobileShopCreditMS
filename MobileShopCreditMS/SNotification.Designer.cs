@@ -47,9 +47,10 @@
             rbsms = new RadioButton();
             rbwhatsapp = new RadioButton();
             label4 = new Label();
-            label6 = new Label();
             custgview = new DataGridView();
             label2 = new Label();
+            label6 = new Label();
+            label9 = new Label();
             smspanel.SuspendLayout();
             whtsppanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)custgview).BeginInit();
@@ -63,10 +64,11 @@
             button1.Font = new Font("Calibri", 12F, FontStyle.Bold);
             button1.ForeColor = Color.White;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(12, 111);
+            button1.Location = new Point(14, 141);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
             button1.RightToLeft = RightToLeft.No;
-            button1.Size = new Size(116, 27);
+            button1.Size = new Size(133, 34);
             button1.TabIndex = 25;
             button1.Text = "BACK";
             button1.UseVisualStyleBackColor = false;
@@ -79,9 +81,10 @@
             button3.FlatAppearance.BorderColor = Color.White;
             button3.Font = new Font("Calibri", 12F, FontStyle.Bold);
             button3.ForeColor = SystemColors.ActiveCaptionText;
-            button3.Location = new Point(1199, 35);
+            button3.Location = new Point(1370, 44);
+            button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
-            button3.Size = new Size(114, 37);
+            button3.Size = new Size(130, 47);
             button3.TabIndex = 26;
             button3.Text = "EXIT";
             button3.UseVisualStyleBackColor = false;
@@ -93,7 +96,7 @@
             label3.BorderStyle = BorderStyle.FixedSingle;
             label3.Font = new Font("Arial Rounded MT Bold", 23F, FontStyle.Bold);
             label3.ForeColor = Color.Maroon;
-            label3.Location = new Point(12, 21);
+            label3.Location = new Point(14, 27);
             label3.Name = "label3";
             label3.Size = new Size(226, 38);
             label3.TabIndex = 27;
@@ -106,9 +109,10 @@
             smspanel.Controls.Add(textBox2);
             smspanel.Controls.Add(textBox1);
             smspanel.Controls.Add(label1);
-            smspanel.Location = new Point(196, 317);
+            smspanel.Location = new Point(210, 424);
+            smspanel.Margin = new Padding(3, 4, 3, 4);
             smspanel.Name = "smspanel";
-            smspanel.Size = new Size(508, 367);
+            smspanel.Size = new Size(581, 312);
             smspanel.TabIndex = 28;
             smspanel.Visible = false;
             // 
@@ -117,7 +121,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label5.ForeColor = Color.Maroon;
-            label5.Location = new Point(8, 88);
+            label5.Location = new Point(3, 78);
             label5.Name = "label5";
             label5.Size = new Size(156, 19);
             label5.TabIndex = 9;
@@ -126,9 +130,10 @@
             // button2
             // 
             button2.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            button2.Location = new Point(138, 299);
+            button2.Location = new Point(213, 252);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(209, 43);
+            button2.Size = new Size(239, 54);
             button2.TabIndex = 8;
             button2.Text = "SEND SMS";
             button2.UseVisualStyleBackColor = true;
@@ -136,17 +141,19 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(192, 35);
+            textBox2.Location = new Point(213, 11);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(208, 23);
+            textBox2.Size = new Size(237, 27);
             textBox2.TabIndex = 7;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(192, 88);
+            textBox1.Location = new Point(213, 78);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(298, 137);
+            textBox1.Size = new Size(340, 166);
             textBox1.TabIndex = 6;
             // 
             // label1
@@ -154,7 +161,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label1.ForeColor = Color.Maroon;
-            label1.Location = new Point(8, 35);
+            label1.Location = new Point(3, 11);
             label1.Name = "label1";
             label1.Size = new Size(172, 19);
             label1.TabIndex = 5;
@@ -167,18 +174,20 @@
             whtsppanel.Controls.Add(txtcustmob);
             whtsppanel.Controls.Add(txtwtxt);
             whtsppanel.Controls.Add(label8);
-            whtsppanel.Location = new Point(710, 317);
+            whtsppanel.Location = new Point(797, 424);
+            whtsppanel.Margin = new Padding(3, 4, 3, 4);
             whtsppanel.Name = "whtsppanel";
-            whtsppanel.Size = new Size(508, 367);
+            whtsppanel.Size = new Size(546, 312);
             whtsppanel.TabIndex = 29;
             whtsppanel.Visible = false;
             // 
             // btnwhtssms
             // 
             btnwhtssms.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btnwhtssms.Location = new Point(160, 299);
+            btnwhtssms.Location = new Point(188, 249);
+            btnwhtssms.Margin = new Padding(3, 4, 3, 4);
             btnwhtssms.Name = "btnwhtssms";
-            btnwhtssms.Size = new Size(209, 43);
+            btnwhtssms.Size = new Size(239, 54);
             btnwhtssms.TabIndex = 14;
             btnwhtssms.Text = "SEND WHATSAPP MESSAGE";
             btnwhtssms.UseVisualStyleBackColor = true;
@@ -189,7 +198,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label7.ForeColor = Color.Maroon;
-            label7.Location = new Point(8, 88);
+            label7.Location = new Point(3, 81);
             label7.Name = "label7";
             label7.Size = new Size(156, 19);
             label7.TabIndex = 13;
@@ -197,17 +206,19 @@
             // 
             // txtcustmob
             // 
-            txtcustmob.Location = new Point(192, 35);
+            txtcustmob.Location = new Point(190, 11);
+            txtcustmob.Margin = new Padding(3, 4, 3, 4);
             txtcustmob.Name = "txtcustmob";
-            txtcustmob.Size = new Size(208, 23);
+            txtcustmob.Size = new Size(237, 27);
             txtcustmob.TabIndex = 12;
             // 
             // txtwtxt
             // 
-            txtwtxt.Location = new Point(192, 88);
+            txtwtxt.Location = new Point(190, 78);
+            txtwtxt.Margin = new Padding(3, 4, 3, 4);
             txtwtxt.Multiline = true;
             txtwtxt.Name = "txtwtxt";
-            txtwtxt.Size = new Size(298, 137);
+            txtwtxt.Size = new Size(340, 166);
             txtwtxt.TabIndex = 11;
             // 
             // label8
@@ -215,7 +226,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Calibri", 12F, FontStyle.Bold);
             label8.ForeColor = Color.Maroon;
-            label8.Location = new Point(8, 39);
+            label8.Location = new Point(3, 19);
             label8.Name = "label8";
             label8.Size = new Size(172, 19);
             label8.TabIndex = 10;
@@ -225,7 +236,8 @@
             // 
             rbsms.AutoSize = true;
             rbsms.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            rbsms.Location = new Point(435, 288);
+            rbsms.Location = new Point(483, 383);
+            rbsms.Margin = new Padding(3, 4, 3, 4);
             rbsms.Name = "rbsms";
             rbsms.Size = new Size(57, 23);
             rbsms.TabIndex = 30;
@@ -239,7 +251,8 @@
             // 
             rbwhatsapp.AutoSize = true;
             rbwhatsapp.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            rbwhatsapp.Location = new Point(922, 290);
+            rbwhatsapp.Location = new Point(1040, 385);
+            rbwhatsapp.Margin = new Padding(3, 4, 3, 4);
             rbwhatsapp.Name = "rbwhatsapp";
             rbwhatsapp.Size = new Size(105, 23);
             rbwhatsapp.TabIndex = 31;
@@ -252,21 +265,12 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label4.Location = new Point(196, 292);
+            label4.Location = new Point(210, 388);
             label4.Name = "label4";
             label4.Size = new Size(173, 19);
             label4.TabIndex = 32;
             label4.Text = "SEND NOTIFICATION VIA";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label6.Location = new Point(121, 158);
-            label6.Name = "label6";
-            label6.Size = new Size(136, 19);
-            label6.TabIndex = 33;
-            label6.Text = "SELECT CUSTOMER";
+            label4.Click += label4_Click;
             // 
             // custgview
             // 
@@ -274,11 +278,12 @@
             custgview.AllowUserToDeleteRows = false;
             custgview.BackgroundColor = SystemColors.GradientActiveCaption;
             custgview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            custgview.Location = new Point(263, 158);
+            custgview.Location = new Point(275, 92);
+            custgview.Margin = new Padding(3, 4, 3, 4);
             custgview.Name = "custgview";
             custgview.ReadOnly = true;
             custgview.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            custgview.Size = new Size(967, 106);
+            custgview.Size = new Size(1042, 283);
             custgview.TabIndex = 34;
             custgview.CellContentClick += custgview_CellContentClick;
             custgview.MouseDoubleClick += custgview_MouseDoubleClick;
@@ -289,18 +294,39 @@
             label2.BorderStyle = BorderStyle.FixedSingle;
             label2.Font = new Font("Arial Rounded MT Bold", 20F, FontStyle.Bold);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(256, 25);
+            label2.Location = new Point(293, 32);
             label2.Name = "label2";
             label2.Size = new Size(314, 34);
             label2.TabIndex = 5;
             label2.Text = "SEND NOTIFICATION";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label6.Location = new Point(184, 149);
+            label6.Name = "label6";
+            label6.Size = new Size(56, 19);
+            label6.TabIndex = 33;
+            label6.Text = "SELECT";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            label9.Location = new Point(184, 172);
+            label9.Name = "label9";
+            label9.Size = new Size(85, 19);
+            label9.TabIndex = 35;
+            label9.Text = "CUSTOMER";
+            // 
             // SNotification
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
-            ClientSize = new Size(1366, 749);
+            ClientSize = new Size(1370, 749);
+            Controls.Add(label9);
             Controls.Add(custgview);
             Controls.Add(label6);
             Controls.Add(label4);
@@ -312,8 +338,10 @@
             Controls.Add(button3);
             Controls.Add(button1);
             Controls.Add(label2);
+            Font = new Font("Calibri", 12F, FontStyle.Bold);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             Name = "SNotification";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SNotification";
@@ -344,9 +372,10 @@
         private TextBox txtcustmob;
         private TextBox txtwtxt;
         private Label label8;
-        private Label label6;
         private Button btnwhtssms;
         private DataGridView custgview;
         private Label label2;
+        private Label label6;
+        private Label label9;
     }
 }
