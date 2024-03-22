@@ -38,7 +38,6 @@
             dgexport = new DataGridView();
             button2 = new Button();
             label2 = new Label();
-            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgexport).BeginInit();
             SuspendLayout();
@@ -46,7 +45,6 @@
             // panel1
             // 
             panel1.BackColor = Color.Bisque;
-            panel1.Controls.Add(label1);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(lblTC);
             panel1.Controls.Add(label3);
@@ -161,16 +159,6 @@
             label2.TabIndex = 3;
             label2.Text = "PHONE LINK";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label1.Location = new Point(164, 162);
-            label1.Name = "label1";
-            label1.Size = new Size(112, 19);
-            label1.TabIndex = 27;
-            label1.Text = "CHOOSE DATE :";
-            // 
             // VReport
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -200,6 +188,5 @@
         private Label label3;
         private Label label5;
         private Label lblTC;
-        private Label label1;
     }
 }

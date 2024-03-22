@@ -49,9 +49,9 @@ namespace MobileShopCreditMS
             PPrice.Text = "";
             PCat.Text = "";
             PBrand.Text = "";
-            PImage.Text = "";
+            // PImage.Text = "";
             PQty.Text = "";
-            
+
 
 
         }
@@ -67,7 +67,7 @@ namespace MobileShopCreditMS
                 try
                 {
                     con.Open();
-                    string sql = "insert into Product values('" + PName.Text + "','" + PDesc.Text + "','" + PPrice.Text + "','" + PCat.SelectedItem.ToString() + "','" + PBrand.Text + "','" + PImage.Text + "','" + PQty.Text + "') ";
+                    string sql = "insert into Product values('" + PName.Text + "','" + PDesc.Text + "','" + PPrice.Text + "','" + PCat.SelectedItem.ToString() + "','" + PBrand.Text + "','" + PQty.Text + "') ";
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("PRODUCT ADDED SUCCESSFULLY");
@@ -125,12 +125,12 @@ namespace MobileShopCreditMS
             PPrice.Text = products.SelectedRows[0].Cells[3].Value.ToString();
             PCat.SelectedItem = products.SelectedRows[0].Cells[4].Value.ToString();
             PBrand.Text = products.SelectedRows[0].Cells[5].Value.ToString();
-            PImage.Text = products.SelectedRows[0].Cells[6].Value.ToString();
-            PQty.Text = products.SelectedRows[0].Cells[7].Value.ToString();
+            // PImage.Text = products.SelectedRows[0].Cells[6].Value.ToString();
+            PQty.Text = products.SelectedRows[0].Cells[6].Value.ToString();
             AddBtn.Visible = false;
-            
 
-           
+
+
         }
         private void clrall()
         {
@@ -141,12 +141,12 @@ namespace MobileShopCreditMS
             PCat.Items.Clear();
             PCat.ResetText();
             PBrand.Clear();
-            PImage.Clear();
+            // PImage.Clear();
             PQty.Clear();
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            if (PID.Text=="")
+            if (PID.Text == "")
             {
                 MessageBox.Show("MISSING INFORMATION");
             }
