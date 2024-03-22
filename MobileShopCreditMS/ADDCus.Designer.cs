@@ -36,7 +36,6 @@
             label2 = new Label();
             button2 = new Button();
             panel1 = new Panel();
-            btnClr = new Button();
             btnAdd = new Button();
             label3 = new Label();
             txtCAdd = new TextBox();
@@ -145,7 +144,6 @@
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Bisque;
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(btnClr);
             panel1.Controls.Add(btnAdd);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(txtCAdd);
@@ -174,18 +172,6 @@
             panel1.TabIndex = 4;
             panel1.Paint += panel1_Paint;
             // 
-            // btnClr
-            // 
-            btnClr.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btnClr.ForeColor = Color.Black;
-            btnClr.Location = new Point(339, 660);
-            btnClr.Name = "btnClr";
-            btnClr.Size = new Size(209, 43);
-            btnClr.TabIndex = 25;
-            btnClr.Text = "CLEAR DATA";
-            btnClr.UseVisualStyleBackColor = true;
-            btnClr.Click += button6_Click_2;
-            // 
             // btnAdd
             // 
             btnAdd.Font = new Font("Calibri", 12F, FontStyle.Bold);
@@ -212,7 +198,7 @@
             // 
             // txtCAdd
             // 
-            txtCAdd.Location = new Point(152, 270);
+            txtCAdd.Location = new Point(281, 273);
             txtCAdd.Multiline = true;
             txtCAdd.Name = "txtCAdd";
             txtCAdd.ScrollBars = ScrollBars.Vertical;
@@ -233,55 +219,55 @@
             txtNomC.Font = new Font("Segoe UI", 9F);
             txtNomC.Location = new Point(281, 506);
             txtNomC.Name = "txtNomC";
-            txtNomC.Size = new Size(180, 23);
+            txtNomC.Size = new Size(209, 23);
             txtNomC.TabIndex = 20;
             // 
             // txtNomR
             // 
             txtNomR.Location = new Point(281, 455);
             txtNomR.Name = "txtNomR";
-            txtNomR.Size = new Size(166, 23);
+            txtNomR.Size = new Size(209, 23);
             txtNomR.TabIndex = 19;
             // 
             // txtNomN
             // 
             txtNomN.Location = new Point(281, 404);
             txtNomN.Name = "txtNomN";
-            txtNomN.Size = new Size(226, 23);
+            txtNomN.Size = new Size(295, 23);
             txtNomN.TabIndex = 18;
             // 
             // txtCont
             // 
-            txtCont.Location = new Point(152, 234);
+            txtCont.Location = new Point(281, 237);
             txtCont.MaxLength = 10;
             txtCont.Name = "txtCont";
-            txtCont.Size = new Size(166, 23);
+            txtCont.Size = new Size(207, 23);
             txtCont.TabIndex = 17;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(152, 185);
+            txtEmail.Location = new Point(281, 188);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(282, 23);
             txtEmail.TabIndex = 16;
             // 
             // txtLName
             // 
-            txtLName.Location = new Point(496, 132);
+            txtLName.Location = new Point(625, 135);
             txtLName.Name = "txtLName";
             txtLName.Size = new Size(166, 23);
             txtLName.TabIndex = 15;
             // 
             // txtMName
             // 
-            txtMName.Location = new Point(324, 132);
+            txtMName.Location = new Point(453, 135);
             txtMName.Name = "txtMName";
             txtMName.Size = new Size(166, 23);
             txtMName.TabIndex = 14;
             // 
             // txtFName
             // 
-            txtFName.Location = new Point(152, 132);
+            txtFName.Location = new Point(281, 135);
             txtFName.Name = "txtFName";
             txtFName.Size = new Size(166, 23);
             txtFName.TabIndex = 13;
@@ -412,7 +398,6 @@
         private Label label2;
         private Button button2;
         private Panel panel1;
-        private Button btnClr;
         private Button btnAdd;
         private Label label3;
         private TextBox txtCAdd;

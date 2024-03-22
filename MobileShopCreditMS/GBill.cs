@@ -1,9 +1,12 @@
 ﻿using ClosedXML.Report.Utils;
+using DocumentFormat.OpenXml.Bibliography;
 using iText.Kernel.Pdf;
 using iText.Layout;
+using iText.Layout.Borders;
 using iText.Layout.Element;
 using iText.Layout.Properties;
 using Microsoft.IdentityModel.Tokens;
+using Org.BouncyCastle.Asn1.Mozilla;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -85,32 +88,45 @@ namespace MobileShopCreditMS
                     Document document = new Document(pdf);
 
                     // Title
-                    Paragraph title = new Paragraph("Invoice").SetTextAlignment(TextAlignment.CENTER).SetFontSize(20);
-                    Paragraph shopInfo = new Paragraph("PHONELINK\nAddress\nContact No\nGST No\nEmail")
-                        .SetTextAlignment(TextAlignment.CENTER).SetFontSize(10);
+                    Paragraph title = new Paragraph("PHONE LINK").SetTextAlignment(TextAlignment.CENTER).SetFontSize(20).SetBold();
+                    Paragraph shopInfo = new Paragraph("Invoice\nPHONE LINK\nShop No 1, Jetty, Bhagvati Bandar Rd, Mirkarwada, Ratnagiri, Maharashtra 415612\nContact No: 7745035535\nphonelink@gmail.com")
+                        .SetTextAlignment(TextAlignment.CENTER).SetFontSize(12);
                     document.Add(title);
                     document.Add(shopInfo);
 
-                    float[] columnWidths = { 1, 5, 2 };
+                    float[] columnWidths = { 1, 5, 2 ,1,2};
                     Table table = new Table(columnWidths);
                     table.SetWidth(UnitValue.CreatePercentValue(100));
                     // Initialize total price variable
                     decimal totalPrice = 0;
                     decimal srno = 0;
 
+                    Paragraph separationLine = new Paragraph("-----------------------------------------------------------------------------------------------------------------")
+    .SetTextAlignment(TextAlignment.CENTER);
+                    document.Add(separationLine);
+
+                    Paragraph header = new Paragraph("ITEM DETAILS");
+                    header.SetTextAlignment(TextAlignment.CENTER);
+                    document.Add(header);
                     // Add items to the table
                     // Replace this with actual data from your database
+                    table.AddHeaderCell("Sr. No");
+                    table.AddHeaderCell("Item ");
+                    table.AddHeaderCell("Price ");
+                    table.AddHeaderCell("Quantity ");
+                    table.AddHeaderCell("Total ");
                     foreach (DataGridViewRow row in dgcart.Rows)
                     {
-                        // Assuming you have four columns: Quantity, Product Name, Price, and Total
-                        string quantity = row.Cells["Column3"].Value.ToString(); // Change "QuantityColumn" to the actual name of the column
-                        string productName = row.Cells["Column2"].Value.ToString(); // Change "ProductNameColumn" to the actual name of the column
-                        string price = row.Cells["Column4"].Value.ToString(); // Change "PriceColumn" to the actual name of the column
+                        
+                        string quantity = row.Cells["Column3"].Value.ToString(); 
+                        string productName = row.Cells["Column2"].Value.ToString(); 
+                        string price = row.Cells["Column4"].Value.ToString();
 
+                        decimal unitprice = decimal.Parse(price) / decimal.Parse(quantity);
                         // Calculate total price
                         decimal itemPrice = decimal.Parse(price);
                         decimal itemQuantity = decimal.Parse(quantity);
-                        decimal totalPriceForItem = itemPrice * itemQuantity;
+                        decimal totalPriceForItem = itemPrice;
                         totalPrice += totalPriceForItem;
 
                         // Increment serial number
@@ -118,24 +134,41 @@ namespace MobileShopCreditMS
                         string s = srno.ToString();
 
                         // Add cells to the table
-                        table.AddCell(CreateCell(s, TextAlignment.LEFT));
+                        table.AddCell(CreateCell(s, TextAlignment.CENTER));
                         table.AddCell(CreateCell(productName, TextAlignment.LEFT));
-                        table.AddCell(CreateCell(price, TextAlignment.RIGHT));
+                        table.AddCell(CreateCell(unitprice.ToString(), TextAlignment.CENTER));
                         table.AddCell(CreateCell(quantity, TextAlignment.CENTER));
                         table.AddCell(CreateCell(totalPriceForItem.ToString(), TextAlignment.RIGHT));
                     }
 
                     // Add a row for total price
-                    table.AddCell(new Cell(1, 4).Add(new Paragraph("Total Price:")).SetTextAlignment(TextAlignment.RIGHT));
-                    table.AddCell(new Cell(1, 1));
-                    table.AddCell(new Cell(1, 1));
-                    table.AddCell(new Cell(1, 1));
-                    table.AddCell(CreateCell(totalPrice.ToString(), TextAlignment.RIGHT));
+                    // Add a row for total price
+                    Cell totalPriceLabelCell = new Cell().Add(new Paragraph("Total Price:")).SetTextAlignment(TextAlignment.RIGHT);
+                    Cell totalPriceValueCell = CreateCell(totalPrice.ToString(), TextAlignment.RIGHT);
+                    Cell emptyCell = new Cell().SetBorder(Border.NO_BORDER); // Creating an empty cell without borders
 
+                    table.AddCell(emptyCell);
+                    table.AddCell(emptyCell);
+                    table.AddCell(emptyCell);
+                    table.AddCell(totalPriceLabelCell);
+                    table.AddCell(totalPriceValueCell);
+                    string sts = "";
                     // Add the table to the document
                     document.Add(table);
+                    int d = ((int)totalPrice- int.Parse(lblRMAmt.Text));
+                    if (d == 0)
+                    {
+                        sts = "Full Paid";
+                    }
+                    else
+                    {
+                        sts = "Half Paid";
+                    }
+                    
 
 
+                    Paragraph status = new Paragraph("\t\tStatus:" + sts);
+                    document.Add(status).SetTextAlignment(TextAlignment.RIGHT);
                     // Add closing message
                     Paragraph closing = new Paragraph("THANK YOU FOR PURCHASING.\nDO VISIT AGAIN").SetTextAlignment(TextAlignment.CENTER).SetFontSize(10);
                     document.Add(closing);
@@ -155,6 +188,17 @@ namespace MobileShopCreditMS
             a.Show();
         }
 
+        private void fillExp(int l)
+        {
+            con.Open();
+            DateTime currentDate = DateTime.Now;
+            string dateString = currentDate.ToString("yyyy-MM-dd");
+            //update credit
+            string updateexp = "insert into Credits values('" + l + "','" + dateString + "','" + lblRMAmt.Text + "')";
+            SqlCommand cm1 = new SqlCommand(updateexp, con);
+            cm1.ExecuteNonQuery();
+            con.Close();
+        }
 
         private Cell CreateHeaderCell(string content)
         {
@@ -172,14 +216,17 @@ namespace MobileShopCreditMS
 
             SqlCommand c = new SqlCommand(q2, con);
             string tc = Convert.ToString(c.ExecuteScalar());
+            con.Close();
             if (tc.IsNullOrWhiteSpace())
             {
                 MessageBox.Show("PLEASE ADD NOMINEE ....!");
                 dgcart.Rows.Clear();
                 clrall();
+                
             }
             else
             {
+                con.Open();
                 if (dgcart.RowCount == 0)
                 {
                     MessageBox.Show("ADD PRODUCT YOUR PRODUCT IN CART");
@@ -210,16 +257,17 @@ namespace MobileShopCreditMS
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("bill generated");
 
+                    con.Close();
 
-
-
+                    con.Open();
                     //Product going in MpBills
                     string cmd1 = "SELECT MAX(BillId) FROM Bill";
                     SqlCommand command = new SqlCommand(cmd1, con);
 
                     int lastId = Convert.ToInt32(command.ExecuteScalar());
-
-
+                    con.Close() ;
+                    fillExp(lastId);
+                    con.Open() ;
                     foreach (DataGridViewRow row in dgcart.Rows)
                     {
                         int pid = int.Parse(row.Cells[0].Value.ToString());
@@ -238,20 +286,18 @@ namespace MobileShopCreditMS
                         updateCommand.Parameters.AddWithValue("@Quantity", quan);
                         updateCommand.Parameters.AddWithValue("@ProductID", pid);
                         updateCommand.ExecuteNonQuery();
+                        
 
                     }
-                    gpdf(lastId.ToString());
-                    //update credit
-                    string updateexp = "insert into Credits values('"+lastId+"','"+dateString+"','"+ lblRMAmt.Text+"'";
-                    SqlCommand cm1=new SqlCommand(updateexp, con);
-                    cm1.ExecuteNonQuery();
-
                     con.Close();
+                    gpdf(lastId.ToString());
                     populateproduct();
                     clrall();
-
+                    
                 }
+
             }
+            con.Close();
         }
         private void btnView_Click(object sender, EventArgs e)
         {
@@ -277,6 +323,7 @@ namespace MobileShopCreditMS
 
         private void btnAdCrt_Click(object sender, EventArgs e)
         {
+
             con.Open();
             string query = "select stockQuantity from Product where ProductId='" + txtpid.Text + "'";
             SqlCommand cmd = new SqlCommand(query, con);
@@ -292,6 +339,11 @@ namespace MobileShopCreditMS
             {
                 MessageBox.Show("NOT ENOUGH PRODUCTS IN STOCK..!");
             }
+            else if(int.Parse(txtQnty.Text)==0)
+            {
+                MessageBox.Show("INVALID QUANTITY");
+                txtQnty.Focus();
+            }
             else
             {
 
@@ -304,11 +356,12 @@ namespace MobileShopCreditMS
                 int pp = int.Parse(txtpp.Text);
                 string cid = txtCID.Text;
                 string cn = txtCName.Text;
-                int t = q * pp;
-                string[] row = new string[] { pid, pn, q.ToString(), t.ToString() };
+                int totalp = q * pp;
+                string[] row = new string[] { pid, pn, q.ToString(), totalp.ToString() };
                 dgcart.Rows.Add(row);
-                totalamt += t;
 
+
+                totalamt = totalp + totalamt;
                 lblTAmt.Text = totalamt.ToString();
 
                 txtpid.Text = "";

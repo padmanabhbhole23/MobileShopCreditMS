@@ -37,31 +37,38 @@ namespace MobileShopCreditMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(textBox3.Text==textBox4.Text) 
+            if (textBox4.Text == "" || textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
             {
-                try
-                {
-                    
-                    con.Open();
-                    
-                    string sql = "update usr set pass='"+textBox4.Text+" ' where name='" +textBox1.Text+"';";
-                    SqlCommand cmd = new SqlCommand(sql, con);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Password changed SUCCESSFULLY");
-                    con.Close();
-                    var login = new Login();
-                    this.Close();
-                    login.Show();
-
-                }
-                catch(Exception ex )
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                MessageBox.Show("Missing Information...");
             }
-            else
-            {
-                MessageBox.Show("password did not match");
+            else {
+
+                if (textBox3.Text == textBox4.Text)
+                {
+                    try
+                    {
+
+                        con.Open();
+
+                        string sql = "update usr set pass='" + textBox4.Text + " ' where name='" + textBox1.Text + "';";
+                        SqlCommand cmd = new SqlCommand(sql, con);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Password changed SUCCESSFULLY");
+                        con.Close();
+                        var login = new Login();
+                        this.Close();
+                        login.Show();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("password did not match");
+                }
             }
         }
     }

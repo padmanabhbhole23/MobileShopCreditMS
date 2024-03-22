@@ -149,37 +149,40 @@ namespace MobileShopCreditMS
                 updateCommand.Parameters.AddWithValue("@bill", id);
                 updateCommand.ExecuteNonQuery();
 
-                string upCredit = "update Credits SET PayAmount='"+ txtET.Text+ "' WHERE BillId=@bid";
+                string upCredit = "update Credits SET PayAmount='"+ label4.Text+ "' WHERE BillId=@bid";
                 SqlCommand sqlCommand = new SqlCommand(upCredit, con);
                 updateCommand.Parameters.AddWithValue("@bid", id);
                 updateCommand.ExecuteNonQuery();
+                con.Close();
 
-                
 
                 MessageBox.Show("amount updated successfully");
 
                 if (par == "Full")
                 {
-                    MessageBox.Show("ALL CREDIT AMOUNT PAID..!");
+                    MessageBox.Show("ALL CREDIT AMOUNT PAID OF THIS BILL..!");
                 }
                 label4.Text = c.ToString();
-                textBox1.Clear();
+                //textBox1.Clear();
                 txtET.Clear();
-                populate();//parat selection change hotai yash la karun bg
+                populate();
 
                 label6.Visible = false;
                 label7.Visible = false;
                 textBox2.Visible = false;
                
                 textBox2.Clear();
-                
+                label4.Text = "0";
+
+
             }
             else
             {
                 MessageBox.Show(" Password Incorrect!");
+                con.Close();
             }
 
-            con.Close();
+            
 
 
         }
