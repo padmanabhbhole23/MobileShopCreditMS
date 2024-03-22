@@ -30,12 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADDCus));
             panel2 = new Panel();
+            button5 = new Button();
             button4 = new Button();
             button3 = new Button();
             btnView = new Button();
             label2 = new Label();
             button2 = new Button();
             panel1 = new Panel();
+            updateDGV = new DataGridView();
+            btnClr = new Button();
             btnAdd = new Button();
             label3 = new Label();
             txtCAdd = new TextBox();
@@ -57,8 +60,10 @@
             lblEmail = new Label();
             lblName = new Label();
             button1 = new Button();
+            button6 = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)updateDGV).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -66,6 +71,7 @@
             panel2.AutoScroll = true;
             panel2.AutoSize = true;
             panel2.BackColor = Color.Bisque;
+            panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
             panel2.Controls.Add(button3);
             panel2.Controls.Add(btnView);
@@ -75,6 +81,17 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(234, 737);
             panel2.TabIndex = 3;
+            // 
+            // button5
+            // 
+            button5.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button5.Location = new Point(3, 351);
+            button5.Name = "button5";
+            button5.Size = new Size(209, 43);
+            button5.TabIndex = 6;
+            button5.Text = "Update Customer";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -144,6 +161,9 @@
             panel1.AutoScroll = true;
             panel1.BackColor = Color.Bisque;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(button6);
+            panel1.Controls.Add(updateDGV);
+            panel1.Controls.Add(btnClr);
             panel1.Controls.Add(btnAdd);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(txtCAdd);
@@ -172,6 +192,30 @@
             panel1.TabIndex = 4;
             panel1.Paint += panel1_Paint;
             // 
+            // updateDGV
+            // 
+            updateDGV.AllowUserToDeleteRows = false;
+            updateDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            updateDGV.Location = new Point(598, 404);
+            updateDGV.Name = "updateDGV";
+            updateDGV.ReadOnly = true;
+            updateDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            updateDGV.Size = new Size(497, 203);
+            updateDGV.TabIndex = 26;
+            updateDGV.CellContentClick += updateDGV_CellContentClick;
+            // 
+            // btnClr
+            // 
+            btnClr.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            btnClr.ForeColor = Color.Black;
+            btnClr.Location = new Point(339, 660);
+            btnClr.Name = "btnClr";
+            btnClr.Size = new Size(209, 43);
+            btnClr.TabIndex = 25;
+            btnClr.Text = "CLEAR DATA";
+            btnClr.UseVisualStyleBackColor = true;
+            btnClr.Click += button6_Click_2;
+            // 
             // btnAdd
             // 
             btnAdd.Font = new Font("Calibri", 12F, FontStyle.Bold);
@@ -198,7 +242,7 @@
             // 
             // txtCAdd
             // 
-            txtCAdd.Location = new Point(281, 273);
+            txtCAdd.Location = new Point(152, 270);
             txtCAdd.Multiline = true;
             txtCAdd.Name = "txtCAdd";
             txtCAdd.ScrollBars = ScrollBars.Vertical;
@@ -219,55 +263,55 @@
             txtNomC.Font = new Font("Segoe UI", 9F);
             txtNomC.Location = new Point(281, 506);
             txtNomC.Name = "txtNomC";
-            txtNomC.Size = new Size(209, 23);
+            txtNomC.Size = new Size(180, 23);
             txtNomC.TabIndex = 20;
             // 
             // txtNomR
             // 
             txtNomR.Location = new Point(281, 455);
             txtNomR.Name = "txtNomR";
-            txtNomR.Size = new Size(209, 23);
+            txtNomR.Size = new Size(166, 23);
             txtNomR.TabIndex = 19;
             // 
             // txtNomN
             // 
             txtNomN.Location = new Point(281, 404);
             txtNomN.Name = "txtNomN";
-            txtNomN.Size = new Size(295, 23);
+            txtNomN.Size = new Size(226, 23);
             txtNomN.TabIndex = 18;
             // 
             // txtCont
             // 
-            txtCont.Location = new Point(281, 237);
+            txtCont.Location = new Point(152, 234);
             txtCont.MaxLength = 10;
             txtCont.Name = "txtCont";
-            txtCont.Size = new Size(207, 23);
+            txtCont.Size = new Size(166, 23);
             txtCont.TabIndex = 17;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(281, 188);
+            txtEmail.Location = new Point(152, 185);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(282, 23);
             txtEmail.TabIndex = 16;
             // 
             // txtLName
             // 
-            txtLName.Location = new Point(625, 135);
+            txtLName.Location = new Point(496, 132);
             txtLName.Name = "txtLName";
             txtLName.Size = new Size(166, 23);
             txtLName.TabIndex = 15;
             // 
             // txtMName
             // 
-            txtMName.Location = new Point(453, 135);
+            txtMName.Location = new Point(324, 132);
             txtMName.Name = "txtMName";
             txtMName.Size = new Size(166, 23);
             txtMName.TabIndex = 14;
             // 
             // txtFName
             // 
-            txtFName.Location = new Point(281, 135);
+            txtFName.Location = new Point(152, 132);
             txtFName.Name = "txtFName";
             txtFName.Size = new Size(166, 23);
             txtFName.TabIndex = 13;
@@ -367,6 +411,18 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // button6
+            // 
+            button6.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button6.ForeColor = Color.Black;
+            button6.Location = new Point(86, 660);
+            button6.Name = "button6";
+            button6.Size = new Size(209, 43);
+            button6.TabIndex = 27;
+            button6.Text = "UPDATE CUSTOMER";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
             // ADDCus
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -385,6 +441,7 @@
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)updateDGV).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -398,6 +455,7 @@
         private Label label2;
         private Button button2;
         private Panel panel1;
+        private Button btnClr;
         private Button btnAdd;
         private Label label3;
         private TextBox txtCAdd;
@@ -419,5 +477,8 @@
         private Label lblEmail;
         private Label lblName;
         private Button button1;
+        private Button button5;
+        private DataGridView updateDGV;
+        private Button button6;
     }
 }
